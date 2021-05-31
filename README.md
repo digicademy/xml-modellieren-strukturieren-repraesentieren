@@ -26,4 +26,4 @@ Die Slides sind in die folgenden thematischen Sektionen gegliedert:
     * Grundlagen der Verarbeitung (FLWOR)
     * Beispiele und Übungen
 
-Eine kommentierte Literaturliste für Einsteiger in die *Digital Humanities* finden Sie [hier](https://digicademy.github.io/xml-modellieren-strukturieren-repraesentieren/material/lit.html).
+Eine kommentierte Literaturliste für Einsteiger in die *Digital Humanities* finden Sie [hier](https://digicademy.github.io/xml-modellieren-strukturieren-repraesentieren/material/lit).
