@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>lit</title>
+  <style type="text/css">
+      code{white-space: pre-wrap;}
+      span.smallcaps{font-variant: small-caps;}
+      span.underline{text-decoration: underline;}
+      div.column{display: inline-block; vertical-align: top; width: 50%;}
+  </style>
+  <link rel="stylesheet" href="pandoc.css" />
+</head>
+<body>
+<nav id="TOC">
+<ul>
+<li><a href="#literaturliste">Literaturliste</a><ul>
+<li><a href="#vorbemerkung">Vorbemerkung</a><ul>
+<li><a href="#ich-habe-nur-zeit-für-ein-buch">Ich habe nur Zeit für ein Buch!</a></li>
+<li><a href="#ich-habe-nur-zeit-für-drei-bücher">Ich habe nur Zeit für drei Bücher!</a></li>
+<li><a href="#ich-habe-zeit-für-ein-paar-bücher-will-aber-auch-sofort-praktisch-arbeiten">Ich habe Zeit für ein paar Bücher, will aber auch sofort praktisch arbeiten!</a></li>
+</ul></li>
+<li><a href="#retrodigitalisierung-verdatung-und-aufbau-einer-sammlung">Retrodigitalisierung, “Verdatung” und Aufbau einer Sammlung</a></li>
+<li><a href="#datenmodellierung">Datenmodellierung</a><ul>
+<li><a href="#einstiegslektüre-zum-textbegriff">Einstiegslektüre zum Textbegriff</a></li>
+<li><a href="#einstiegslektüre-zum-digitalen-bild">Einstiegslektüre zum “Digitalen Bild”</a></li>
+<li><a href="#einstiegslektüre-digitale-edition">Einstiegslektüre “Digitale Edition”</a></li>
+</ul></li>
+<li><a href="#relationale-datenbank">Relationale Datenbank</a></li>
+<li><a href="#graphen-und-netzwerke">Graphen und Netzwerke</a></li>
+<li><a href="#linked-open-data-lod-und-sematic-web">Linked Open Data (LOD) und Sematic Web</a></li>
+<li><a href="#forschungs-konzeption-und-projekt-arbeit">Forschungs-Konzeption und Projekt-Arbeit</a></li>
+<li><a href="#data-science-workflow-analyse-und-visualisierung">Data Science-Workflow, Analyse und Visualisierung</a></li>
+<li><a href="#grundlagen-linguistik-und-computerlinguistik">Grundlagen Linguistik und Computerlinguistik</a></li>
+<li><a href="#empfohlene-meta-lektüre">Empfohlene Meta-Lektüre</a><ul>
+<li><a href="#komplexitäts-theorien">Komplexitäts-Theorien</a></li>
+</ul></li>
+<li><a href="#programmierung">Programmierung</a><ul>
+<li><a href="#python">Python</a></li>
+<li><a href="#javascript">JavaScript</a></li>
+</ul></li>
+</ul></li>
+</ul>
+</nav>
+<h1 id="literaturliste">Literaturliste</h1>
+<p><em>Max Grüntgens</em>, März 2021</p>
+<h2 id="vorbemerkung">Vorbemerkung</h2>
+<p>Die “Allgemeine Literaturliste” sammelt thematisch einführende Literatur zu einigen Themen im Kontext der <em>Digital Humanities</em>. Die Liste dient der eigenständigen Vertiefung und kann nur ein erster Einstieg in die Thematik sein.</p>
+<h3 id="ich-habe-nur-zeit-für-ein-buch">Ich habe nur Zeit für ein Buch!</h3>
+<p>Wenn Sie nur Zeit zur Lektüre eines einzigen Werks haben, dann starten Sie mit <strong>Bod</strong>, Rens (2015): <em>A New History of the Humanities.</em> Oxford. Bod gibt einen Überblick über das Für und Wider von quantitativen (formal-musterorientierten) und qualitativen (interpretativen) Ansätzen. Zahlreiche Beispiele stellen die durchaus schöpferische Spannung zwischen diesen zwei Extrempunkten dar. Die Lektüre von Bods Werk kann helfen, die vorherrschenden Arbeit- und die Denkweisen in den Digital Humanities besser einordnen und nachvollziehen zu können.</p>
+<h3 id="ich-habe-nur-zeit-für-drei-bücher">Ich habe nur Zeit für drei Bücher!</h3>
+<p>Starten Sie mit <strong>Bod</strong>, Rens (2015): <em>A New History of the Humanities.</em> Oxford. Schließen Sie daran entweder <strong>Jannidis</strong>, F. et al.: <em>Digital Humanities. Eine Einführung</em> an (wenn Sie einen knapperen aber breiten Überblick anstreben), oder <strong>Flanders</strong>, Julia / <strong>Jannidis</strong>, Fotis (2019): <em>The Shape of Data in Digital Humanities. Modeling Texts and Text-based Resources</em> an (wenn Sie eine tiefergehende, aber auch anspruchvollere Auseinandersetzung bevorzugen). Im Anschluss sollten Sie Ihre Lektüre durch <strong>Pomerantz</strong>, Jeffrey (2015): <em>Metadata</em>. mit einem Metadaten-Fokus abschließen.</p>
+<h3 id="ich-habe-zeit-für-ein-paar-bücher-will-aber-auch-sofort-praktisch-arbeiten">Ich habe Zeit für ein paar Bücher, will aber auch sofort praktisch arbeiten!</h3>
+<p>Konsultieren Sie alle oder einige der oben genannten Bücher, um sich ein grundlegendes Fundament zur Datenarbeit in den Digital Humanities zu machen. Wenn Sie dann direkt in die Praxis gehen wollen, sollten Sie sich für eine Art der Datenmodellierung entscheiden:</p>
+<ul>
+<li>relationale Datenbank: <strong>DeBarros</strong>, Anthony (2018): <em>Practical SQL. A Beginner’s Guide to Storytelling with Data</em>.</li>
+<li>Graphdatenbank: <strong>Robinson</strong>, Ian, <strong>Webber</strong>, Jim, <strong>Eifrem</strong>, Emil: <em>Graph Databases</em>. <a href="https://neo4j.com/graph-databases-book/">https://neo4j.com/graph-databases-book/</a></li>
+<li>TEI/XML: <strong>Vogeler</strong>, Georg / <strong>Sahle</strong>, Patrick (2017): <em>XML</em>, in: Jannidis, F. et al.: Digital Humanities. Eine Einführung. Stuttgart, S. 128–146. und <a href="https://teibyexample.org/">TEI by Example</a>.</li>
+</ul>
+<h2 id="retrodigitalisierung-verdatung-und-aufbau-einer-sammlung">Retrodigitalisierung, “Verdatung” und Aufbau einer Sammlung</h2>
+<ul>
+<li><strong>DFG</strong>: <a href="https://www.dfg.de/formulare/12_15/12_15_de.pdf"><em>Merkblatt Erschließung und Digitalisierung</em>.</a> DFG-Vordruck 12.15–09/19.</li>
+<li><strong>DFG</strong>: <a href="https://www.dfg.de/formulare/12_151/12_151_de.pdf"><em>Praxisregeln „Digitalisierung</em>.</a> DFG-Vordruck 12.151–12/16.</li>
+<li><strong>Grüntgens</strong>, <strong>Kasper</strong>, <strong>Neuber</strong>, <strong>Prell</strong>, <strong>Schaßan</strong>, <strong>Stäcker</strong>: Altbausanierung mit Niveau – die Digitalisierung gedruckter Editionen, Dhd 2020 Paderborn, S. 57–59, 10.5281/zenodo.3666690.</li>
+</ul>
+<blockquote>
+<p>Gibt einen Überblick über die Diskussion zur Retrodigitalisierung. Dort auch weiterführende Literatur.</p>
+</blockquote>
+<ul>
+<li><strong>Piotrowski</strong>, Michael (2012): <em>Natural Language Processing for Historical Texts</em>. Toronto, S. 25–83.</li>
+<li><strong>Grüntgens</strong>, Max / <strong>Kollatz</strong>, Thomas: <em>Korpusbasiertes Arbeiten und epigraphische Datenbanken: Möglichkeiten und Herausforderungen am Beispiel von EPIDAT und DIO.</em> In: Osnabrücker Beiträge zur Sprachtheorie (OBST), Nr. 92, 2018, S.157–173.</li>
+</ul>
+<blockquote>
+<p>Grüntgens und Kollatz gehen am Beispiel zweier Inschriften-Datenbanken des Mittelalters und der Frühen Neuzeit auf die mit historischen Sammlungen einhergehenden Herausforderungen ein: Unvollständigkeit, historische Sprachstufen, Varianz, Zweifelhaftigkeit u.a.m.</p>
+</blockquote>
+<ul>
+<li><strong>O’Keeffe</strong>, Anne / <strong>McCarthy</strong>, Michael (2012): <em>The Routledge Handbook of Corpus Linguistics.</em></li>
+</ul>
+<blockquote>
+<p>Umfassende Besprechung unterschiedlicher Aspekte korpuslinguistischer und sammlungsbasierter Forschung (historische Entwicklung, Theoriefundament, Aufbau einer Sammlung, sammlungsbasierte Forschung in verschiedenen Fachdisziplinen).</p>
+</blockquote>
+<ul>
+<li>Projekt <a href="https://www.uni-wuerzburg.de/en/zpd/ocr4all/">OCR4all</a></li>
+<li>Projekt <a href="https://tesseract-ocr.github.io/">Tesseract</a></li>
+<li><strong>Stäcker</strong>, Thomas: Die Sammlung ist tot, es lebe die Sammlung! Die digitale Sammlung als Paradigma moderner Bibliotheksarbeit. Bibliothek Forschung und Praxis | Band 43: Heft 2, 10.1515/bfp-2019-2066.</li>
+</ul>
+<h2 id="datenmodellierung">Datenmodellierung</h2>
+<ul>
+<li><strong>Flanders</strong>, Julia / <strong>Jannidis</strong>, Fotis (2019): <em>Data modeling in a digital humanities context</em>, in: Flanders, J./Jannidis, F.: The Shape of Data in Digital Humanities. Modeling Texts and Text-based Resources. London, S. 3–25.</li>
+<li><strong>Flanders</strong>, Julia / <strong>Jannidis</strong>, Fotis (2019): <em>A gentle introduction to data modeling</em>, in: Flanders, J./Jannidis, F.: The Shape of Data in Digital Humanities. Modeling Texts and Text-based Resources. London, S. 26–96.</li>
+<li><strong>Jannidis</strong>, Fotis (2017): <em>Grundlagen der Datenmodellierung</em>, in: Jannidis, F. et al.: Digital Humanities. Eine Einführung. Stuttgart, S. 99–108.</li>
+</ul>
+<blockquote>
+<p>Flanders und Jannidis stellen die Grundlagen geisteswissenschaftlicher Datenmodellierung vor. Eine zentrale Aufgabe ist dabei die oft in nicht- oder nur semi-formalisierter Form vorliegenden Repräsentationen der Forschungsgegenstände in eine formalisiertere bzw. durch-formalisierte Form der Repräsentation zu überführen.</p>
+</blockquote>
+<ul>
+<li><strong>Pomerantz</strong>, Jeffrey (2015): <em>Metadata</em>. Cambridge, 1–37.</li>
+</ul>
+<blockquote>
+<p>Pomerantz gibt einen Überblick über die Geschichte von “Metadaten”, wie und warum sie eingesetzt wurden und werden und bespricht bekannte Modellierungs und Erschließungsansätze (Dublin Core, Dewey Decimal Classification) und Technologien (XML, Linked Open Data).</p>
+</blockquote>
+<h3 id="einstiegslektüre-zum-textbegriff">Einstiegslektüre zum Textbegriff</h3>
+<ul>
+<li><strong>Martens</strong>, Gunter (2005): <em>Was ist ein Text? Ansätze zur Bestimmung eines Leitbegriffs der Textphilologie</em>, in: Stephan Kammer, Roger Lüdeke: Texte zur Theorie des Textes, Stuttgart, mit Hinführung, S. 91–113.</li>
+</ul>
+<blockquote>
+<p>Martens problematisiert den alltagssprachlichen Begriff “Text” und zeigt insbesondere, dass keine funktionalistische eins-zu-eins-Relation zwischen dem Lesen eines Textes (Input) und dem Verstehen eines Texte (Output) besteht, sondern dass das Lesen eines Textes zwar gewissen Beschränkungen oder <em>constraints</em> unterliegt und regelgeleitet abläuft, jedoch auch stets ein individueller, schöpferischer Akt ist. Vgl. zu dieser Konzeption auch Luhmann unten.</p>
+</blockquote>
+<ul>
+<li><strong>McKenzie</strong>, D.F. (1999): <em>Bibliography and the Sociology of Texts.</em> Cambridge.</li>
+</ul>
+<blockquote>
+<p>McKenzie betont die Notwendigkeit breiter und tiefer Metadatisierung historischer Bestände. Er zeigt, dass ein “Text” nicht nur aus den lesbaren Buchstaben besteht, sondern auch der Objektcharakter und die Materialität des Textträgers hohe Signifikanz für viele kulturgeschichtliche Ansätze hat. Dieses Buch war richtungsweisend für die kulturwissenschaftliche Forschung.</p>
+</blockquote>
+<h3 id="einstiegslektüre-zum-digitalen-bild">Einstiegslektüre zum “Digitalen Bild”</h3>
+<ul>
+<li><strong>Solem</strong>, Jan Erik (2012): <em>Programming Computer Vision with Python</em>. Sebastopol.</li>
+</ul>
+<blockquote>
+<p>Solem gibt einen projektbasierten Überblick darüber, wie Bilder, als Rastergraphiken im Sinne von Matrizen, im Computer repräsentiert werden. Im Anschluss zeigt er an zahlreichen Beispielen wie Bilder als Daten analysiert und transformiert werden können, um einen Erkenntnisgewinn zu erzielen, e.g. Objekterkennung, 3D-Rekonstruktion, Augmented Reality, etc.</p>
+</blockquote>
+<ul>
+<li><strong>Kaehler</strong>, Adrian, <strong>Bradski</strong>, Gary: <em>Learning OpenCV 3. Computer Vision in C++ with the OpenCV Library</em>. 3. Aufl. 2017. Sebastopol.</li>
+</ul>
+<blockquote>
+<p>Kaehler und Bradski erklären die Verarbeitung digitaler Rastergraphiken am Beispiel der Bibliothek OpenCV3 in C++. Nichtsdestoweniger ist das Buch auch als allgemeine Lektüre sinnvoll, da es problemzentriert vorgeht und die theoretischen wie praktischen Grundlagen für die Anwendung klar erläutert werden. Zum Einstieg sind S. 3–6 und die kurzen Einführungstexte zu Beginn jedes Kapitels zur Lektüre zu empfehlen.</p>
+</blockquote>
+<h3 id="einstiegslektüre-digitale-edition">Einstiegslektüre “Digitale Edition”</h3>
+<p>Ein zentraler Arbeitsbereich in den digitalen Geisteswissenschaften ist die Erstellung und Bereitstellung digitaler Editionen und Textsammlungen. Hierbei synthetisiert “Digitale Editorik” Wissen und Traditionen der “analogen” Editionswissenschaft mit dem digitalen Arbeitsraum und einem informatischen Blick auf Texte, deren Konstitution und Bereitstellung.</p>
+<ul>
+<li><strong>Sahle</strong>, Patrick (2017): <em>Digitale Edition</em>, in: Jannidis, F. et al.: Digital Humanities. Eine Einführung. Stuttgart, S. 234–248.</li>
+<li><strong>Vogeler</strong>, Georg / <strong>Sahle</strong>, Patrick (2017): <em>XML</em>, in: Jannidis, F. et al.: Digital Humanities. Eine Einführung. Stuttgart, S. 128–146.</li>
+</ul>
+<blockquote>
+<p>Sahle und Vogeler stellen die Grundlagen der in den Digitalen Geisteswissenschaften sehr verbreiteten <em>Extensible Markup Language</em> (XML) vor. Außerdem vermittelt Sahle die Grundlagen der Digitalen Editorik bzw. Edition, in deren Kontext häufig auf XML zurückgegriffen wird.</p>
+</blockquote>
+<ul>
+<li><strong>Plachta</strong>, Bodo (1997): <em>Editionswissenschaft: Eine Einführung in Methode und Praxis der Edition neuerer Texte</em>. Stuttgart, 3. Aufl.</li>
+</ul>
+<h2 id="relationale-datenbank">Relationale Datenbank</h2>
+<ul>
+<li><strong>Klinke</strong>, Harald (2017): <em>Datenbanken</em>, in: Jannidis, F. et al.: Digital Humanities. Eine Einführung. Stuttgart, S. 109–127.</li>
+<li><strong>DeBarros</strong>, Anthony (2018): <em>Practical SQL. A Beginner’s Guide to Storytelling with Data</em>.</li>
+</ul>
+<blockquote>
+<p>Praxisorientierte Einführung in die Arbeit mit einer relationalen Datenbank. Auch für Anfänger geeignet.</p>
+</blockquote>
+<h2 id="graphen-und-netzwerke">Graphen und Netzwerke</h2>
+<ul>
+<li><strong>Fotis</strong>, Jannidis: <em>Netzwerke</em> , in: Jannidis, F. et al.: Digital Humanities. Eine Einführung. Stuttgart, S. 147–161.</li>
+<li><strong>Needham</strong>, Mark, <strong>Hodler</strong>, Amy: <em>Graph Algorithms: Practical Examples in Apache Spark and Neo4j</em>. <a href="https://neo4j.com/graph-algorithms-book/">https://neo4j.com/graph-algorithms-book/</a></li>
+<li><strong>Hunger</strong>, Michael: <em>Neo4j 2.0 – Eine Graphdatenbank für alle.</em> <a href="https://neo4j.com/neo4j-graphdatenbank-book/">https://neo4j.com/neo4j-graphdatenbank-book/</a></li>
+</ul>
+<blockquote>
+<p>Eine projektorientierte, problemzentrierte Einführung, die insbesondere für Anfänger geeignet ist. Die “Denke hinter Graphen” wird pointiert erläutert und am Beispiel einer Film-Datenbank expliziert.</p>
+</blockquote>
+<ul>
+<li><strong>Kuczera</strong>, Andreas: <em>Graphentechnologien in den digitalen Geisteswissenschaften. Modellierung – Import – Analyse</em>. <a href="https://kuczera.github.io/Graphentechnologien/">https://kuczera.github.io/Graphentechnologien/</a></li>
+</ul>
+<blockquote>
+<p>Kuczeras webbasiertes Buch bietet einen genuien geisteswissenschaftlichen Blick auf Graphen-Technologien. Der Dreischritt Modelierung–Import–Analyse wird mit vielen nachnutzbaren Code-Beispielen praxisnah erläutert.</p>
+</blockquote>
+<ul>
+<li><strong>Robinson</strong>, Ian, <strong>Webber</strong>, Jim, <strong>Eifrem</strong>, Emil: <em>Graph Databases</em>. <a href="https://neo4j.com/graph-databases-book/">https://neo4j.com/graph-databases-book/</a></li>
+</ul>
+<blockquote>
+<p>Ein Buch, das sehr gut im Anschluss an Hungers oder Kuczeras Publikationen gelesen werden kann, um Aspekte zu vertiefen und zu schärfen.</p>
+</blockquote>
+<h2 id="linked-open-data-lod-und-sematic-web">Linked Open Data (LOD) und Sematic Web</h2>
+<ul>
+<li><strong>Allemang</strong>, Dean / <strong>Hendler</strong>, James (2011): <em>Semantic Web for the Working Ontologist: Effective Modeling in RDFS and OWL.</em></li>
+</ul>
+<blockquote>
+<p>Grundlagenwerk für alle die im Zentrum von Semantic Web und LOD arbeiten wollen, indem sie eigene Ontologien erstellen oder bestehende erweitern.</p>
+</blockquote>
+<ul>
+<li><strong>Eide</strong>, Ø. / <strong>Ore</strong>, C.-E. (2019). <em>8. Ontologies and Data Modeling.</em> In Flanders, J., Jannidis, F. (eds), The Shape of Data in Digital Humanities Modeling Texts and Text-based Resources . London, S. 178–196.</li>
+</ul>
+<blockquote>
+<p>Eine anfängerfreundliche, grundlegende Einführung in das Thema LOD/Semantic Web für Geisteswissenschaftler:innen. Ähnlich basale, aber kürzere Einführungen bieten auch Meinderstma und Rehbein (s.u.).</p>
+</blockquote>
+<ul>
+<li><strong>Grüntgens</strong>, M. / <strong>Schrade</strong>, T. (2016). <em>Data repositories in the Humanities and the Semantic Web: modelling, linking, visualising.</em> In Alessandro, A. et al. (eds), Proceedings of the 1st Workshop on Humanities in the Semantic Web co-located with 13th ESWC Conference 2016 (ESWC 2016), Anissaras, S. 53–64 URL: <a href="http://ceur-ws.org/Vol-1608/paper-07.pdf">http://ceur-ws.org/Vol-1608/paper-07.pdf</a></li>
+</ul>
+<blockquote>
+<p>Schrade und Grüntgens zeigen wie XML-basierte Sammlungen auf einfache Art und Weise in Datenformate des Semantic Web übertragen werden können und welche neuen Möglichkeiten eine deratige Übertragung bietet.</p>
+</blockquote>
+<ul>
+<li><strong>Meinderstma</strong>, Joep: <a href="https://ontola.io/what-is-linked-data/"><em>A brief introduction to linked data</em>.</a></li>
+<li><strong>Rehbein</strong>, Malte: <em>Ontologien</em>, in: Jannidis et al.: Digital Humanities. Eine Einführung. S. 162–176.</li>
+<li><strong>Schrade</strong>, T. (2016): <a href="https://zenodo.org/record/2604986#.XMgdp5MzaAw"><em>XTriples. A generic webservice for RDF lifting from XML resources.</em></a></li>
+</ul>
+<blockquote>
+<p>Webservice zur Transformation von XML in, bzw. zur Extrakion von LOD/Semantic Web Datenformaten aus XML.</p>
+</blockquote>
+<h2 id="forschungs-konzeption-und-projekt-arbeit">Forschungs-Konzeption und Projekt-Arbeit</h2>
+<ul>
+<li><strong>Evans</strong>, Eric (2003): <em>Domain-Driven Design.Tackling Complexity in the Heart of Software</em>. Boston.</li>
+</ul>
+<blockquote>
+<p>Eine der “Bibeln” der Software-Entwicklung. Evans betont neben der Notwendigkeit klarer und konsistenter Problem-Analysen vor allem das Miteinander mit dem Nutzer der Software, dem sog. Domänenexperten. Damit das Miteinander kommunikativ überhaupt erfolgreich sein kann, muss zwischen allen Projekt-Mitarbeitern eine sog. “ubiquitäre Sprache” entwickelt werden, also eine Sprache, die allgemein im gesamten Projektkontext von allen Beteiligten verwendet wird, eine “Lingua Franca”.</p>
+</blockquote>
+<ul>
+<li><strong>Grüntgens</strong>, Max / <strong>Kasper</strong>, Dominik (2017): <a href="http://www.dhd2017.ch/wp-content/uploads/2017/01/Abstractband_def_24.1.17-1.pdf"><em>Nachhaltige Konzeptionsmethoden für Digital Humanities Projekte am Beispiel der Goethe-PROPYLÄEN</em></a>. Bern, S. 165–167.</li>
+<li><strong>Schrade</strong>, Torsten (2017): <a href="http://www.dhd2017.ch/wp-content/uploads/2017/01/Abstractband_def_24.1.17-1.pdf"><em>Nachhaltige Softwareentwicklung in den Digital Humanities. Konzepte und Methoden</em></a>. Bern, S. 168–171.</li>
+</ul>
+<blockquote>
+<p>Grüntgens, Kasper und Schrade wenden das von Evans entwickelte Schema auf die geisteswissenschaftliche Forschung an und erklären einzelne Schritte an einem dezidierten “real life” Projekt. Außerdem binden sie das Konzept des <em>Behaviour Driven Developments</em> (BDD) mit in ihre Überlegungen ein.</p>
+</blockquote>
+<ul>
+<li><a href="https://dh-rse.github.io/">AG Research Software Engineering in den Digital Humanities (im DHd-Verband)</a></li>
+</ul>
+<blockquote>
+<p>Die AG Research Software Engineering in den Digital Humanities (DH-RSE) möchte die Position von Softwareentwickler_innen in den Geistes- und Kulturwissenschaften stärken und ihre Forschungsbeiträge innerhalb der Digital Humanities besser sichtbar machen. (Selbsbeschreibung auf der Website)</p>
+</blockquote>
+<h2 id="data-science-workflow-analyse-und-visualisierung">Data Science-Workflow, Analyse und Visualisierung</h2>
+<ul>
+<li><strong>Aydelotte</strong>, William O. (1971): <em>Quantification in history.</em> Reading, Mass.</li>
+</ul>
+<blockquote>
+<p>Bespricht Vor- und Nachteile quantifizierender und damit häufig sammlungsbasierter Ansätze in der Geschichtswissenschaft. Hintergrund zur Publikation war der zunehmende Druck (und die verbreitete Ablehnung quantitativer Ansätze) durch die “traditionell-hermeneutische” Geschichtswissenschaft.</p>
+</blockquote>
+<ul>
+<li><strong>Alt</strong>, Mick: <em>Exploring Hyperspace. <em>A non-mathematical explanation of multivariate analysis.</em></em> 1990.</li>
+</ul>
+<blockquote>
+<p>Nicht-mathematische Einführung in multivariate Analyseansätze.</p>
+</blockquote>
+<ul>
+<li><strong>Bengfort</strong>, Benjamin / <strong>Bilbro</strong>, Rebecca / <strong>Ojeda</strong>, Tony (2018): <em>Applied Text Analysis with Python.</em></li>
+</ul>
+<blockquote>
+<p>Problemorientierte Hands-On-Einführung in die Sammlung, Aufbereitung, Verarbeitung und Analyse (großer) Text-Sammlungen mit der Programmiersprache Python und ausgewählten Bibliotheken (NLTK, Scikit, spaCy, u.a.m.). Wenn man Python verwenden will, ist diese Buch ein Must-Have, gegebenenfalls komplementiert durch die Python-Machine/Deep-Learning-Bücher von O’Reilly.</p>
+</blockquote>
+<ul>
+<li><strong>Cody</strong>, Field: <em>The Data Science Handbook.</em> 2017.</li>
+</ul>
+<blockquote>
+<p>Grundlegende Einführung in <em>Data Science</em> und Überblick über den Gesamtworkflow sowie über die einzelnen Aufbereitungs-, Verarbeitungs- und Analyse-Tasks.</p>
+</blockquote>
+<ul>
+<li><strong>Jockers</strong>, Matthew L. (2013): <em>Macroanalysis. Digital Methods &amp; Literary History.</em> Urbana.</li>
+</ul>
+<blockquote>
+<p>Gibt einen Überblick über die Möglichkeiten zur Analyse von bibliographischen Metadaten-Sammlungen, aber auch von Texten und Text-Sammlungen im geisteswissenschaftlichen, meist literaturwissenschaftlichen Kontext. Da der Benutzung bestimmter Methoden immer eine dezidierte geisteswissneschaftliche Fragestellung zugrundeliegt, ist es ein guter Einführungstext, wenn man Beispiele für digitale Geisteswissenschaftliche Forschung sucht.</p>
+</blockquote>
+<ul>
+<li><strong>Fisher</strong>, Daniel, <strong>Meyer</strong>, Miriah: <em>Making Data Visual.</em> 2017.</li>
+</ul>
+<blockquote>
+<p>Kleines Büchlein zur Theorie hinter der Datenvisualisierung und der Notwendigkeit einer adäquaten Operationalisierung.</p>
+</blockquote>
+<ul>
+<li><strong>Kenny</strong>, Anthony (1982): <em>The Computation of Style. An Introduction to Statistics for Students of Literature and Humanities.</em> New York.</li>
+</ul>
+<blockquote>
+<p>Ein Text der sich dezidiert an Geisteswissenschaftler richtet und diesen einen “statistischen” Blick auf ihre Fragestellungen und ihre Forschungsgegenstände vermitteln will. Daher ist hier die Vermittlung statistischen Grundwissens immer stark mit der adäquaten Formalisierung einer geisteswissenschaftlichen Fragestellung und anschließender Operationalisierung auf Basis dieser Formalisierung verzahnt.</p>
+</blockquote>
+<ul>
+<li><strong>Krippendorff</strong>, Klaus (2019): <em>Content Analysis. An Introduction to Its Methodology.</em> Los Angeles.</li>
+</ul>
+<blockquote>
+<p>Die ersten Kapitel geben eine Einführung in die Geschichte der Inhaltsanalyse. Verschiedene Inhalts- bzw. Informationstheorien werden besprochen und der Kontext in den die Forschungsobjekte eingebettet sind unter den Schlagworten <em>Text</em>, <em>Forschungsfrage</em>, <em>Kontext</em>, <em>Analytische Konstrukte</em> und <em>Validierung</em>, dargestellt.</p>
+</blockquote>
+<ul>
+<li><strong>Lemercier</strong>, Claire / <strong>Zalc</strong>, Claire (2019): <em>Quantitative Methods in the Humanities. An Introduction.</em></li>
+</ul>
+<blockquote>
+<p>Gibt einen kurzen historischen Abriss über die Geschichte quantitativer Ansätze in den Geisteswissenschaften (mit Fokus auf der Geschichtswissenschaft). Anschließend werden Datenerhebung sowie verschiedene analystische Methoden (deskriptive und inferentielle Statistik, Visualisierung, Netzwerke) an hand von Beispielen durchgesprochen.</p>
+</blockquote>
+<ul>
+<li><strong>MacEachren</strong>, Alan: <em>How Maps Work.</em> 1995.</li>
+</ul>
+<blockquote>
+<p>Grundlegende Einführung in die Theorie und Praxis von Karten und Kartierung.</p>
+</blockquote>
+<ul>
+<li><strong>Moretti</strong>, Franco: <em>‘Operationalizing’: or, the Function of Measurement in Modern Literary Theory.</em> In: Literary Lab Pamphlet 6 (2013), pp. 1–13. (<a href="https://litlab.stanford.edu/LiteraryLabPamphlet6.pdf">online</a>)</li>
+</ul>
+<blockquote>
+<p>Formalisierung und Operationalisierung an dezidiert geisteswissenschaftlichen Beispielen (Dramen).</p>
+</blockquote>
+<ul>
+<li><strong>Segaran</strong>, Toby (2007): <em>Programming Collective Intelligence</em>.</li>
+</ul>
+<blockquote>
+<p>Segaran beschreibt und implementiert verschiedene Algorithmen aus dem <em>machine learning</em>-Kontext, um Datensammlungen zu filtern, zu clustern oder allgemein auf maschinelle Weise <em>insights</em> zu generieren.</p>
+</blockquote>
+<ul>
+<li><strong>Pennebaker</strong>, James W. (2013): <em>The Secret Life of Pronouns. What our Words Say about Us.</em></li>
+</ul>
+<blockquote>
+<p>Pennebaker zeigt an verschiedenen Beispielen auf, dass Texten sehr unterschiedliche Eigenschaften zukommen können, je nachdem aus welchem Blickwinkel, mit welcher Fragestellung und mit welcher Methode sie prozessiert werden: so werden beim Lesen und Schreiben, viele Wörter nur unterbewusst verarbeitet oder gebraucht und die Präferenz für oder gegen spezifische Worte oder Wortkombinationen bspw. mit Faktoren wie Gender oder Alter korrellieren können.</p>
+</blockquote>
+<ul>
+<li><strong>Tuckey</strong>, John W.: <em>Exploratory Data Analysis.</em> 1977.</li>
+</ul>
+<blockquote>
+<p>Der Klassiker der explorativen Datenvisualisierung.</p>
+</blockquote>
+<h2 id="grundlagen-linguistik-und-computerlinguistik">Grundlagen Linguistik und Computerlinguistik</h2>
+<ul>
+<li><strong>Biber</strong>, Douglas, <strong>Conrad</strong>, Susan, <strong>Reppen</strong>, Randi: <em>Corpus Linguistics. Investigating Language Structure and Use</em>. 1998.</li>
+</ul>
+<blockquote>
+<p>Klassischer, einführender Text in die Korpuslinguistik. Die einzelnen Kapitel fokussieren jeweils auf spezifische Themen wie Lexikographie, Grammatik, Diskurs, Register-Variation/Soziolekte. Jedes Kapitel folgt dem Schema: 1) Identifikation und Klärung der Forschungsfrage, 2) Aufbereitung und Analyse, 3) Interpretation der Analyse-Ergebnisse.</p>
+</blockquote>
+<ul>
+<li><strong>Lobin</strong>, Henning (2010): <em>Computerlinguistik und Texttechnologie.</em></li>
+</ul>
+<blockquote>
+<p>Ein knapper, aber sehr konziser Durchmarsch durch das Thema. Spricht neben Verarbeitung und Analyse von Texten und bestehenden Sammlungen auch die Aufbereitung und Bereitstellung von (linguistischen) Text-Sammlungen an.</p>
+</blockquote>
+<ul>
+<li><strong>Lyons</strong>, John (1995): <em>Einführung in die moderne Linguistik.</em> München.</li>
+<li><strong>Pelz</strong>, Heidrun (2013): <em>Linguistik. Eine Einführung.</em> Hamburg.</li>
+</ul>
+<h2 id="empfohlene-meta-lektüre">Empfohlene Meta-Lektüre</h2>
+<ul>
+<li><strong>Bod</strong>, Rens (2015): <em>A New History of the Humanities.</em> Oxford.</li>
+</ul>
+<blockquote>
+<p>Gibt einen historischen Überblick über die Entwicklung geisteswissenschaftlicher Forschung und Forschungsansätze von der Antike bis heute. Dabei fokussiert Bod auf Forschungsansätze, die darauf abzielen Muster und Strukturen zu erkennen, diese herauszuarbeiten und für Analysen zu nutzen. Als überblicksartige Einführung in die Geisteswissenschaften und ihre Forschungsegenstände geeignet.</p>
+</blockquote>
+<ul>
+<li><strong>Gleick</strong>, James: <em>The Information</em>. 2012. London.</li>
+</ul>
+<blockquote>
+<p>Sehr gut lesbare “populäre” Einführung in den Informations-Begriff und seine Geschichte. Gleick fasst die theoretischen die praktischen Aspekte des Informations-Begriffs und erläutert distinkte theoretische Punkte in klarer Sprache.</p>
+</blockquote>
+<ul>
+<li><strong>Luhmann</strong>, Niklas (2017): <em>Einführung in die Systemtheorie</em>. Heidelberg.</li>
+</ul>
+<blockquote>
+<p>Luhmann zeigt wie man in sehr strukturierter Art und Weise über Wahrnehmung, Theorien und Theoriebildung nachdenken kann. Er setzt das Individuum als Beobachtungssystem in den Mittelpunkt seiner Überlegungen und macht deutlich, wie wichtig es ist, bei beobachtetem und wahrgenommenem immer danach zu fragen wer (oder was) eigentlich der Beobachter ist.</p>
+</blockquote>
+<ul>
+<li><strong>Stachowiak</strong>, Herbert (1973): Allgemeine Modelltheorie. Wien u.a., insb. S. 128–133.</li>
+</ul>
+<blockquote>
+<p>Luhmann und Stachowiak haben sich beide damit beschäftigt, wie Theorien und Modelle entstehen, benutzt und verändert werden. Beide zeigen wie ein Problem(feld) strukturiert und methodisch analysiert und daraufhin theoretisch wie methodisch be- bzw. verarbeitbar gemacht werden kann. Wer sich für Modell- und Theoriebildung interessiert, sollte diese zwei “Altmeister” lesen.</p>
+</blockquote>
+<h3 id="komplexitäts-theorien">Komplexitäts-Theorien</h3>
+<p>Systeme können als einfache, komplizierte und komplexe Systeme verstanden werden. Bei einfachen Systemem handelt es sich um solche die durch lineare Gleichungen darstellbare sind, komplexe Systeme sind nicht-linear. Durch Theoriebildung können nicht-lineare Systeme jedoch in lineare transformiert werden, um deren Verarbeitung zu erleichtern. Systeme sind dann komplex, wenn sie divers/heterogen, verbunden/vernüpft, interdependent und adaptiv sind. Komplizierte Systeme können ebenfalls heterogen und verbunden sein, sind jedoch oft nicht interdependent und nie adaptiv. Ein weiterer zentraler Punkt komplexer Systeme ist ihre Fähigkeit emergente Phänomene zu erzeugen, e.g. das komplexe System Gehirn/Nervensystem erzeugt das emergente Phänomen “Bewusstsein/Geist”. Weitere Beispiele für komplexe Systeme sind Sprache, Kultur, Hermeneutik, eine Schlacht zwischen zwei Heeren u.v.m.</p>
+<ul>
+<li><strong>Johnson</strong>, Neil: <em>Simple Complexity. A Clear Guide to Complexity Theory</em>. London 2017.</li>
+</ul>
+<blockquote>
+<p>Johnson gibt eine sehr gut lesbare “populäre” Einführung in das Thema Komplexitätstheorie.</p>
+</blockquote>
+<ul>
+<li><strong>Mitchell</strong>, Melanie: <em>Complexity. A Guided Tour</em>. Oxford 2011.</li>
+</ul>
+<blockquote>
+<p>Mitchell gibt eine gut lesbare, minimal mathematische <em>tour de force</em> durch das Thema Komplexitätstheorie.</p>
+</blockquote>
+<ul>
+<li><strong>Resnick</strong>, Mitchel: <em>Turtles, Termites, and Traffic Jams. Explorations in Massively Parallel Microworlds</em>. 7. Aufl. 2001.</li>
+</ul>
+<blockquote>
+<p>Resnick beschreibt komplexe Systeme und emergente Phänomene am Beispiel von Simulationen von Schleim-Pilzen und Ameisen u.a.m.</p>
+</blockquote>
+<h2 id="programmierung">Programmierung</h2>
+<h3 id="python">Python</h3>
+<ul>
+<li><strong>Matthes</strong>, Eric (2019): <em>Python Crash Course, 2nd Edition: A Hands-On, Project-Based Introduction to Programming.</em></li>
+</ul>
+<blockquote>
+<p>Python-Kurs für Anfänger:innen, der die Sprache anhand von kleinen Projekten vermittelt.</p>
+</blockquote>
+<ul>
+<li><strong>Chen</strong>, Daniel Y. (2018): <em>Pandas for Everyone. Python Data Analysis.</em></li>
+</ul>
+<blockquote>
+<p>Grundlegender Einstieg und Durchmarsch durch die Data Science-Bibliothek “Pandas”.</p>
+</blockquote>
+<h3 id="javascript">JavaScript</h3>
+<ul>
+<li><strong>Haverbeke</strong>, Marijn: <em>Eloquent JavaScript 3rd Edition.</em> 2019. (auch frei online verfügbar)</li>
+</ul>
+<blockquote>
+<p>Die derzeit beste Einführung in JavaScript.</p>
+</blockquote>
+<ul>
+<li><strong>Murray</strong>, Scott: <em>Interactive Data Visualization for the Web.</em> 2nd Ed. 2017.</li>
+</ul>
+<blockquote>
+<p>Grundlegender Kurs zum Arbeiten mit dem D3-Framework für Datenvisualisierung.</p>
+</blockquote>
+</body>
+</html>
