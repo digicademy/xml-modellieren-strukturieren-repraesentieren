@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<record>
+    <head>
+        <generalInfo>
+            <volume>63</volume>
+            <id>279</id>
+            <location>
+                <settlement>Michelstadt</settlement>
+                <building type="religious">Evangelische Stadtkirche</building>
+                <country>Deutschland</country>
+                <date from="1627-01-01" to="1627-12-31">1627</date>
+            </location>
+        </generalInfo>
+        <metadata>
+
+            <listScript>
+                <script scope="major">Kapitalis</script>
+                <script scope="minor">Wortrenner (Dreiecke, auf die Grundlinie gesetzt; Quadrangel,
+                    auf die Grundlinie gesetzt)</script>
+            </listScript>
+
+            <listGenre>
+                <genre>Grabinschrift</genre>
+                <genre>Namensinschrift</genre>
+            </listGenre>
+
+            <listMaterial>
+                <material>Alabaster</material>
+                <material>Schiefer</material>
+            </listMaterial>
+
+            <listObject>
+                <objectType>Denkmal</objectType>
+                <objectType>Epitaph</objectType>
+            </listObject>
+
+            <decoDesc>
+                <deco type="architecture">Architektur</deco>
+                <deco type="coatOfArms">Wappen</deco>
+                <deco type="figure" subtype="vanitas">Todessymbolik</deco>
+                <deco type="figure" subtype="vanitas">Vanitassymbolik</deco>
+                <deco type="figure" subtype="vanitas">Totenschädel</deco>
+                <deco type="figure" subtype="vanitas">Sanduhr</deco>
+                <deco type="figure" subtype="human">Gerechtigkeit (Iustitia)</deco>
+                <deco type="figure" subtype="human">Klugheit (Prudentia)</deco>
+                <deco type="figure" subtype="human">Stärke (Fortitudo)</deco>
+                <deco type="figure" subtype="human">Sieg (Victoria)</deco>
+                <deco count="2" type="figure" subtype="animal">Löwen</deco>
+                <deco type="painting" subtype="biblical">Kampf der Israeliten gegen die Amoriter
+                    (nach Jos 10,12 ff.)</deco>
+                <deco type="painting" subtype="biblical">Kampf der Israeliten gegen die Amalekiter
+                    (nach Ex 17,8 ff.)</deco>
+            </decoDesc>
+
+            <listPerson>
+                <person role="noble deceased" sex="m">von Erbach, Graf Johann Casimir</person>
+                <person role="commoner artisan sculptor" sex="m">Kern, Michael</person>
+                <person role="commoner artisan sculptor" sex="m" cert="high">Kern, Achilles</person>
+                <person role="noble" sex="m">von Erbach, Graf Georgs III.</person>
+                <person role="noble" sex="f">von Solms, Anna</person>
+            </listPerson>
+
+        </metadata>
+    </head>
+    <body>
+
+        <transcription>
+            <lb n="1"/>DER HOCH · VND WOLGEBORNE GRAVE VND HERR HERR <lb n="2"
+                    /><persName><forename>IOHAN</forename>
+                <surname>CASIMIR</surname></persName> GRAVE ZV ERPACH VND HERR ZV <lb n="3"
+            />BREVBERG · OBRISTER WARDT GEBOHREN DEN . <date when="1548-08-10">10. <lb n="4"
+                />AVGVSTI IM IAHR CHRISTI . 1584.</date> VND WEGEN SEINER <lb n="5"/>HEROISCHEN
+            DAPFFERN GABEN. ERFAHRNHEIT <lb n="6"/>IN KV̈NSTEN SPRACHEN REISEN VND
+                KRIEGSGESCEFFTEN<note n="a" id="txt_a_1" ref="#ap_a"/>
+            <lb n="7"/>ALLER ORTHEN HOCHBELIEBT VND GEACHT STARB IN <lb n="8"/>GOTT SEELIG LEDIGE(N)
+            STANDTS NACH VOLBRACHTEM <lb n="9"/><rs type="place">VNGERISCHEM ZVG</rs> ZV
+                <placeName>SCWEINITZ</placeName><note n="a" id="txt_a" ref="#ap_a_2"/> IN
+                    <placeName><w h="true">SCHLE=<lb n="10"/>SIEN</w></placeName> DEN <date
+                when="1627-01-04">4 IANVAR<c type="y">Ÿ</c> DES . 1627.<note n="b" id="txt_b" ref="#ap_b"/>
+                IAHRS</date>. <w h="true">SEI=<lb n="11"/>NES</w> ALTERS 42 IAHR 4 MONAT. 3
+            WOCHE(N) <lb n="12"/>VND 4. TAGE </transcription>
+
+        <apparatus type="text_constitution">
+            <entry n="a" id="ap_a" ref="#txt_a_1 #txt_a_2">Sic!</entry>
+            <entry n="b" id="ap_b" ref="#txt_b">1622 Schneider 451.</entry>
+        </apparatus>
+
+        <citation>
+            <volume n="63">Odenwaldkreis</volume>
+            <id>279</id>
+            <editor>Sebastian Scholz</editor>
+            <repository type="web">www.inschriften.net</repository>
+            <url type="urn">urn:nbn:de:0238-di063mz09k0027909</url>
+        </citation>
+
+    </body>
+</record>

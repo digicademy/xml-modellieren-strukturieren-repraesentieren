@@ -1,0 +1,625 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Einführung in X-Technologien: Modellieren, Strukturieren, Repräsentieren :: Sitzung
+            1</title>
+
+        <!-- meta information -->
+        <meta name="author" content="Max Grüntgens" />
+        <meta name="author" content="Dominik Kasper" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=1024" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
+        <!-- favicons -->
+        <link rel="shortcut icon" href="resources/img/favicon.png" />
+        <link rel="apple-touch-icon" href="resources/img/apple-touch-icon.png" />
+
+        <!-- CSS reset and grid -->
+        <link href="vendor/normalize/normalize-4.1.1.css" rel="stylesheet" />
+        <link href="vendor/skeleton/skeleton-2.0.4.css" rel="stylesheet" />
+
+        <!-- fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,600italic,400italic,700italic,800,800italic&amp;subset=latin,latin-ext"
+            rel="stylesheet" type="text/css" />
+
+        <!-- styles for included libraries -->
+
+        <!-- chartist -->
+        <link rel="stylesheet" href="vendor/chartist/chartist.min-0.9.7.css" />
+
+        <!-- codemirror -->
+        <link rel="stylesheet" href="vendor/codemirror/lib/codemirror.css" />
+
+        <!-- highlight -->
+        <link rel="stylesheet" href="vendor/highlight/styles/default.css" />
+        <link rel="stylesheet" href="resources/css/hljs.linenumbering.css" />
+
+        <!-- magnific popup -->
+        <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup-1.1.0.css" />
+
+        <!-- standard presentation styles -->
+        <link href="resources/css/style.css" rel="stylesheet" />
+
+        <!-- custom presentation styles -->
+        <link href="resources/css/custom.css" rel="stylesheet" />
+
+        <!-- js needed in head -->
+
+        <!-- greuler -->
+        <script src="vendor/d3/d3-3.5.6.js"></script>
+        <script src="vendor/cola/cola.v3.min.js"></script>
+        <script src="vendor/greuler/greuler-0.5.5.min.js"></script>
+
+        <!-- html5 dataset shim for IE -->
+        <script src="vendor/impress/html5-dataset.js" type="text/javascript"></script>
+        <style>
+            .explain {
+                color: white !important; border-radius: 30px; background: black; padding: 0em .3em 0em .3em; width: 1em; height: 1em;
+                margin-left: .1em; margin-right: .1em; font-family: monospace;
+                font-weight: normal !important;
+            }
+
+            .hljs-number {
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="fallback-message">
+            <p> Your browser <strong>doesn't support the features required</strong> by
+                impress.mod.js, so you are presented with a simplified version of this presentation. </p>
+            <p> For the best experience please use the latest <strong>Chrome</strong>,
+                    <strong>Safari</strong> or <strong>Firefox</strong> browser. </p>
+        </div>
+        <div id="impress">
+            <div class="step">
+                <h4><strong>07.01.2020</strong> | <strong>Modul 5b</strong></h4>
+                <h1 class="down-25">Einführung in X-Technologien</h1>
+                <hr />
+                <h2 class="red up-25">Modellieren, Strukturieren, Repräsentieren</h2>
+                <h3>Sitzung 1: XML</h3>
+                <h4 class="down-25">
+                    <strong>Slides:</strong>
+                    <a href="#" title="View the presentation online"> Link </a>
+                </h4>
+                <h5>
+                    <strong><a href="#">Max Grüntgens</a></strong> | <strong><a href="#">Dominik
+                            Kasper</a></strong> | <img
+                        src="resources/img/Twitter_bird_logo_2012.svg" alt="Twitter"
+                        class="twitter-icon" />
+                    <a href="https://twitter.com/digicademy" title="Digital Academy on Twitter"
+                        >@digicademy</a> | <img src="resources/img/Octicons-mark-github.svg"
+                        alt="Twitter" class="gh-icon" />
+                    <a href="https://github.com/digicademy/" title="Digital Academy on GitHub"
+                        >digicademy</a> | <a href="https://creativecommons.org/licenses/by/4.0/"
+                        >CC-BY 4.0</a>
+                </h5>
+            </div>
+            <div class="step">
+                <h2>Überblick</h2>
+                <ol class="line-height-one-five">
+                            <li>Erklärung und Anwendung</li>
+                            <li>Notation und Syntax</li>
+                            <li>Wohlgeformtheit und Validität</li>
+                            <li>Arbeiten im Oxygen XML Editor (XML allgemein)</li>
+                </ol>
+            </div>
+            <div class="step">
+                <h2>Das Repositorium in den eigenen GitHub-Account forken:</h2>
+                <ol class="small line-height-one-five">
+                    <li>Im Browser die Repositoriums-Seite auf GitHub öffnen <a href="https://github.com/digicademy/xml-modellieren-strukturieren-repraesentieren">https://github.com/digicademy/xml-modellieren-strukturieren-repraesentieren</a></li>
+                    <li>Rechts oben auf den Button "Fork" klicken und dem Dialog folgen.</li>
+                </ol>
+                <h2>Das Repositorium klonen (lokal speichern):</h2>
+                <ol class="small line-height-one-five">
+                    <li>Im Browser die Repositoriums-Seite auf GitHub öffnen <a href="https://github.com/digicademy/xml-modellieren-strukturieren-repraesentieren">https://github.com/digicademy/xml-modellieren-strukturieren-repraesentieren</a></li>
+                    <li>Auf den grünen Button "Code" klicken.</li>
+                    <li>Im Dialog "HTTPS" auswählen (vorausgewählt) und die URL in die Zwischenablage kopieren (strg+c).</li>
+                    <li>In der Eingabeaufforderung (aka Konsole, Terminal, Shell) an den Ort navigieren an dem das Repositorium gespeichert werden soll.</li>
+                    <li>An dieser Stelle in der Eingabeaufforderung das Repositorium per Befehl <code>git clone https://github.com/digicademy/xml-modellieren-strukturieren-repraesentieren.git</code> klonen.</li>
+                </ol>
+            </div>
+            
+            <div class="step">
+                <h1 class="red">01</h1>
+                <h2 class="line-height-one-five">XML</h2>
+            </div>
+            <div class="step" id="auszeichnungssprachen">
+                <h2>Erklärung und Anwendung I</h2>
+                <h3 class="red">Eine Auszeichnungssprache …</h3>
+                <ul>
+                    <li class="substep" style="list-style-type:none;">… trennt Inhalt und
+                        Struktur.</li>
+                    <li class="substep" style="list-style-type:none;">… trennt einzelne strukturelle
+                        Ebenen.</li>
+                    <li class="substep" style="list-style-type:none;">… trennt einzelne
+                        bedeutungstragende Ebenen.</li>
+                    <li class="substep" style="list-style-type:none;">… ermöglicht verschiedene
+                        Ebenen von Meta-Daten.</li>
+                    <li class="substep" style="list-style-type:none;">… ermöglicht maschinelle
+                        Weiterverarbeitung.</li>
+                    <li class="substep" style="list-style-type:none;">… benutzt spezifische
+                        Schlüsselwörter und Trennzeichen.</li>
+                </ul>
+                <h3 class="substep"><strong>&#8658; implizite Information explizit
+                    machen!</strong></h3>
+            </div>
+            <div class="step" id="xml">
+                <h2>Erklärung und Anwendung II</h2>
+                <h3 class="red">Die Auszeichnungsprache: XML <em>(Extensible Markup
+                    Language)</em></h3>
+                <p class="substep">XML trennt Inhalt und Struktur sowie verschiedene Ebenen von
+                    Semantik und Metadaten durch <strong>Trennzeichen und Schlüsselwörter</strong>
+                    voneinander.</p>
+                <p class="substep">Vokabular und Verwendungsweise von XML sind <strong>anpassbar</strong> und
+                        <strong>erweiterbar</strong>. Mit Schema-Sprachen lässt sich ein
+                        <strong>Regelwerk</strong> für projekteigene XML-Dateien erstellen.</p>
+            </div>
+            <div class="step">
+                <h2>Erklärung und Anwendung III</h2>
+                <h3 class="red substep">Maschinelle Verarbeitung</h3>
+                <p class="substep">Die Daten konsistent strukturierter XML-Dokumente können sehr
+                    leicht mithilfe von Abfrage- und Transformations-Sprachen
+                        <strong>durchsucht</strong>, <strong>akkumuliert</strong> und bspw.
+                        <strong>in Ausgabeformate überführt</strong> werden.</p>
+                <p class="substep">Für <strong>Abfragen</strong> verwendet man <strong>XPath (in
+                        XML-Dokumenten)</strong> und <strong>XQuery (XML-Datenbanken)</strong>, für
+                        <strong>Transformationen XSLT</strong>, wobei dies prinzipiell auch mit
+                    XQuery möglich ist. </p>
+                <p class="substep">Auf der <strong>Grundlage konsistenter Datenhaltung</strong>
+                    können also <strong>Register und Indices</strong> akkumuliert werde. Zudem
+                    lassen sich <strong>Druckvorstufen</strong> für Verlage oder
+                        <strong>HTML-Ausgaben</strong> im Rahmen dynamischer Webseiten
+                    produzieren.</p>
+            </div>
+            <div class="step">
+                <h2>Erklärung und Anwendung IV</h2>
+                <h3 class="red">Anwendungsgebiete von Auszeichnungssprachen sind …</h3>
+                <ul class="line-height-one-five">
+                    <li class="substep" style="list-style-type:none;">… <strong>Datenstrukturierung</strong> &#8658;
+                        Extensible Markup Language (XML)</li>
+                    <li class="substep" style="list-style-type:none;">… <strong>Digitale Edition</strong> &#8658;
+                            Text Encoding Initiative (TEI-XML)</li>
+                    <li class="substep" style="list-style-type:none;">… <strong>Webseiten</strong> &#8658; Hypertext
+                        Markup Language (HTML)</li>
+                    <li class="substep" style="list-style-type:none;">… <strong>Textverarbeitung</strong> &#8658;
+                        <ul>
+                            <li>MS-Word: Office Open XML</li>
+                            <li>LibreOffice: OpenDocument XML; FlatOpenDocument XML</li>
+                        </ul>
+                    </li>
+                    <li class="substep" style="list-style-type:none;">… <strong>eBooks</strong> &#8658; EPUB3 (HTML +
+                        XML)</li>
+                    <li class="substep" style="list-style-type:none;">… <strong>Vektorgraphiken</strong> &#8658;
+                        Scalable Vector Graphics (SVG-XML)</li>
+                    <li class="substep" style="list-style-type:none;">… <strong>Semantic Web</strong> (gerichteter
+                        Graph) &#8658; (RDF-XML)</li>
+                    <li class="substep" style="list-style-type:none;">… <strong>Geodaten</strong> Keyhole Markup
+                        Language &#8658; (KML-XML)</li>
+                    <li class="substep" style="list-style-type:none;">… <strong>Konfiguration</strong> und
+                        <strong>Datenaustausch</strong> in Finanz- und Industrie-Software &#8658; XML-Derivate</li>
+                </ul>
+            </div>
+            <div class="step">
+                <h2>Notation und Syntax I</h2>
+                <h3 class="red">Trennzeichen:</h3>
+                <ul>
+                    <li class="substep">Spitze Klammern (<strong><code><></code></strong>) und Schrägstrich
+                        (<strong><code>/</code></strong>)</li>
+                    <li class="substep">ASCII-Anführungszeichen (<strong><code>""</code></strong>)</li>
+                    <li class="substep">Kaufmanns-Und und Semikolon (<strong><code>& ;</code></strong>)</li>
+                </ul>
+                <blockquote class="small substep">
+                    Die genannten Zeichen trennen die besonderen Textbereiche, die allgemein zur Ebene des XML gehören oder innerhalb von XML besondere Funtkionen ausüben, vom übrigen "normalen" Text ab:
+                    <pre><code><strong>&lt;</strong><span class="explain">1</span>xml<strong>&gt;</strong><span class="explain">2</span>Normaler Text.<strong>&lt;<span class="explain">3</span>/</strong><span class="explain">4</span>xml<strong>&gt;</strong><span class="explain">5</span></code></pre> 
+                    <p><span class="explain">1</span> Die &lt;-Klammer gibt an, dass der Kontext nun vom "normalen Text" zur Meta-Ebene XML wechselt.</p>
+                    <p><span class="explain">2</span> Nach dem Elementname <code>xml</code> des <code>StartTags</code> wird der Kontext XML hinter der &gt;-Klammer verlassen.</p>
+                    <p><span class="explain">3</span> Die nächste &lt;-Klammer zeigt einen erneuten Wechsel zum Kontext XML an.</p>
+                    <p><span class="explain">4</span> Der Schrägstrich zeigt an, dass es sich um den Kontext <code>EndTag</code> handelt.</p>
+                    <p><span class="explain">5</span> Die &gt;-Klammer zeigt, dass der Kontext XML erneut verlassen wird.</p>
+                </blockquote>
+            </div>
+            <div class="step">
+                <h2>Notation und Syntax II</h2>
+                <h3 class="red">Schlüsselwort: Element</h3>
+                <div class="substep">Formal: <pre><code>&lt;StartTag&gt;<span style="color:grey;">Inhalt (Text, Elemente)</span>&lt;/EndTag&gt;</code></pre>
+                    <p class="medium">wobei grundsätzlich gilt: <strong>StartTag = EndTag ( =
+                            Elementname)</strong>, d.h. Start- und EndTag teilen denselben "Namen", sie unterscheiden sich nur durch das beim EndTag vorangestellte <code>/</code>!</p>
+                </div>
+                <div class="substep"><pre><code>&lt;letter&gt;<span class="explain">1</span>
+    &lt;sender&gt;<span class="explain">1</span>Max Mustermann&lt;/sender&gt;<span class="explain">2</span>
+    &lt;recipient&gt;<span class="explain">1</span>Mina Musterfrau&lt;/recipient&gt;<span class="explain">2</span>
+&lt;/letter&gt;<span class="explain">2</span></code></pre>
+                    <p class="small substep"><span class="explain">1</span> StartTag (= Start-Teil eines Elements) <span class="explain">2</span> EndTag (= Schluss-Teil eines Elements)</p>
+                    <p class="medium substep">Elemente können Attribute haben, dazu gleich mehr.</p>
+                    <p class="medium substep">Im allgemeinen Sprachgebrauch wird häufig auch nur der
+                        Start- und/oder Endtag als <em>Element</em> bezeichnet
+                        (öffnendes/schließendes Element), streng technisch betrachtet, ist dies aber
+                        unpräzise.</p>
+                </div>
+            </div>
+
+            <div class="step">
+                <h2>Notation und Syntax III</h2>
+                <h3 class="red">Spezialfall: selbstschließendes Element</h3>
+                <p class="medium">Selbstschließende oder leere Elemente haben weder Text- noch Element-Inhalte!</p>
+                <div class="substep small">
+                    <p>Formal: <code>&lt;StartTag&gt;&lt;/EndTag&gt;</code>
+                        oder synonym <code>&lt;StartTag/&gt;</code> bzw.
+                       <code>&lt;StartTag /&gt;</code></p>
+                </div>
+                <div class="substep small"><pre><code>&lt;root&gt;
+  &lt;text&gt;
+    &lt;p&gt;
+      &lt;zbeginn/&gt;<span class="explain">1</span> Der Zeilenfall dieses &lt;lem&gt;<span class="explain">2</span>digitalisierten Buches mit
+      &lt;zbeginn/&gt;einer Spaltenbreite von ca. 48 Zeichen&lt;/lem&gt;<span class="explain">2</span> soll unbe-
+      &lt;zbeginn h="true"/&gt;<span class="explain">3</span> dingt erhalten werden.
+    &lt;/p&gt;
+  &lt;/text&gt;
+&lt;/root&gt;</code></pre>
+                </div>
+                <p class="small substep"><span class="explain">1</span> Leeres oder selbstschließendes Element. <span class="explain">2</span> Ein Element, das sich über ein selbstschließendes Element spannt. <span class="explain">3</span> Leeres oder selbstschließendes Element mit Attribut.</p>
+                <p class="medium substep">Selbstschließende Elemente können Attribute haben.</p>
+            </div>
+
+
+            <div class="step">
+                <h2>Notation und Syntax IV</h2>
+                <h3 class="red">Schlüsselwort: Attribut</h3>
+                <div class="substep">Formal:
+                    <pre><code class="xml"><span style="color:grey;">&lt;StartTag</span> <strong>attribut=&quot;wert&quot;</strong><span style="color:grey;">&gt;Inhalt (Text, Elemente)&lt;/EndTag&gt;</span></code></pre></div>
+                <div class="substep"> Beispiel:
+                    <pre><code class="">&lt;letter identifier<span class="explain">1</span>=&quot;xyz123&quot;<span class="explain">2</span>&gt;
+    &lt;sender identifier=&quot;m0001&quot;&gt;Max Mustermann&lt;/sender&gt;
+    &lt;recipient identifier=&quot;f0001&quot;&gt;Mina Musterfrau&lt;/recipient&gt;
+&lt;/letter&gt;<span class="explain">3</span></code></pre></div>
+                <p class="small substep"><span class="explain">1</span> Dem Attribut mit dem Namen <code>identifier</code> wird per <code>=</code>-Zeichen <span class="explain">2</span> ein in <code>"</code>-Zeichen notierter Attributwert zugeordnet. <span class="explain">3</span> Es ist zu beachten, dass Attribute <em>nur</em> innerhalb des <code>StartTags</code> notiert werden.</p>
+                <ul class="small line-height-one-five">
+                    <li class="substep">Ein Element kann mehrere Attribute besitzen: <code>&lt;car color="green" brand="audi"&gt;</code></li>
+                    <li class=" substep">Attribute können mehrere Werte beinhalten, diese sind innerhalb der <code>"</code>-Zeichen durch Leerzeichen getrennt: <code>&lt;link refs="#target_1 #target_2"&gt;</code></li>
+                    <li class=" substep">Attribute können nicht für sich alleine stehen, sie
+                        gehören immer zu einem Element.</li>
+                    <li class=" substep"><strong>Wichtig!</strong> Attribute dürfen <em>nur</em> im <code>&lt;StartTag&gt;</code> stehen!</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h2>Notation und Syntax V</h2>
+                <h3 class="red">Schlüsselwort: Namespace(-Präfix)</h3>
+                <div class="substep">Formal: <pre class="substep"><code>&lt;präfix:StartTag&gt;Inhalt (Text, Elemente)&lt;/präfix:EndTag&gt;</code></pre>
+                    <span class="substep">ist systematisch äquivalent zu</span>
+                    <pre class="substep"><code>&lt;{http://url/to/namespace}StartTag&gt;
+    Inhalt (Text, Elemente)
+&lt;/{http://url/to/namespace}EndTag&gt;</code></pre>
+                </div>
+                <div class="substep">Beispiel:
+                    <pre class="substep"><code class="xml">&lt;root xmlns:prj=&quot;http://url/to/namespace/prj/&quot;&gt;
+    &lt;letter&gt;
+        &lt;sender identifier=&quot;m0001&quot;&gt;Max Mustermann&lt;/sender&gt;
+        &lt;prj:letter&gt;Blackletter Script&lt;/prj:letter&gt;
+    &lt;/letter&gt;
+&lt;/root&gt;</code></pre></div>
+                <blockquote class="substep">Die Namespace-URL (<code>xmlns</code>) dient der
+                    Disambiguierung der Elemente und muss nicht notwendigerweise auf eine Webseite
+                    auflösen.</blockquote>
+            </div>
+
+            <div class="step">
+                <h2>Notation und Syntax VI</h2>
+                <h3 class="red">Schlüsselwort: Namespace(-Präfix)</h3>
+                    <pre class=""><code class="xml">&lt;root xmlns:prj=&quot;http://url/to/namespace/prj/&quot;<span class="explain">1</span>&gt;  
+    &lt;letter&gt;
+        &lt;sender identifier=&quot;m0001&quot;&gt;Max Mustermann&lt;/sender&gt;
+        &lt;prj:letter&gt;<span class="explain">2</span>Blackletter Script&lt;/prj:letter&gt;
+    &lt;/letter&gt;
+&lt;/root&gt;</code></pre>
+                <p class="small"><span class="explain">1</span> Die Namespace-URL <code>http://url/to/namespace/prj/</code> wird als Attributwert an ein Attribut gebunden, das aus <code>xmlns:</code> und einem selbstgewählten Präfixnamen (hier <code>prj</code>) besteht. Dies bindet die Namespace-URL an das Namespace-Präfix.</p>
+                <p class="small"><span class="explain">2</span> Das Namespace-Präfix kann daraufhin benutzt werden, um Elementnamen zu disambiguieren.</p>
+            </div>
+
+            <div class="step">
+                <h2>Notation und Syntax VI</h2>
+                <h3 class="red">Schlüsselwort: XML-Deklaration (optional)</h3>
+                <div class="substep"
+                    ><pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code></pre></div>
+                <p class="medium substep">Weitere Bezeichnung: XML Prolog</p>
+                <p class="small substep">Der XML-Prolog gibt die XML-version und die Zeichencodierung an. Normalerweise ist die hier dargestellte Notation ausreichend und muss nicht angepasst werden.</p>
+            </div>
+
+
+            <div class="step">
+                <h2>Notation und Syntax VIIa</h2>
+                <h3 class="red">Schlüsselwort: Verarbeitungsanweisung I</h3>
+                <div class="substep">Schema:
+                    <pre class="medium"><code>&lt;?<span class="explain" style="color: white !important;">1</span>
+    xml-model href="schema.file"<span class="explain">2</span> 
+    type="application/xml"<span class="explain">3</span> 
+    schematypens="http://url/to/schema/ns"<span class="explain">4</span>
+?&gt;</code></pre>
+                <p class="small"><span class="explain">1</span> Verarbeitungsanweisungen werden durch die Tag-Notation <code>&lt;? … ?&gt;</code> eingebunden. 
+                    <span class="explain">2</span> Das Attribut <code>href</code> verweist per URL auf den Speicherort der Schema-Datei.
+                    <span class="explain">3</span> Das Attribut <code>type</code> gibt an, um welchen Datei-Typ es sich bei der Schema-Datei handelt.
+                    <span class="explain">4</span> Das Attribut <code>schematypens</code> gibt die Namespace-URL des Schemas an.
+                </p>
+                </div>
+                <p class="small substep"><strong>Schemata dienen der Definition von Regeln für
+                        XML-Dokumente, die über die allgemeine XML Syntax hinausgehen</strong></p>
+                
+            </div>
+
+            <div class="step">
+                <h2>Notation und Syntax VIIb</h2>
+                    <p class="small substep">Für die Erstellung von Schemata gibt es verschiedene
+                        Standards bzw. Schemasprachen (RELAX NG, XML Schema (W3c), Schematron, DTD ...).
+                        <strong>Je nach Schemasprache ist die Einbindung unterschiedlich.</strong> Die Einbindung von W3C
+                        Schema erfolgt bspw. in Attributen innerhalb des root-Elements.
+                    </p>
+                    <div class="substep">
+                    <p class="medium">Einbindung eines Schemas der Schemasprache RELAX NG:</p>
+                    <pre><code>&lt;?xml-model href="http://www.tei-c.org/release/xml/tei/custom/schema/relaxng/tei_all.rng"
+    type="application/xml"
+    schematypens="http://relaxng.org/ns/structure/1.0"?&gt;</code></pre></div>
+                
+                <div class="substep">
+                    <p class="medium">Einbindung eines Schemas der Schemasprache XML Schema:</p>
+                    <pre><code>&lt;TEI xmlns="http://www.tei-c.org/ns/1.0"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://www.tei-c.org/release/xml/tei/custom/schema/xsd/tei_all.xsd"&gt;</code></pre></div>
+            </div>
+
+
+
+            <div class="step">
+                <h2>Notation und Syntax VIII</h2>
+                <h3 class="red">Schlüsselwort: Verarbeitungsanweisung II</h3>
+                <div class="substep">Transformation:
+                    <pre><code>&lt;?xml-stylesheet type="text/xsl"<span class="explain">1</span> href="./url/to/xsl-file.xsl"<span class="explain">2</span>?&gt;</code></pre>
+                    <p class="small">
+                        <span class="explain">1</span> Das Attribut <code>type</code> gibt den Typ der Transformationsdatei an, meist ist das <code>text/xsl</code>. 
+                        <span class="explain">2</span> Das Attribut <code>href</code> gibt per URL den Speicherort der Transformationsdatei an.
+                    </p>
+                </div>
+                
+                <div class="substep">Beispiel:
+                    <pre><code>&lt;?xml-stylesheet type="text/xsl" href="meinStylesheet.xsl"?&gt;</code></pre>
+                </div>
+                <p class="substep"> Auch in deutschsprachigen Publikationen wird meist von
+                        <em>processing instructions</em> gesprochen. </p>
+            </div>
+
+
+            <div class="step">
+                <h2>Notation und Syntax IX</h2>
+                <h3 class="red">XML Syntax Regeln I</h3>
+                <div class="row">
+                    <div class="substep six columns">
+                        <ul class="line-height-one-five">
+                            <li class="substep">Elemente in XML müssen <strong>sauber
+                                    verschachtelt</strong> werden (<em>properly nested</em>)</li>
+                            <li class="substep">Attribut-Werte müssen immer in
+                                    <strong>Anführungszeichen</strong> stehen</li>
+                            <li class="substep">Bestimmte Zeichen müssen als
+                                    <strong>Entität</strong> notiert werden, wenn sie literal im
+                                Text verwendet werden sollen: <ul>
+                                    <li class="substep"><code>&lt;</code> entspricht
+                                            <code>&amp;lt;</code></li>
+                                    <li class="substep"><code>&gt;</code> entspricht
+                                            <code>&amp;gt;</code></li>
+                                    <li class="substep"><code>&amp;</code> entspricht
+                                            <code>&amp;amp;</code></li>
+                                </ul>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="substep six columns"> Nicht sauber verschachtelt
+                        <pre><code>&lt;t&gt;Dieser Text ist ab
+    &lt;f&gt;
+        <span style="text-decoration: underline; text-decoration-style: wavy; text-decoration-color: red;">&lt;u&gt;hier als fett und
+        unterstrichen markiert.&lt;/f&gt;
+    &lt;/u&gt;</span><span style="color: red;"><span class="explain" style="background-color: red;">!</span>The element type &quot;u&quot; must be terminated by the matching end-tag &quot;&lt;/u&gt;&quot;.</span>
+&lt;/t&gt;</code></pre>
+                        sauber verschachtelt
+                        <pre><code>&lt;t&gt;Dieser Text ist ab
+    &lt;f&gt;
+        &lt;u&gt;hier als fett und
+        unterstrichen markiert.&lt;/u&gt;
+    &lt;/f&gt;
+&lt;/t&gt;</code></pre>
+                    </div>
+                </div>
+            </div>
+            <div class="step">
+                <h2>Notation und Syntax X</h2>
+                <h3 class="red">XML Syntax Regeln II</h3>
+                <h4>Elementnamen</h4>
+                <ul class="line-height-one-five">
+                    <li class="substep">sind <strong>case-sensitive</strong></li>
+                    <li class="substep">müssen mit einem Buchstaben oder einem Unterstrich
+                        beginnen</li>
+                    <li class="substep">dürfen <strong>nicht</strong> mit den Buchstaben bzw.
+                            <strong>reserved words</strong>
+                        <em>xml</em> (oder XML, xMl usw.) beginnen</li>
+                    <li class="substep">dürfen Buchstaben, Ziffern, Bindestriche, Unterstriche und
+                        Punkte enthalten</li>
+                    <li class="substep">dürfen <strong>keine</strong> Leerzeichen enthalten</li>
+                </ul>
+            </div>
+            <div class="step">
+                <h2>Wohlgeformtheit und Validität I</h2>
+                <h3 class="red">Wohlgeformheit</h3>
+                <p class="substep">Wenn ein XML-Dokument den <strong>allgemeinen
+                        Syntax-Regeln</strong> gehorcht, bezeichnet man es als
+                        „<strong>wohlgeformt</strong>“ (engl. <em>well-formed</em>).</p>
+                <p class="substep">Wohlgeformheit ist eine <strong>essentielle
+                        Voraussetzung</strong> für die weitere Verarbeitung, ja für die Bestimmung
+                    eines (vermeintlichen) XML-Dokuments als XML-Dokument an sich.</p>
+            </div>
+            <div class="step">
+                <h2>Wohlgeformtheit und Validität II</h2>
+                <h3 class="red">Validität</h3>
+                <p class="substep">Von „<strong>Validität</strong>“ spricht man, wenn ein
+                    XML-Dokument mit einem zugehörigen <strong>Schema konform</strong> ist, d.h. den dort hinterlegten Regeln in Bezug auf "Vokabular" (erlaubte Element- und Attribut-Namen) sowie "Grammatik" (Verschachtelungsregeln für Elemente) gehorchen.</p>
+                <p class="substep"><strong>Voraussetzung</strong> für Validität ist
+                        <strong>Wohlgeformheit</strong>. Dies ergibt sich logisch aus dem bisher
+                    Gesagten.</p>
+            </div>
+            <div class="step">
+                <h2>Wohlgeformtheit und Validität III</h2>
+                <h3 class="red">Sinn und Zweck</h3>
+                <p class="substep">Durch die Ansetzung eines <strong>Schema-Regelwerks</strong>
+                    lassen sich XML-Dokumente sehr einfach in konsistenter Form erstellen, da
+                    jederzeit ein <strong>Feedback zur Regelhaftigkeit</strong> des Dokumentes
+                    zurückgegeben wird.</p>
+                <p class="substep">Im Oxygen-XML-Editor ist es unter <strong>Rückgriff auf ein
+                        zugrundeliegendes Schema</strong> bspw. möglich, dem Benutzer die im
+                    Auszeichnungs-Kontext angebrachten <strong>Elemente bzw. Attribute per
+                        Knopfdruck</strong> anzubieten. Dazu muss ein sog. <strong>Framework, auch
+                        Dokumenttyp-Assoziation</strong> erstellt werden. Ähnliche Funktionalitäten
+                    werden auch von vergleichbaren Editoren angeboten.</p>
+                <p class="substep">Wenn im Dokument ein Schema eingebunden ist, bietet der Oxygen
+                    bereits <em>build in</em> einen <strong>Vorschlagmodus</strong> für die
+                    korrekten Elemente bzw. Attribute (geleitetes Encoding).</p>
+            </div>
+            <div class="step">
+                <h2>Arbeiten mit einem XML Editor I</h2>
+                <h3 class="red">Kurzeinführung Oxygen XML Editor</h3>
+                <ul>
+                    <li class="substep">Grundlegendes zur Software</li>
+                    <li class="substep">XML-Beispieldatei öffnen</li>
+                    <li class="substep">Verschiedene Blickwinkel auf ein XML-Dokument</li>
+                    <li class="substep">Einrücken und Formatieren</li>
+                    <li class="substep">Wohlgeformheit prüfen</li>
+                    <li class="substep">Schema einbinden</li>
+                    <li class="substep">Validität prüfen</li>
+                    <li class="substep">Nützliche Shortcuts</li>
+                    <li class="substep">Beispiele für nicht proprietäre XML Editoren</li>
+                </ul>
+                <p class="small"><a href="https://www.oxygenxml.com/xml_editor/register.html">Hier</a> können 
+                    Sie eine Probe-Lizenz für den Oxygen-XML-Editor beantragen, den Editor im Anschluss herunterladen 
+                    und für eine Periode von 30 Tagen ausprobieren.</p>
+            </div>
+            <div class="step">
+                <h2>Übung: XML</h2>
+                <ul class="line-height-one-five">
+                    <li class="small"><strong>Öffnen</strong> Sie die <strong>Datei</strong>
+                        <a href="Uebungen/Inschrift.xml">Uebungen/Inschrift.xml</a> im Oxygen-XML-Editor.</li>
+                    <li class="small"><strong>Verschaffen</strong> Sie sich einen
+                            <strong>Überblick</strong> über die Text-Daten in der Datei. Es handelt sich um eine edierte Inschrift, die die folgenden Bereiche enthält:
+                            <ul>
+                                <li>Metadaten zu Schrifttyp, Material, Dekorationen und Ornamenten.</li>
+                                <li>Personen, die mit der Inschriften in Bezug stehen.</li>
+                                <li>Den transkribierten Text der Inschrift.</li>
+                                <li>Es gibt auch einen kleinen textkritischen Apparat.</li>
+                            </ul>
+                        </li>
+                    <li class="small"><strong>Erstellen Sie eine XML-Struktur</strong> für die Datei, indem Sie 
+                            <strong>selbst gewählte Element- und Attribut-Namen</strong> erstellen und diese in einer selbstgewählten Struktur verschachteln. Beachten
+                        Sie dabei folgendes: <ul>
+                            <li><strong>Gruppieren</strong> Sie den Datei-Inhalt in einen
+                                    <em>Metadaten-Bereich</em> und einen eigentlichen
+                                    <em>Text-Bereich</em>.</li>
+                            <li>Gruppieren und <strong>strukturieren</strong> Sie die Information in
+                                der Datei gerne um.</li>
+                            <li><strong>Normalisieren</strong> Sie Text-Bereiche oder encoden Sie
+                                Normalisierungen entsprechend im XML.</li>
+                            <li>Fügen Sie Information hinzu oder entfernen Sie diese.</li>
+                            <li class="line-height-one-five"><strong>Orientieren</strong> Sie sich bei dem <em>was?</em> und
+                                    <em>wie?</em> des Encodings an den
+                                    <strong>Fachspezifika</strong> Ihrer geisteswissenschaftlichen
+                                Herkunftsfächern oder nutzen Sie die bereits vorhandene Grundstruktur in der Datei.</li>
+                        </ul>
+                    </li>
+                    <li class="line-height-one-five small">Achten Sie darauf, dass das Dokument wohlgeformt ist, d.h. den
+                        allgemeinen Syntax-Regeln folgt!</li>
+                </ul>
+                <p class="small">Vergleichen Sie Ihre selbst erstellte XML-Datei mit der Musterlösung <a href="Uebungen/Inschrift_encoding.xml">Uebungen/Inschrift_encoding.xml</a>. 
+                Welche Unterschiede fallen Ihnen auf? Wo weicht Ihre Struktur von der Musterlösung ab? Versuchen Sie die Abweichungen zu erklären.</p>
+            </div>
+
+            
+
+
+            <div class="step">
+                <div class="centered">
+                    <h1>F I N I S</h1>
+                    <h2>Thank you</h2>
+                </div>
+            </div>
+            <div class="step">
+                <h2>Literatur &amp; Software</h2>
+                <h4>Literatur</h4>
+                <ul class="small">
+                    <li>Flanders, Julia/Jannidis, Fotis (2019): Data modeling in a digital humanities context, in: Flanders, J./Jannidis, F.: The Shape of Data in Digital Humanities. Modeling Texts and Text-based Resources. London, S. 3–25.</li>
+                    <li>Flanders, Julia/Jannidis, Fotis (2019): A gentle introduction to data modeling, in: Flanders, J./Jannidis, F.: The Shape of Data in Digital Humanities. Modeling Texts and Text-based Resources. London, S. 26–96.</li>
+                    <li>Grüntgens Max/Kasper, Dominik (2018): <a
+                        href="https://digicademy.github.io/2018_mainzed_lunch_lectures_markup/#/step-1"
+                        >Markup in geisteswissenschaftlichen Forschungs- und
+                        Publikations-Kontexten - Am Beispiel der Extensible Markup Language
+                        (XML)</a> (mainzed - Lunch Lectures), Workshop: JGU Mainz
+                    04.10.2018</li>
+                    <li>Institut für Dokumentologie und Editorik (2015): Handreichung zur
+                    praktischen Arbeit: XML-Kurzreferenz für Einsteiger. Köln, 2. Auflage</li>
+                    <li>Jannidis, Fotis (2017): Grundlagen der Datenmodellierung, in: Jannidis, F.
+                        et al.: Digital Humanities. Eine Einführung. Stuttgart, S. 99–108.</li>
+                    <li>Vogeler, Georg/Sahle, Patrick (2017): XML, in: Jannidis, F. et al.: Digital
+                        Humanities. Eine Einführung. Stuttgart, S. 128–146.</li>
+                    <li>Vonhoegen, Helmut (2015): Einstieg in XML. Grundlagen, Praxis, Referenz.
+                        Stuttgart, 8., akutalisierte Auflage</li>
+                    <li>w3schools: <a href="https://www.w3schools.com/xml/"
+                            >https://www.w3schools.com/xml/</a> (Zugriff 3.12.2018), siehe hier
+                        besonders XML Syntax, XML Tree, XML Elements, XML Attributes, XML Namespaces
+                        und XML XPath</li>
+                </ul>
+                <h4>Software</h4>
+                <ul class="small">
+                    <li>Oxygen XML Editor</li>
+                    <li>Saxon/C</li>
+                <h4>Download</h4>
+                <ul class="small">
+                    <li>
+                        <a href="#"> Link to presentation </a>
+                    </li>
+                    <li> License: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY
+                            4.0</a>, Author </li>
+                </ul>
+            </div>
+        </div>
+        <!-- jquery -->
+        <script src="vendor/jquery/jquery-1.11.0.min.js"></script>
+        <!-- chartist -->
+        <script src="vendor/chartist/chartist.min-0.9.7.js"></script>
+        <script src="resources/js/chartist.charts.js"></script>
+        <!-- codemirror -->
+        <script src="vendor/codemirror/lib/codemirror.js"></script>
+        <script src="vendor/codemirror/addon/edit/matchbrackets.js"></script>
+        <script src="vendor/codemirror/mode/sparql/sparql.js"></script>
+        <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("sparql"), {
+            mode: "application/sparql-query",
+            matchBrackets: true,
+            lineNumbers: true,
+            viewportMargin: Infinity
+        });
+        </script>
+        <script src="vendor/codemirror/mode/xquery/xquery.js"></script>
+        <!-- highlight -->
+        <script src="vendor/highlight/highlight.pack-9.3.0.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script src="resources/js/hljs.linenumbering.js"></script>
+        <!-- magnific popup -->
+        <script src="vendor/magnific-popup/jquery.magnific-popup.min-1.1.0.js"></script>
+        <script src="resources/js/magnific-popup.lightbox.js"></script>
+        <!-- impress.mod.js -->
+        <script src="vendor/impress/impress.fork.js"></script>
+        <script src="vendor/impress/impress-slidenum.js"></script>
+        <script>
+        var obj = impress();
+        obj.init();
+        initSlideNo(obj);
+    </script>
+    </body>
+
+</html>
