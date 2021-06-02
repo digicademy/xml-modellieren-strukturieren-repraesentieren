@@ -26,7 +26,7 @@ Die Slides sind in die folgenden thematischen Sektionen gegliedert:
     * grundständige Erfassung
     * Textkonstitution
     * interpretierende Annotation
-4. XSLT: Transformation XML-basierter (Forschungs-)Daten
+4. [XSLT](https://digicademy.github.io/xml-modellieren-strukturieren-repraesentieren/slides/XSLT/index.html): Transformation XML-basierter (Forschungs-)Daten
     * Verwendung
     * Grundprinzipien (Templates, Pull, Push)
     * Beispiele und Übungen
@@ -55,10 +55,12 @@ Die Slides sind in die folgenden thematischen Sektionen gegliedert:
 ### Lizenzierung und Boilerplate
 
 Texte und Materialien stehen soweit nicht an Ort und Stelle abweichend angegeben unter einer [CC-BY 4.0-Lizenz](https://creativecommons.org/licenses/by/4.0/), Max Grüntgens (ADWL Mainz), Marina Lehmann (ADWL Mainz), Dominik Kasper (ADWL Mainz), Thomas Kollatz (ADWL Mainz, Steinheim Institut).
+
 _____
 
-Der Boilerplate-Code der Slides liegt hier: https://github.com/digicademy/impress-js-boilerplate
 
-Eine Live-Demo der Boilerplate gibt es hier: http://digicademy.github.io/impress-js-boilerplate/
+Der Boilerplate-Code der Slides liegt hier: [https://github.com/digicademy/impress-js-boilerplate](https://github.com/digicademy/impress-js-boilerplate)
+
+Eine Live-Demo der Boilerplate gibt es hier: [http://digicademy.github.io/impress-js-boilerplate/](http://digicademy.github.io/impress-js-boilerplate/)
 
 Die Boilerplate steht unter [CC-BY 4.0-Lizenz](https://creativecommons.org/licenses/by/4.0/), @digicademy

@@ -1,0 +1,752 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Einführung in X-Technologien: Modellieren, Strukturieren, Repräsentieren :: Sitzung
+            3</title>
+
+        <!-- meta information -->
+        <meta name="author" content="Max Grüntgens" />
+        <meta name="author" content="Dominik Kasper" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=1024" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
+        <!-- favicons -->
+        <link rel="shortcut icon" href="resources/img/favicon.png" />
+        <link rel="apple-touch-icon" href="resources/img/apple-touch-icon.png" />
+
+        <!-- CSS reset and grid -->
+        <link href="vendor/normalize/normalize-4.1.1.css" rel="stylesheet" />
+        <link href="vendor/skeleton/skeleton-2.0.4.css" rel="stylesheet" />
+
+        <!-- fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,600italic,400italic,700italic,800,800italic&amp;subset=latin,latin-ext"
+            rel="stylesheet" type="text/css" />
+
+        <!-- styles for included libraries -->
+
+        <!-- chartist -->
+        <link rel="stylesheet" href="vendor/chartist/chartist.min-0.9.7.css" />
+
+        <!-- codemirror -->
+        <link rel="stylesheet" href="vendor/codemirror/lib/codemirror.css" />
+
+        <!-- highlight -->
+        <link rel="stylesheet" href="vendor/highlight/styles/default.css" />
+        <link rel="stylesheet" href="resources/css/hljs.linenumbering.css" />
+
+        <!-- magnific popup -->
+        <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup-1.1.0.css" />
+
+        <!-- standard presentation styles -->
+        <link href="resources/css/style.css" rel="stylesheet" />
+
+        <!-- custom presentation styles -->
+        <link href="resources/css/custom.css" rel="stylesheet" />
+
+        <!-- js needed in head -->
+
+        <!-- greuler -->
+        <script src="vendor/d3/d3-3.5.6.js"></script>
+        <script src="vendor/cola/cola.v3.min.js"></script>
+        <script src="vendor/greuler/greuler-0.5.5.min.js"></script>
+
+        <!-- html5 dataset shim for IE -->
+        <script src="vendor/impress/html5-dataset.js" type="text/javascript"></script>
+
+        <style>
+             .explain {
+                color: white !important; border-radius: 30px; background: black; padding: 0em .3em 0em .3em; width: 1em; height: 1em;
+                margin-left: .1em; margin-right: .1em; font-family: monospace;
+                font-weight: normal !important;
+            }
+
+            .hljs-number {
+                color: white;
+            }
+
+            .a-quote {
+                color: black;
+                font-weight: normal;
+                }
+
+                .a-quote:hover {
+                color: black;
+                font-weight: normal;
+                }
+        </style>
+
+        <script>
+            function translationFeature(id, text){
+              document.getElementById(id).addEventListener('click', (e) => {
+                  e.stopPropagation();
+                  e.preventDefault();
+        
+                  if (e.target.classList.contains('a-quote')){
+                    if (e.target.classList.contains('original')){
+                      e.target.classList.remove('original');
+                      e.target.classList.add('translation');
+                      e.target.innerHTML = text.translation;
+                    } else {
+                      e.target.classList.remove('translation');
+                      e.target.classList.add('original');
+                      e.target.innerHTML = text.original;
+                    }
+                  } else {
+                    if (e.target.parentElement.classList.contains('original')){
+                      e.target.parentElement.classList.remove('original');
+                      e.target.parentElement.classList.add('translation');
+                      e.target.parentElement.innerHTML = text.translation;
+                    } else {
+                      e.target.parentElement.classList.remove('translation');
+                      e.target.parentElement.classList.add('original');
+                      e.target.parentElement.innerHTML = text.original;
+                    }
+                  }
+                })
+            }
+          </script>
+    </head>
+
+    <body>
+        <div class="fallback-message">
+            <p> Your browser <strong>doesn't support the features required</strong> by
+                impress.mod.js, so you are presented with a simplified version of this presentation. </p>
+            <p> For the best experience please use the latest <strong>Chrome</strong>,
+                    <strong>Safari</strong> or <strong>Firefox</strong> browser. </p>
+        </div>
+        <div id="impress">
+            <div class="step">
+                <h4><strong>2021</strong> | <strong>Mainz</strong></h4>
+                <h1 class="down-100">Einführung in X-Technologien</h1>
+                <hr />
+                <h2 class="red up-25">Modellieren, Strukturieren, Repräsentieren</h2>
+                <h3>Sektion 4: XSLT</h3>
+                <h4 class="down-100">
+                    <strong>Slides:</strong>
+                    <a href="#" title="View the presentation online"> Link </a>
+                </h4>
+                <h5>
+                    <strong><a href="#">Max Grüntgens</a></strong> | <strong><a href="#">Dominik
+                            Kasper</a></strong> | <img
+                        src="resources/img/Twitter_bird_logo_2012.svg" alt="Twitter"
+                        class="twitter-icon" />
+                    <a href="https://twitter.com/digicademy" title="Digital Academy on Twitter"
+                        >@digicademy</a> | <img src="resources/img/Octicons-mark-github.svg"
+                        alt="Twitter" class="gh-icon" />
+                    <a href="https://github.com/digicademy/" title="Digital Academy on GitHub"
+                        >digicademy</a> | <a href="https://creativecommons.org/licenses/by/4.0/"
+                        >CC-BY 4.0</a>
+                </h5>
+            </div>
+            <div class="step">
+                <h2>Table of Contents</h2>
+                <ol class="small line-height-one-five">
+                    <li>XSLT allgemein <ol>
+                            <li>Erklärung</li>
+                            <li>Use Cases</li>
+                        </ol>
+                    </li>
+                    <li> Grundprinzipien <ol>
+                            <li>Das XSLT Stylesheet <ol>
+                                    <li style="padding-left: 3em;">Stylesheet-Element</li>
+                                    <li style="padding-left: 3em;">Template-Element</li>
+                                </ol>
+                            </li>
+                            <li>Pull-Verarbeitung <ol>
+                                    <li style="padding-left: 3em;">Einfache Pull-Verarbeitung mit
+                                        value-of</li>
+                                    <li style="padding-left: 3em;">Komplexe Pull-Verarbeitung mit
+                                        Schleifen</li>
+                                </ol>
+                            </li>
+                            <li>Push-Verarbeitung <ol>
+                                    <li style="padding-left: 3em;">Rekursion</li>
+                                    <li style="padding-left: 3em;">Hidden Text Template und Identity
+                                        Transform-Prinzip</li>
+                                </ol>
+                            </li>
+
+                        </ol>
+                    </li>
+                    <li>Spezifischere Funktionalitäten</li>
+                </ol>
+            </div>
+            <div class="step">
+                <h1 class="red">01</h1>
+                <h2 class="line-height-one-five">XSLT allgemein</h2>
+            </div>
+            <div class="step">
+                <h3>XSLT allgemein</h3>
+                <h2 class="red">Erklärung</h2>
+                <p class="medium substep">XSLT - <em>eXtensible Stylesheet Language
+                        Transformation</em></p>
+                <div class="substep"> 
+                    <blockquote class="medium">XSLT ist eine Transformationssprache für
+                    XML-Dokumente. Ein <strong>XSLT-Prozessor</strong> verarbeitet ein
+                        <strong>XML-Dokument</strong> gemäß der Angaben in einem
+                        <strong>XSLT-Dokument</strong> und erzeugt ein
+                        <strong>Ergebnisdokument</strong> (oder mehrere) in einem Format (z. B.
+                    Plain Text, XML, HTML), welches vom XSLT-Dokument bestimmt wird.</blockquote>
+                    <p class="medium x-small right">Institut für Dokumentologie und Editorik:
+                    XML - Kurzreferenz für Einsteiger (Hervorhebungen nicht im Original)</p>
+                </div>
+                <p class="medium substep">XSLT liegt inzwischen in der dritten Version (3.0)
+                    vor.</p>
+            </div>
+
+
+            <div class="step">
+                <h3>XSLT allgemein</h3>
+                <h2 class="red">Paradigma</h2>
+                <p class="substep">XSLT ist eine <strong>deklarative Programmiersprache</strong>.</p>
+                <div class="substep">
+                    <blockquote>
+                        <a title="Klicken um Übersetzung anzuzeigen!" class="a-quote original" id="declarative"> Many [declarative programming] languages […] [<strong>describe</strong>] <strong>what the program must accomplish</strong> in terms of the problem domain, rather than describe how to accomplish it as a sequence of the programming language primitives (<strong>the how being left up to the language's implementation</strong> [in a lower level language]). This is in contrast with imperative programming, which implements algorithms in explicit steps.
+                        </a>
+                    </blockquote>
+                    <p class="small">Wikipedia: Declarative_programming ID: <a href="https://en.wikipedia.org/w/index.php?title=Declarative_programming&amp;oldid=846955022">846955022</a></p>
+                </div>
+                <p class="small substep">Weitere deklarative Sprachen sind bspw. SQL, SPARQL und Cypher. Die bekannteren deklarativen Sprachen dienen der Daten-Abfrage und -Akquise.</p>
+                <script>
+                    translationFeature('declarative',
+                        { original: `Many [declarative programming] languages […] [<strong>describe</strong>] <strong>what the program must accomplish</strong> in terms of the problem domain, rather than describe how to accomplish it as a sequence of the programming language primitives (<strong>the how being left up to the language's implementation</strong> [in a lower level language]). This is in contrast with imperative programming, which implements algorithms in explicit steps.`,
+                            translation: `Viele [deklarative Programmier-]Sprachen [...] [<strong>beschreiben</strong>] <strong>was das Programm erreichen muss</strong> in Bezug auf die Problemdomäne, anstatt genau auszuformulieren, wie das Ziel als eine Sequenz von Primitiven einer Programmiersprache zu erreichen ist (<strong>das Wie wird der Implementierung der Sprache überlassen</strong> [in einer niedrigeren Sprache]). Dies steht im Gegensatz zur imperativen Programmierung, die Algorithmen in expliziten Schritten implementiert.` } )
+                  </script>
+            </div>
+
+
+            <div class="step">
+                <h3>XSLT allgemein</h3>
+                <h2 class="red">Versionen</h2>
+                <ul class="medium">
+                    <li class="substep" style="line-height: 1.5;">1999: <strong>Version 1.0</strong>
+                        wird vorgestellt (Erweiterungen zu 1.1 2006) und enthält
+                            <strong>grundlegende Funktionalität</strong>.</li>
+                    <li class="substep" style="line-height: 1.5;">2007: <strong>Version 2.0</strong>
+                        bietet <strong>mehr Gestaltungsmöglichkeiten</strong> und beseitigt einige
+                        Schwächen der ersten Version</li>
+                    <li class="substep" style="line-height: 1.5;">2017: <strong>Version 3.0</strong>
+                        bietet mehr Möglichkeiten bei der <strong>Konfiguration</strong> des
+                        XSL-Prozesses sowie bei der <strong>Textmanipulation</strong> und fügt
+                        Möglichkeiten zum <strong>Streamen</strong> von XML-Dokumente hinzu. Dies
+                        ist notwendig, wenn die Quelldatei zu groß für eine Bearbeitung aus dem
+                        Hauptspeicher wird. Auch in Anwendungen, wo bereits Daten ausgeliefert
+                        werden sollen, bevor das ganze Dokument geladen ist, spielt
+                            <em>streaming</em> eine wichtige Rolle.</li>
+                </ul>
+                <blockquote class="small substep" style="background:  #ffe6e6; font-size: 0.7em;"><strong>Hinweis:</strong> In den Libraries vieler
+                    Programmiersprachen wurde XSLT nur bis einschließlich Version 2.0 implementiert.
+                    Eine umfassende Implementierung von XSLT 3.0 existiert nur als <em><a
+                            href="https://www.saxonica.com/saxon-c/index.xml">Saxon-C</a></em> für
+                    Java, C/C++, PHP und neuerdings auch für Python 3 (hierzu mehr <a href="https://github.com/hou2zi0/xslt-simple-text-processing-toolbox#using-xsl-transformation-with-saxonc-in-python">hier</a>
+                    und <a href="http://www.saxonica.com/saxon-c/index.xml">hier</a>).</blockquote>
+            </div>
+            <div class="step">
+                <h3>XSLT allgemein</h3>
+                <h2 class="red">Use Cases</h2>
+                <h4 class="substep"><strong>Transformation</strong> von
+                    <strong>XML</strong>-Dokument(en) …</h4>
+                <ul>
+                    <li class="substep">… in <strong>HTML</strong>-Dokumente (für eine Website)</li>
+                    <li class="substep">… in andere <strong>XML</strong>-Dokumente (z. B. von einem
+                        projektspezifischen XML in einen speziellen Dialekt wie TEI)</li>
+
+                </ul>
+                <h4 class="substep"><strong>Extraktion</strong> von …</h4>
+                <ul>
+                    <li class="substep">… bestimmten <strong>Textinhalten</strong> (Knoten) zur
+                        Einbettung in einen neuen Dokumenten-Kontext</li>
+                    <li class="substep">… <strong>XML-Fragmenten</strong> zur Einbettung in einen
+                        neuen Dokumenten-Kontext</li>
+                    <li class="substep">… Information aus XML-Dokumenten in <strong>Reintext</strong>-Dokumente (e.g. Tabellen im
+                        CSV-Format)</li>
+                </ul>
+                <blockquote class="substep medium"><strong>Hinweis:</strong> Extraktionen sind im
+                    Grunde Spezialfälle von Transformationen.</blockquote>
+            </div>
+            <div class="step">
+                <h1 class="red">02</h1>
+                <h2 class="line-height-one-five"> Grundprinzipien </h2>
+            </div>
+
+
+
+            <div class="step">
+                <h3>Grundprinzipien</h3>
+                <h2 class="red">Das XSLT Stylesheet</h2>
+                <h4 class="substep">Das XSL-Wurzelelement I</h4>
+                <pre class="substep"><code>&lt;xsl:stylesheet xmlns:xsl="http://www.w3.org/1999/XSL/Transform" version="3.0"&gt;&lt;/xsl:stylesheet&gt;</code></pre>
+                <p class="substep medium">Alternativ kann auch das Synonym
+                        <code>&lt;xsl:transform&gt;</code> verwendet werden. Die Gründe sind
+                    historischer Art.</p>
+                <blockquote class="substep" style="background:  #ffe6e6;"><strong>Wichtig:</strong>
+                    Ein XSL-Dokument ist stets ein wohlgeformtes XML-Dokument! <br />
+                    <strong>Wichtig:</strong> Die Angabe des <code>@xmlns:xsl</code>-Namespaces ist
+                    obligatorisch!</blockquote>
+            </div>
+            <div class="medium step">
+                
+                <h3 class="red">Das XSLT Stylesheet</h3>
+                <h4 class="substep">Das XSL-Wurzelelement II</h4>
+                <h5 class="substep">Konfiguration über Attribute und Kind-Elemente</h5>
+                <pre class="substep"><code>&lt;xsl:stylesheet
+    xpath-default-namespace="http://www.tei-c.org/ns/1.0" <span class="explain">1</span>
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform" <span class="explain">2</span>
+    xmlns:xs="http://www.w3.org/2001/XMLSchema" 
+    exclude-result-prefixes="#all" <span class="explain">3</span>
+    version="3.0"&gt; <span class="explain">4</span>
+        &lt;xsl:output indent="yes" method="xml"/&gt; <span class="explain">5</span>
+        &lt;xsl:mode on-no-match="shallow-copy"/&gt; <span class="explain">6</span>
+&lt;/xsl:stylesheet&gt;</code></pre>
+                    <div class="substep small">
+                    <p class="small"><span class="explain">1</span> <code>@xpath-default-namespace</code> definiert den
+                        TEI-Namespace als standardmäßigen Namespace.<br><span class="explain">2</span> Alle weiteren relevanten Namespaces werden über das Präfix
+                        definiert, e.g. <code>@xmlns:xsl</code><br><span class="explain">3</span> <code>@exclude-result-prefixes</code> schließt mittels
+                            <code>#all</code> alle Namespaces aus der Ergebnisdatei aus.<br><span class="explain">4</span> <code>@version</code> wird auf <code>3.0</code> gesetzt, um
+                        die neuesten Features zu nutzen.<br>
+                        <span class="explain">5</span> <code>output</code> … <br>… sorgt per <code>@indent</code> für
+                                automatisches Code-Formatieren der Ergebnisdatei.<br>… sorgt per <code>@method</code> dafür, dass
+                                    <code>xml</code> als Ausgabe produziert wird.<br>
+                            <span class="explain">6</span> <code>mode</code> … <br>… sorgt mit <code>@on-no-match</code> und dem Wert
+                                    <code>shallow-copy</code>dafür, dass Knoten, für die im
+                                Push-Workflow kein passendes Template existiert, unverändert in den
+                                Ergebnisbaum kopiert werden.
+                    </p>
+                </div>
+                <blockquote class="substep small" style="font-size: 0.7em;"><strong>Tipp:</strong> Das
+                    Beispiel oben ist ein guter Ausgangspunkt zur Transformation und Extraktion von
+                    TEI-XML in allgemeines XML.</blockquote>
+            </div>
+            <div class="step">
+                <h4>Das XSLT Stylesheet</h4>
+                <h3 class="red substep">Das XSL-Template-Element</h3>
+                <h5 class="substep"><code>xsl:template</code>-Elemente sind Kinder-Elemente des
+                        <code>xsl:stylesheet</code>-Elements</h5>
+                <pre class="substep"><code>&lt;xsl:template match="/root" &gt;
+    /* Verarbeitet spezifische Knoten via XPath-navigation, e.g. */
+    &lt;xsl:value-of select="head/title" /&gt;.
+    /* Der aktuelle Kontext-Knoten ist "/root". */
+&lt;/xsl:template&gt;</code></pre>
+                <ul class="substep small">
+                    <li class="substep small" style="line-height: 1.5;">Es muss immer ein
+                            <code>xsl:template</code>-Element vorhanden sein, das per
+                            <code>XPath-Ausdruck</code> den <strong>Einstiegsknoten des
+                            XSL-Prozesses im Quelldokument</strong>
+                        <code>matcht</code>.</li>
+                    <li class="substep small" style="line-height: 1.5;">Innerhalb eines
+                            <code>xsl:template</code>-Elementes können durch spezifische
+                        Kind-Elemente Knoten- und XML-Fragmente <strong>kopiert</strong> oder
+                        weitere <strong>Template-Aufrufe</strong> gesteuert werden.</li>
+                    <li class="substep small" style="line-height: 1.5;">Die verarbeitenden
+                        Kind-Elemente innerhalb des <code>xsl:template</code> addressieren ihre
+                        Zielbereiche innerhalb der Quelldatei ebenfalls über
+                            <code>XPath-Ausdrücke</code>; hierbei wird aber der vom
+                            <strong>Eltern-Element</strong> adressierte Knoten als
+                            <strong>Kontextknoten</strong> angesehen.</li>
+                </ul>
+            </div>
+            <div class="step">
+                <h4>Grundprinzipien</h4>
+                <h3 class="red">Pull-Verarbeitung</h3>
+                <h4 class="substep">Einfache Pullverarbeitung mit <code>xsl:value-of</code></h4>
+                <pre class="substep"><code>&lt;xsl:template match="/TEI"&gt;
+    &lt;document&gt;
+        &lt;meta&gt;
+            &lt;title&gt;
+            &lt;xsl:value-of <span class="explain">1</span> select="teiHeader/fileDesc/titleStmt/title"<span class="explain">2</span>/&gt;
+            &lt;/title&gt;
+        &lt;/meta&gt;
+        &lt;persons&gt;
+            &lt;p&gt;Add the xsl for persons hear.&lt;/p&gt;
+        &lt;/persons&gt;
+    &lt;/document&gt;
+&lt;/xsl:template&gt;</code></pre>
+                <ul style="line-height: 1.5;">
+                    <li class="substep small">Mit <strong>Pull-Verarbeitung</strong> bezeichnet man
+                        das “<strong>Hereinziehen</strong>” von <span class="explain">1</span> Text-Bereichen
+                            (<code>xsl:value-of</code>) sowie Knoten- und XML-Fragmenten
+                            (<code>xsl:copy-of</code>) aus dem Quelldokument über das XSL-Template
+                        in das Ziel-Dokument.</li>
+                    <li class="substep small">Innerhalb des <span class="explain">2</span> <code>@select</code> wird dabei per
+                        XPath das Ziel in der Quelldatei angesteuert. An dieser Stelle können auch
+                        weitere <code>XPath-Funktionen</code> angebracht werden.</li>
+                </ul>
+                <blockquote class="substep small"><strong>Übung:</strong> Bitte öffnen Sie die
+                    Dateien <code>Uebungen/Sturm_persList.xml</code> und
+                        <code>Uebungen/base_xslt.xsl</code>, kopieren Sie obigen Code an die korrekte Stelle in der Datei und ergänzen Sie den
+                    Header-Bereich in <code>document/meta</code> durch weitere Information aus dem
+                    TEI-Header der Quelldatei.</blockquote>
+            </div>
+
+
+            <div class="step">
+                <h4>Grundprinzipien</h4>
+                <h3 class="red">Pull-Verarbeitung</h3>
+                <h4 class="substep">Komplexe Pullverarbeitung mit <code>xsl:for-each</code>
+                    (Schleifen)</h4>
+                <pre class="substep"><code>&lt;xsl:template match="/TEI"&gt;
+    &lt;document&gt;
+        &lt;meta&gt;
+            &lt;p&gt;Add the xsl for meta information aggregation here.&lt;/p&gt;
+        &lt;/meta&gt;
+        &lt;persons&gt;
+            &lt;xsl:for-each <span class="explain">1</span> select="text/body//listPerson/person"<span class="explain">2</span>&gt;
+                &lt;name&gt;&lt;xsl:value-of select="persName"/&gt;<span class="explain">3</span>&lt;/name&gt;
+            &lt;/xsl:for-each&gt;
+        &lt;/persons&gt;
+    &lt;/document&gt;
+&lt;/xsl:template&gt;</code></pre>
+                <ul style="line-height: 1.5;">
+                    <li class="substep small">Mit <span class="explain">1</span> <code>xsl:for-each</code> kann per XPath in
+                        <span class="explain">2</span> <code>@select</code> eine <strong>Liste an Knoten</strong> gesammelt werden, deren
+                        einzelne Elemente von den <span class="explain">3</span> Kind-Elementen des <code>xsl:for-each</code> iteriert und weiterverarbeitet
+                        werden.</li>
+                    <li class="substep small">Innerhalb des <code>@select</code> können auch
+                        weitere <code>XPath-Funktionen</code> angebracht werden.</li>
+                    <li class="substep small"><code>xsl:for-each</code> können
+                        <strong>verschachtelt</strong> werden.</li>
+                </ul>
+                <blockquote class="substep small"><strong>Übung:</strong> Bitte öffnen Sie die
+                    Dateien <code>Uebungen/Sturm_persList.xml</code> und
+                        <code>Ressourcen/XSLT/Sturm_persList.xsl</code> und ergänzen Sie den
+                        <code>xsl:for-each</code>-Bereich in <code>document/persons</code> durch
+                    weitere Information aus der Quelldatei.</blockquote>
+            </div>
+            <div class="step">
+                <h4>Grundprinzipien</h4>
+                <h3 class="red">Push-Verarbeitung mit Rekursion</h3>
+                <pre class="small substep"><code>&lt;xsl:template match="/TEI"&gt;
+    &lt;document&gt; &lt;meta&gt; &lt;p&gt;Add the xsl for meta information aggregation here.&lt;/p&gt; &lt;/meta&gt;
+        &lt;persons&gt;
+            &lt;xsl:for-each <span class="explain">1</span> select="text/body//listPerson/person"<span class="explain">2</span>&gt;
+                &lt;xsl:apply-templates <span class="explain">4</span> select="."<span class="explain">3</span>/&gt;
+            &lt;/xsl:for-each&gt;
+        &lt;/persons&gt;
+    &lt;/document&gt;
+&lt;/xsl:template&gt;
+<span class="explain">5</span>&lt;xsl:template <span class="explain">6</span> match="person" <span class="explain">7</span>&gt; 
+    <span class="explain">8</span>&lt;record type="person"&gt;&lt;xsl:apply-templates <span class="explain">9</span>/&gt;&lt;/record&gt;
+&lt;/xsl:template&gt;
+<span class="explain">5</span>&lt;xsl:template match="persName"&gt; 
+    &lt;name&gt;&lt;xsl:apply-templates/&gt;&lt;/name&gt;
+&lt;/xsl:template&gt;
+<span class="explain">5</span>&lt;xsl:template match="linkGrp" /&gt; </code></pre>
+                <ul style="line-height: 1.5;">
+                    <li class="substep small">Jeder in <span class="explain">1</span> <code>xsl:for-each</code> per XPath in
+                        <span class="explain">2</span> <code>@select</code> angesteuerte Knoten, wird nun über das
+                        <span class="explain">3</span> <code>@select="."</code> des Kind-Elementes
+                        <span class="explain">4</span> <code>xsl:apply-templates</code> in die
+                            “<strong>Template-Rekursion</strong>” übergeben.</li>
+                    <li class="substep small">Das heißt, dass der XSL-Prozess nun die Liste der
+                        <span class="explain">5</span> folgenden Templates (<code>xsl:template</code>) durchgeht und <strong>prüft</strong> ob der
+                        <strong>Xpath-Ausdruck</strong> in <span class="explain">6</span> <code>@match</code> auf den Kontextknoten, im Beispiel
+                        <span class="explain">7</span> <code>person</code> genannt, passt.</li>
+                    <li class="substep small">Wenn ein <code>@match</code> erzielt wird, wird der
+                        <span class="explain">8</span> Inhalt des Templates ausgeführt und der aktualisierte Kontext gegebenenfalls
+                        wieder per <span class="explain">9</span> <code>xsl:apply-templates</code> in die Rekursion
+                        zurückgespielt.</li>
+                </ul>
+                <blockquote class="substep small"><strong>Übung:</strong> Bitte erläutern Sie, 1)
+                    warum die Tags <code>person</code> nicht in der Ausgabedatei auftauchen. 2)
+                    warum <code>ptr</code>-Tags nicht in der Ausgabedatei auftauchen.<br />Bitte
+                    schreiben Sie weitere Templates, um weitere Informationen in der Ausgabedatei
+                    auszugeben.</blockquote>
+            </div>
+
+            <div class="step">
+                <h4>Grundprinzipien</h4>
+                <h3 class="red">Hidden Text Template und Identity Transform-Prinzip</h3>
+                <p class="">XSLT 1.0 &amp; 2.0 verfügen nicht über Konfigurationsmöglichkeiten, die es gestatten, festzulegen, wie mit Knoten umgegangen werden soll, für die <strong>kein “matchendes” Template</strong> existiert. In diesen Fällen greifen die sogenannten “<strong>hidden templates</strong>”. Diese führen dazu, dass es bei fehlendem Template-Match immer zu einem <strong>Minimal-Output an Text(-knoten)</strong> kommt. Alle sonstigen Knoten gehen bei diesem “Notfall-Match” verloren.</p>
+            </div>
+
+            <div class="step">
+                <h3 class="red">Hidden Text Template und Identity Transform-Prinzip</h3>
+                <p class="small">Will man in XSLT 1.0 &amp; 2.0 sämtliche Knoten, für die kein Template definiert wurde, erhalten, muss ein sogenanntes “<strong>Identity Transform-Template</strong>” eingebunden werden, dessen Regel derart allgemein ist, dass <strong>alle Knoten gematcht werden</strong>, für die kein spezialisierteres Template existiert.</p>
+                <pre class="substep"><code>&lt;xsl:template match="@*|*|processing-instruction()|comment()"&gt;
+    &lt;xsl:copy&gt;
+        &lt;xsl:apply-templates select="*|@*|text()|processing-instruction()|comment()"/&gt;
+    &lt;/xsl:copy&gt;
+&lt;/xsl:template&gt;</code></pre>
+                <p class="substep small">Oder kürzer (aber weniger explizit):</p>
+                <pre class="substep"><code>&lt;xsl:template match="@*|node()"&gt;
+    &lt;xsl:copy&gt;
+        &lt;xsl:apply-templates select="@*|node()"/&gt;
+    &lt;/xsl:copy&gt;
+&lt;/xsl:template&gt;</code></pre>
+                <p class="small substep">In XSLT 3.0 kann der Umgang mit Knoten, für die es keine matchenden Templates gibt mit <code>xsl:mode</code> und <code>@on-no-match</code>, konfiguriert werden. Siehe zu den verfügbaren Werten <a href="https://www.data2type.de/xml-xslt-xslfo/xslt/xslt3/streaming/erste-schritte/mode-on-no-match/">hier</a>.</p>
+                <pre class="substep"><code>&lt;xsl:stylesheet
+    /* Snip */
+    version="3.0"&gt;
+    &lt;xsl:output indent="yes" method="xml"/&gt;
+    &lt;xsl:mode on-no-match="shallow-copy"/&gt;
+&lt;/xsl:stylesheet&gt;</code></pre>
+            </div>
+
+            <div class="step">
+                <h2 class="red line-height-one-five">Spezifischere Funktionalitäten</h2>
+                <ul>
+                    <li>XPath-Functions</li>
+                    <li>Variables &amp; Parameters</li>
+                    <li>Input &amp; Output</li>
+                    <li>Conditional Flow</li>
+                    <li>Custom Functions</li>
+                    <li>Element &amp; Attribute Constructors</li>
+                    <li>Rawtext Input</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3 class="red">XPath-Functions (Auswahl)</h3>
+                <p>In XSLT können die bekannten XPath-Funktionen genutzt werden.</p>
+                <ul>
+                    <li>Zählen &amp; bestimmen: <code>count()</code>, <code>substring()</code>,
+                            <code>string-length()</code></li>
+                    <li>Prüfen: <code>contains()</code>, <code>matches()</code>, ...</li>
+                    <li>Negieren: <code>not()</code></li>
+                    <li>Austauschen: <code>translate()</code>, <code>replace()</code>, ...</li>
+                    <li>Konvertieren: <code>string()</code>, <code>number()</code>, ...</li>
+                    <li>siehe zum Einstieg die IDE-Kurzreferenzen</li>
+                    <li>Weiterführend: <a
+                            href="https://www.data2type.de/xml-xslt-xslfo/xslt/xslt-und-xpath-referenz/alphabetische-liste/"
+                            >https://www.data2type.de/xml-xslt-xslfo/xslt/xslt-und-xpath-referenz/alphabetische-liste/</a></li>
+                </ul></div>
+
+                <div class="step">
+                    <h3 class="red">Variables &amp; Parameters (1)</h3>
+                    <p class="small">In XSLT können innerhalb eines Templates Variablen gesetzt und  abgerufen werden. String-Interpolation erfolgt über <span class="explain">1</span> <code>{$var_name}</code>.</p>
+                    <pre><code>&lt;xsl:template match="commentary"&gt;
+    &lt;xsl:variable name="ID" select="ancestor::resource/@id"/&gt;
+    &lt;div type="commentary" ancestor="{$ID}"<span class="explain">1</span>&gt;
+        &lt;xsl:apply-templates select="." /&gt;
+    &lt;/div&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+
+                    </div>
+
+            <div class="step">
+                <h3 class="red">Variables &amp; Parameters (2)</h3>
+                <p class="small">In XSLT können <span class="explain">1</span> Variablen und <span class="explain">2</span> Parameter gesetzt und innerhalb eines Templates abgerufen werden. Parameter können zudem im <code>xsl:apply-templates</code> an nachfolgende Templates übergeben werden. String-Interpolation erfolgt über <code>{$var_name}</code>.</p>
+                <pre><code>&lt;xsl:template match="commentary"&gt;
+&lt;xsl:variable <span class="explain">1</span> name="ID" select="ancestor::resource/@id"/&gt;
+    &lt;div type="commentary"&gt;
+        &lt;xsl:apply-templates select="."&gt;
+            &lt;xsl:with-param <span class="explain">3</span> name="ID" select="$ID"/&gt;
+        &lt;/xsl:apply-templates&gt;
+    &lt;/div&gt;
+&lt;/xsl:template&gt;
+
+&lt;xsl:template match="sup"&gt;
+&lt;xsl:param <span class="explain">2</span> name="ID" /&gt;
+    &lt;hi rend="superscript"&gt;
+        &lt;ref xml:id="{$ID}" target="#apparatus_{$ID}"&gt;&lt;xsl:apply-templates /&gt;&lt;/ref&gt;
+    &lt;/hi&gt;
+&lt;/xsl:template&gt;</code></pre>
+                <blockquote class="small"><strong>Hinweis:</strong> Wenn eine <code>xsl:variable</code> per <span class="explain">3</span> <code>xsl:with-param</code> in der Rekursion weitergereicht wird, muss sie in nachfolgenden Templates mit <code>xsl:param</code> <span class="explain">2</span> “gefangen” werden, um nutzbar zu sein. Soll sie in der Rekursion weiter verfügbar sein, muss die Variable zudem erneut im <code>xsl:apply-templates</code>-Aufruf per <code>xsl:with-param</code> weitergegeben werden.</blockquote>
+                </div>
+
+            <div class="step">
+                <h3 class="red">Input &amp; Output (2)</h3>
+                <h4>Einbinden externer Dateien</h4>
+                <p class="small">Mit der <span class="explain">1</span> <code>document()</code>-Funktion können über eine <code>URI</code> (Pfad im Dateisystem, URL zu einer Web-Ressource) in den laufenden XSL-Prozess einbezogen werden.</p>
+                <p class="small">Die per <code>document()</code> eingebundene Datei kann durch weitere Templates und Funktionen weiterverarbeitet werden.</p>
+                <pre><code>&lt;xsl:template match="person"&gt;
+    &lt;person&gt;
+    &lt;name&gt;&lt;xsl:value-of select="persName" /&gt;&lt;/name&gt;
+    &lt;pre&gt;
+    &lt;code&gt;
+    &lt;xsl:copy-of <span class="explain">1</span> select="document(concat('https://lobid.org/gnd/',@gnd,'.rdf'))/node()" /&gt;
+    &lt;/code&gt;
+    &lt;/pre&gt;
+    &lt;/person&gt;
+&lt;/xsl:template&gt;</code></pre>
+                <blockquote class="small" style="background:  #ffe6e6;"><strong>Wichtig:</strong> Beim Einbinden und Verarbeiten externer Ressourcen muss darauf geachtet werden, gegebenenfalls neu auftretende Namespaces adäquat zu verarbeiten.</blockquote>
+            </div>
+
+            <div class="step">
+                <h3 class="red">Conditional Flow</h3>
+                <p class="small">In XSLT können einfache und komplexe Conditionals gesetzt werden:</p>
+                <ul class="small">
+                    <li><span class="explain">1</span> Einfach: <code>xsl:if</code>; nur if.</li>
+                    <li><span class="explain">2</span> Komplex: <code>xsl:choose</code>; äquivalent zu <span class="explain">3</span>if/<span class="explain">4</span>elif/<span class="explain">5</span>else</li>
+                </ul>
+                <pre><code>&lt;xsl:template match="person"&gt;
+    &lt;p class="person"&gt;
+    <span class="explain">1</span>&lt;xsl:if test="@title"&gt;
+            &lt;span class="title"&gt;&lt;xsl:value-of select="@title" /&gt;&lt;/span&gt;
+        &lt;/xsl:if&gt;
+        &lt;xsl:text&gt; &lt;/xsl:text&gt;
+        &lt;xsl:apply-templates select="." /&gt;
+        <span class="explain">2</span>&lt;xsl:choose&gt;
+            <span class="explain">3</span>&lt;xsl:when test="@gender = 'male'"&gt;
+                &lt;xsl:text&gt; (♂)&lt;/xsl:text&gt;
+            &lt;/xsl:when&gt;
+            <span class="explain">4</span>&lt;xsl:when test="@gender = 'female'"&gt;
+                &lt;xsl:text&gt; (♀)&lt;/xsl:text&gt;
+            &lt;/xsl:when&gt;
+            <span class="explain">5</span>&lt;xsl:otherwise&gt;
+                &lt;xsl:text&gt; (?)&lt;/xsl:text&gt;
+            &lt;/xsl:otherwise&gt;
+        &lt;/xsl:choose&gt;
+    &lt;/p&gt;
+&lt;/xsl:template&gt;
+</code></pre>
+
+                </div>
+
+                <div class="step">
+                    <h3 class="red">Custom Functions</h3>
+                    <p class="small">In XSLT können innerhalb eines Templates Funktionen erstellt und  aufgerufen werden.</p>
+                    <ul  style="line-height: 1.5;" class="small">
+                        <li><span class="explain">1</span><code>as="xs:string"</code> gibt den Rückgabewert einer Funktion oder den Datentyp einer Parameterdeklaration.</li>
+                        <li><span class="explain">2</span> <code>xsl:sequence</code> ist äquivalent zum Keyword <code>return</code> in anderen Programmiersprachen und gibt das Ergebnis der Funktion zurück.</li>
+                        <li>Die Funktion muss notwendigerweise mit einem eigenen <span class="explain">3</span> <code>Namespace</code> deklariert werden.</li>
+                        <li>Die Funktion wird wie eine “normale” XPath-Funktion aufgerufen.</li>
+                    </ul>
+                    <pre><code>&lt;xsl:stylesheet
+    xmlns:xsl="http://www.w3.org/1999/XSL/Transform"
+    …
+    <span class="explain">3</span> xmlns:functx="http://www.functx.com" …/&gt;
+    …
+&lt;xsl:function <span class="explain">3</span> name="functx:substring-after-match" <span class="explain">1</span> as="xs:string?"&gt;
+    &lt;xsl:param name="arg" <span class="explain">1</span> as="xs:string?"/&gt;
+    &lt;xsl:param name="regex" as="xs:string"/&gt;
+    <span class="explain">2</span> &lt;xsl:sequence select="replace($arg,concat('^.*?',$regex),'')"/&gt;
+&lt;/xsl:function&gt;
+</code></pre>
+<p>Siehe auch <a href="https://www.data2type.de/xml-xslt-xslfo/xslt/xslt-referenz/function/">Artikel auf Data2Type</a>.</p>
+                    </div>
+
+
+                    <div class="step">
+                        <h3 class="red">Element &amp; Attribute Constructors</h3>
+                        <p class="small">Man erstellt …</p>
+                        <ul class="small">
+                            <li><span class="explain">1</span> Elemente mit <code>&lt;xsl:element name="element_name"&gt;</code></li>
+                            <li><span class="explain">2</span> Attribute mit <code>&lt;xsl:attribute name="attribute_name"&gt;</code></li>
+                            <li><span class="explain">4</span> Elementinhalte und <span class="explain">3</span> Attributwerte werden als Kind-Elemente der Konstruktor-Elemente notiert.</li>
+                        </ul>
+                        <pre><code>&lt;xsl:template match="person"&gt;
+<span class="explain">1</span> &lt;xsl:element name="name"&gt;
+        <span class="explain">2</span>&lt;xsl:attribute name="norm_data"&gt;
+            <span class="explain">3</span>&lt;xsl:value-of select="@gnd"/&gt;
+        &lt;/xsl:attribute&gt;
+        <span class="explain">4</span>&lt;xsl:value-of select="persName"/&gt;
+    &lt;/xsl:element&gt;
+&lt;/xsl:template&gt;</code></pre>
+
+                        </div>
+
+
+                        <div class="step">
+                            <h3 class="red">Rawtext Input</h3>
+                            <p class="small">
+                                <pre><code># Headline
+
+I’am a paragraph.
+
+## Second Order Headline
+
+I am a paragraph as well.</code></pre>
+                            </p>
+                            <ul class="small">
+                                <li>Reintext muss mittels <span class="explain">1</span> <code>unparsed-text()</code> geladen werden (am besten in eine <span class="explain">2</span> Variable).</li>
+                                <li>Danach muss der Reintext-Input meistens in ein Array <span class="explain">3</span> gesplittet und <span class="explain">4</span> regelbasiert verarbeitet werden.</li>
+                            </ul>
+                           
+
+                            </div>
+
+                            <div class="step">
+                                <h3 class="red">Rawtext Input</h3>
+                                
+                                <pre><code>&lt;xsl:template match="/"&gt;
+<span class="explain">2</span> &lt;xsl:variable name="rawtext_input" select="unparsed-text('rawtext.md')" <span class="explain">1</span>/&gt;
+        &lt;root&gt;
+            &lt;xsl:for-each select="tokenize($rawtext_input, '&amp;#xa;')" <span class="explain">3</span>&gt;
+                &lt;xsl:variable name="line" select="normalize-space(.)"/&gt;
+            <span class="explain">4</span> &lt;xsl:choose&gt;
+                    &lt;xsl:when test="starts-with($line, '#')"&gt;
+                        &lt;xsl:element name="h{string-length(substring-before($line, ' '))}"&gt;
+                            &lt;xsl:value-of select="normalize-space(substring-after($line, ' '))"/&gt;
+                        &lt;/xsl:element&gt;
+                    &lt;/xsl:when&gt;
+                    &lt;xsl:when test="$line != ''"&gt;
+                        &lt;xsl:element name="p"&gt;
+                            &lt;xsl:value-of select="$line"/&gt;
+                        &lt;/xsl:element&gt;
+                    &lt;/xsl:when&gt;
+                    &lt;xsl:otherwise/&gt;
+                &lt;/xsl:choose&gt;
+            &lt;/xsl:for-each&gt;
+        &lt;/root&gt;
+    &lt;/xsl:template&gt;</code></pre>
+    
+    <p class="small">Output:</p>
+    
+    <pre><code>&lt;root&gt;
+        &lt;h1&gt;Headline&lt;/h1&gt;
+        &lt;p&gt;I’am a paragraph.&lt;/p&gt;
+        &lt;h2&gt;Second Order Headline&lt;/h2&gt;
+        &lt;p&gt;I am a paragraph as well.&lt;/p&gt;
+    &lt;/root&gt;</code></pre>
+    
+                                </div>
+
+
+        
+
+            <div class="step">
+                <div class="centered">
+                    <h1>F I N I S</h1>
+                    <h2>Thank you</h2>
+                </div>
+            </div>
+            <div class="step">
+                <h2>Literature &amp; Software</h2>
+                <h4>Literatur</h4>
+                <ul class="small">
+                    <li>Beals, M. H. (2016): Transforming Data for Reuse and Re-publication with XML and XSL, in: The Programming Historian 5 (2016), <a href="https://programminghistorian.org/en/lessons/transforming-xml-with-xsl">https://programminghistorian.org/en/lessons/transforming-xml-with-xsl</a>.</li>
+                    <li>Data2Type:
+                        <ul>
+                            <li>XSLT 1.0 <a href="https://www.data2type.de/xml-xslt-xslfo/xslt/xslt-einfuehrung/">https://www.data2type.de/xml-xslt-xslfo/xslt/xslt-einfuehrung/</a></li>
+                            <li>XSLT 2.0 <a href="https://www.data2type.de/xml-xslt-xslfo/xslt/xslt2/">https://www.data2type.de/xml-xslt-xslfo/xslt/xslt2/</a></li>
+                            <li>XSLT 3.0 <a href="https://www.data2type.de/xml-xslt-xslfo/xslt/xslt3/">https://www.data2type.de/xml-xslt-xslfo/xslt/xslt3/</a></li>
+                        </ul>
+                    </li>
+                    <li>Tidwell, Doug (<sup>2</sup>2009): XSLT, 2nd Edition. Sebastopol. <em>Vorsicht: Dieses Buch behandelt nur die XSLT Versionen 1.0 und 2.0.</em></li>
+                    <li>w3schools: <a href="https://www.w3schools.com/xml/xsl_intro.asp"
+                            >https://www.w3schools.com/xml/xsl_intro.asp</a> (Zugriff 14.01.2020).</li>
+                </ul>
+                <h4>Download</h4>
+                <ul class="small">
+                    <li>
+                        <a href="#"> Link to presentation </a>
+                    </li>
+                    <li> License: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY
+                            4.0</a>, Author </li>
+                </ul>
+            </div>
+        </div>
+        <!-- jquery -->
+        <script src="vendor/jquery/jquery-1.11.0.min.js"></script>
+        
+        <!-- highlight -->
+        <script src="vendor/highlight/highlight.pack-9.3.0.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script src="resources/js/hljs.linenumbering.js"></script>
+        <!-- magnific popup -->
+        <script src="vendor/magnific-popup/jquery.magnific-popup.min-1.1.0.js"></script>
+        <script src="resources/js/magnific-popup.lightbox.js"></script>
+        <!-- impress.mod.js -->
+        <script src="vendor/impress/impress.fork.js"></script>
+        <script src="vendor/impress/impress-slidenum.js"></script>
+        <script>
+        var obj = impress();
+        obj.init();
+        initSlideNo(obj);
+    </script>
+    </body>
+</html>
