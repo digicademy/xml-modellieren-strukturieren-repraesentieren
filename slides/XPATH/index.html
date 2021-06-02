@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Einführung in X-Technologien: Modellieren, Strukturieren, Repräsentieren :: Sitzung
+            2</title>
+
+        <!-- meta information -->
+        <meta name="author" content="Max Grüntgens" />
+        <meta name="author" content="Dominik Kasper" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=1024" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
+        <!-- favicons -->
+        <link rel="shortcut icon" href="resources/img/favicon.png" />
+        <link rel="apple-touch-icon" href="resources/img/apple-touch-icon.png" />
+
+        <!-- CSS reset and grid -->
+        <link href="vendor/normalize/normalize-4.1.1.css" rel="stylesheet" />
+        <link href="vendor/skeleton/skeleton-2.0.4.css" rel="stylesheet" />
+
+        <!-- fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,600italic,400italic,700italic,800,800italic&amp;subset=latin,latin-ext"
+            rel="stylesheet" type="text/css" />
+
+        <!-- styles for included libraries -->
+
+        <!-- chartist -->
+        <link rel="stylesheet" href="vendor/chartist/chartist.min-0.9.7.css" />
+
+        <!-- codemirror -->
+        <link rel="stylesheet" href="vendor/codemirror/lib/codemirror.css" />
+
+        <!-- highlight -->
+        <link rel="stylesheet" href="vendor/highlight/styles/default.css" />
+        <link rel="stylesheet" href="resources/css/hljs.linenumbering.css" />
+
+        <!-- magnific popup -->
+        <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup-1.1.0.css" />
+
+        <!-- standard presentation styles -->
+        <link href="resources/css/style.css" rel="stylesheet" />
+
+        <!-- custom presentation styles -->
+        <link href="resources/css/custom.css" rel="stylesheet" />
+
+        <!-- js needed in head -->
+
+        <!-- greuler -->
+        <script src="vendor/d3/d3-3.5.6.js"></script>
+        <script src="vendor/cola/cola.v3.min.js"></script>
+        <script src="vendor/greuler/greuler-0.5.5.min.js"></script>
+
+        <!-- html5 dataset shim for IE -->
+        <script src="vendor/impress/html5-dataset.js" type="text/javascript"></script>
+    </head>
+
+    <body>
+        <div class="fallback-message">
+            <p> Your browser <strong>doesn't support the features required</strong> by
+                impress.mod.js, so you are presented with a simplified version of this presentation. </p>
+            <p> For the best experience please use the latest <strong>Chrome</strong>,
+                    <strong>Safari</strong> or <strong>Firefox</strong> browser. </p>
+        </div>
+        <div id="impress">
+            <div class="step">
+                <h4><strong>2021</strong> | <strong>Mainz</strong></h4>
+                <h1 class="down-25">Einführung in X-Technologien</h1>
+                <hr />
+                <h2 class="red up-25">Modellieren, Strukturieren, Repräsentieren</h2>
+                <h3>Sitzung 2: XPATH</h3>
+                <h4 class="down-25">
+                    <strong>Slides:</strong>
+                    <a href="#" title="View the presentation online"> Link </a>
+                </h4>
+                <h5>
+                    <strong><a href="#">Max Grüntgens</a></strong> | <strong><a href="#">Dominik
+                            Kasper</a></strong> | <img
+                        src="resources/img/Twitter_bird_logo_2012.svg" alt="Twitter"
+                        class="twitter-icon" />
+                    <a href="https://twitter.com/digicademy" title="Digital Academy on Twitter"
+                        >@digicademy</a> | <img src="resources/img/Octicons-mark-github.svg"
+                        alt="Twitter" class="gh-icon" />
+                    <a href="https://github.com/digicademy/" title="Digital Academy on GitHub"
+                        >digicademy</a> | <a href="https://creativecommons.org/licenses/by/4.0/"
+                        >CC-BY 4.0</a>
+                </h5>
+            </div>
+            <div class="step">
+                <h2>Überblick</h2>
+                <ol class="line-height-one-five">
+                        <li>Was ist XPath?</li>
+                        <li>Das Konzept Knoten</li>
+                        <li>XPath-Achsen-Modell</li>
+                        <li>Navigation im Baum <ol>
+                            <li style="padding-left: 3em;">Zugriff auf Knoten</li>
+                            <li style="padding-left: 3em;">Konditionen und Funktionen</li>
+                            <li style="padding-left: 3em;">Zu mehr XPath-Funktionen</li>
+                        </ol>
+                        </li>
+                        <li>Arbeiten im Oxygen XML Editor (XPath)</li>
+                </ol>
+            </div>
+
+
+            <div class="step">
+                <h1 class="red">01</h1>
+                <h2 class="line-height-one-five">Was ist XPath?</h2>
+            </div>
+
+            <div class="step">
+                <h3 class="red">XPath</h3>
+                <ul class="line-height-one-five">
+                    <li>… dient der <strong>Navigation</strong> in einen XML-Baum, d.h. in XML-Dateien, indem <strong>Knoten-Pfade</strong> durch den XML-Baum beschrieben werden und/oder die <strong>Position</strong> von Knoten (Elemente, Attribute, Text) im Baum verortet wird. </li>
+                    <li>… dient dem <strong>Herausziehen von "Informations-Schnippseln"</strong>, also einer grundständigen Abfrage oder Suche. Diese "Informations-Schnippsel" können dabei Textstücke, Elemente, Attributwerte, Teilbäume des Gesamtbaumes, u.a. sein.</li>
+                    <li>… XPath dient als <strong>Grundlage</strong> für die Arbeit mit XSLT (<strong>Transformation</strong>) und XQuery (<strong>Abfrage</strong>).</li>
+                </ul>
+            </div>
+
+
+            <div class="step">
+                <h1 class="red">02</h1>
+                <h2 class="line-height-one-five">Das Konzept Knoten</h2>
+            </div>
+            <div class="step">
+                <h2>Das Konzept Knoten</h2>
+                <h3 class="red">XML-Baumstruktur: Element vs. Knoten</h3>
+                <div class="mfp-lightbox row">
+                    <div class="four columns">
+                        <h4>XML Dokument</h4>
+                        <a href="resources/img/XML_file.png"><img
+                            src="resources/img/XML_file.png" /></a>
+                    </div>
+                    <div class="four columns">
+                        <h4>Elementbaum</h4>
+                        <a href="resources/img/element.png"><img src="resources/img/element.png"
+                        /></a>
+                    </div>
+                    <div class="four columns">
+                        <h4>Knotenbaum</h4>
+                        <a href="resources/img/node.png"><img src="resources/img/node.png" /></a>
+                    </div>
+                </div>
+            </div>
+            <div class="step">
+                <h2>Das Konzept Knoten</h2>
+                <h3 class="red">Denken in Knoten (<em>nodes</em>)</h3>
+                <table class="small">
+                    <thead>
+                        <tr>
+                            <th>Knotentyp</th>
+                            <th>Erklärung</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td><strong><em>Wurzelknoten</em></strong></td>
+                            <td>oberster, abstrakter, Knoten des Baumes, <strong>Parent des Wurzelelements (Node-Set, String)</strong>;
+                                Zeichenwert: alle Zeichendaten des Dokuments</td>
+                        </tr>
+                        <tr>
+                            <td><strong><em>Elementknoten</em></strong></td>
+                            <td>Knoten, der <strong>Knoten- u/o Zeichendaten eines Elements (Node-Set, String)</strong> enthält; Zeichenwert: alle Zeichendaten
+                                seiner Textknotenkinder</td>
+                        </tr>
+                        <tr>
+                            <td><strong><em>Attributknoten</em></strong></td>
+                            <td>Knoten, der <strong>Zeichendaten eines Attributs (String)</strong> enthält; separat für jedes
+                                Attribut eines Elements, Zeichenwert: Attributwert</td>
+                        </tr>
+                        <tr>
+                            <td><strong><em>Textknoten</em></strong></td>
+                            <td>Knoten, der nur <strong>Zeichendaten (String)</strong> enthält</td>
+                        </tr>
+                        <tr>
+                            <td><strong><em>Kommentarknoten</em></strong></td>
+                            <td>Knoten, der den <strong>Kommentarinhalt (String)</strong> enthält </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <p>Es gibt außerdem noch Verarbeitungsknoten und Namensraumknoten, die wir hier aus
+                    Zeitgründen nicht näher thematisieren.</p>
+            </div>
+            <div class="step">
+                <h2>XPath-Achsen-Modell</h2>
+                <h3 class="red">Denken in Achsen (<em>axes</em>)</h3>
+                <div class="row">
+                    <div class="six columns">
+                        <h4>Achsen</h4>
+                        <ul class="small ">
+                            <li class="substep">self (kurz <code>.</code>)</li>
+                            <li class="substep">child (kurz <code>/</code>)</li>
+                            <li class="substep">parent (kurz <code>..</code>)</li>
+                            <li class="substep">descendant <code>descendant::*</code></li>
+                            <li class="substep">descendant-or-self (kurz <code>//</code>)</li>
+                            <li class="substep">ancestor <code>ancestor::*</code></li>
+                            <li class="substep">ancestor-or-self <code>ancestor-or-self::*</code></li>
+                            <li class="substep">following <code>following::*</code></li>
+                            <li class="substep">following-sibling <code>following-sibling::*</code></li>
+                            <li class="substep">preceding <code>preceding::*</code></li>
+                            <li class="substep">preceding-sibling <code>preceding-sibling::*</code></li>
+                            <li class="substep">attribute (kurz <code>@</code>) <code>attribute::*</code></li>
+                        </ul>
+                        <p class="small substep">Das <code>*</code> in den obigen Notation steht für jeden Elementnamen (oder Attributnamen bei <code>attribute::</code>), also <code>ancestor::p</code> gibt einen Ancestor-Knoten mit dem Elementnamen <code>p</code> zurück.</p>
+                    </div>
+                    <div class="substep six columns mfp-lightbox">
+                        <h4>Grafische Übersicht wichtiger Achsen</h4>
+                        <a href="resources/img/axes.png"><img src="resources/img/axes.png"/></a>
+                        <blockquote class="substep small" style="background:  #ffe6e6; font-size: 0.7em;"> Zu beachten ist, dass, auch wenn die Achsen durchgehend im Singular notiert sind, je nach Kontext ein Node-Set – also eine Ergebnisliste – zurückgegeben wird, e.g. ancestor gibt alle vorangehenden Elementknoten zurück, nicht nur den ersten.</blockquote>
+                    </div>
+                </div>
+                
+            </div>
+            <div class="step">
+                <h3>Auf den Punkt gebracht</h3>
+                <h2 class="red">in einem Satz</h2>
+                <blockquote>XPath ist eine Sprache zur <strong>Navigation</strong> in XML-Dokumenten und zur
+                    <strong>Adressierung</strong>, <strong>Selektion</strong> und <strong>Rückgabe</strong> von Knoten/Knoten-Sets/Bäumen und
+                    Strings/Zahlen/Wahrheitswerten (Booleans) sowie Sequenzen als Reihen dieser
+                    Dinge. </blockquote>
+                <p class="x-small">Institut für Dokumentologie und Editorik: XML - Kurzreferenz für
+                    Einsteiger</p>
+            </div>
+
+
+            <div class="step">
+                <h3>Erläuterung</h3>
+                <h2 class="red">XPath im Oxygen-XML-Editor</h2>
+                <p>Screenshot und Beschreibung einfügen</p>
+            </div>
+
+            <div class="step">
+                <h2>Navigation im Baum I</h2>
+                <h3 class="red">Der Zugriff auf Knoten</h3>
+                <p class="substep">Der Zugriff auf Knoten erfolgt über sog. <strong>Lokalisierungsschritte</strong>,
+                    die den Pfadangaben von Unix-Systemen ähneln.</p>
+                <p class="substep">Die Pfadangaben müssen immer <strong>kontextabhängig</strong> gemacht
+                    werden und bestehen zunächst einmal aus:</p>
+                <ul class="line-height-one-five">
+                    <li class="substep">Achsenangaben, wie <code>parent::</code>, <code>child::</code> usw. bzw. ihren in
+                        der Praxis viel häufiger zu findenden Kurzschreibweisen.</li>
+                    <li class="substep">Elementnamen</li>
+                </ul>
+                <h4 class="substep">Beispiele</h4>
+                <ul>
+                    <li class="substep"><code>/TEI/teiHeader/fileDesc/publicationStmt/p</code></li>
+                    <li class="substep"><code>/TEI/text/body/descendant-or-self::p</code></li>
+                    <li class="substep"><code>//p</code></li>
+                    <li class="substep"><code>//p/@n</code></li>
+                </ul>
+            </div>
+            <div class="step">
+                <h2>Navigation im Baum II</h2>
+                <h3 class="red">Konditionen und Funktionen</h3>
+                <p class="substep">Es gibt weitere Möglichkeiten eine Lokalisierung (in der Pfadangabe) zu <strong>konkretisieren</strong> und damit bestimmte (Teil-)<strong>Mengen auszuschließen</strong>:</p>
+                <ul>
+                    <li class="substep"><strong>Konditionen</strong> (auch Prädikate genannt) in eckigen Klammern (<code>[]</code>)</li>
+                    <li class="substep">(String-)<strong>Funktionen</strong></li>
+                </ul>
+                <h4 class="substep">Beispiele</h4>
+                <ul>
+                    <li class="substep"><code>//p[@n="1"]</code></li>
+                    <li class="substep"><code>//p[not(matches(., '[0-9]'))]</code></li>
+                    <li class="substep"><code>count(//p[1])</code></li>
+                </ul>
+            </div>
+            <div class="step">
+                <h2>Navigation im Baum III</h2>
+                <h3 class="red">XPath-Funktionen (Beispiele)</h3>
+                <ul>
+                    <li>Zählen &amp; bestimmen: <code>count()</code>, <code>substring()</code>, <code>string-length()</code></li>
+                    <li>Prüfen: <code>contains()</code>, <code>matches()</code>, ...</li>
+                    <li>Negieren: <code>not()</code></li>
+                    <li>Austauschen: <code>translate()</code>, <code>replace()</code>, ...</li>
+                    <li>Konvertieren: <code>string()</code>, <code>number()</code>, ...</li>
+                    <li>siehe zum Einstieg die IDE-Kurzreferenzen</li>
+                    <li>Weiterführend: <a
+                        href="https://www.data2type.de/xml-xslt-xslfo/xslt/xslt-und-xpath-referenz/alphabetische-liste/"
+                        >https://www.data2type.de/xml-xslt-xslfo/xslt/xslt-und-xpath-referenz/alphabetische-liste/</a></li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <div class="small">
+                    <h3 class="red">Übung: Formalisierung</h3>
+                    <p>XPath ist eine formale Sprache. Man kann, wie wir oben gesehen haben, zwischen
+                    normaler (z. B. deutscher) Sprache und XPath hin und her übersetzen, wobei dies
+                    zugleich ein Prozess fortschreitender <strong>Formalisierung</strong> bzw. <strong>Operationalisierung</strong> ist:</p>
+                    <ol>
+                        <li class="substep">»Wie alt ist die erste mittelalterliche Inschrift des Landkreises Bad Kreuznach?« wird formalisiert zu ...</li>
+                        <li  class="substep">»Bilde die Differenz zwischen dem aktuellen Jahr, bspw 2020, und dem bei den Kopfmetadaten zu
+                            findenden Jahr der Inschrift«. Dies wiederum bedeutet auf XPath-Pseudocode ...</li>
+                        <li class="substep">2020 − (Jahr-der-ersten-Inschrift), oder als etwas präziserer Pseudo
+                            code ...</li>
+                        <li class="substep">2020 − (Jahr-der-ersten-Inschrift) von <code>//resource[1]</code>, oder als etwas präziserer Pseudo
+                            code ...</li>
+                        <li class="substep"><code>2020-(//resource[1]/head/dateEnd)</code>, ...
+                            noch das Jahr extrahieren ...</li>
+                        <li class="substep"><code>2020-(//resource[1]/head/dateEnd/substring(., 1, 4))</code>, und in eine Zahl verwandeln ...</li>
+                        <li class="substep"><code>2020-number(//resource[1]/head/dateEnd/substring(., 1, 4))</code></li>
+                    </ol></div>
+            </div>
+
+            <div class="step">
+                <h2>Abschlussfrage</h2>
+                <p>Warum brauchen wir in einer Abfragesprache, die dem Adressieren und Selektieren dient, Funktionen zum Konvertieren und Umwandeln?</p>
+            </div>
+
+            <div class="step">
+                <h2>Übungsaufgaben: XPath</h2>
+                <h3>Inschriften des Landkreises Bad Kreuznach</h3>
+                <p class="small">Datei: <a href="https://raw.githubusercontent.com/digicademy/xml-modellieren-strukturieren-repraesentieren/main/Uebungen/di-34.xml">Download</a> der Datei aus dem Repositorium.</p>
+                <ul>
+                    <li class="small"><strong>Öffnen</strong> Sie die <strong>Datei</strong> im Oxygen-XML-Editor.</li>
+                    <li class="small"><strong>Verschaffen</strong> Sie sich einen
+                            <strong>Überblick</strong> über die XML-Struktur der Datei.</li>
+                    <li class="small line-height-one-five"><strong>Beantworten</strong> Sie die folgende Fragen mittels XPath:<ul>
+                            <li class="line-height-one-five">An welchem Ort befinden sich die älteste sowie die jüngste Inschrift in der Datei? Geben Sie auch Ihren eingesetzten XPath an.</li>
+                            <li class="line-height-one-five">Wie viele Einträge besitzen eine Schriftzuordnung zur Schriftfamilie <em>Kapitalis</em>? Geben Sie auch Ihren eingesetzten XPath an.</li>
+                            <li class="line-height-one-five">Geben Sie einen XPath an, mit dem man alle Einträge aggregieren kann, die sich
+                                 möglicherweise mit Inschriftenträgern aus Holz beschäftigen.</li>
+                            <li class="line-height-one-five">Geben Sie einen Xpath an, der alle Einträge aggregiert, die sich möglicherweise in einer Kirche befinden.</li>
+                            <li class="line-height-one-five">Geben Sie die Anzahl und den dazugehörigen Xpath aller Einträge an, bei denen das auf der Inschrift eingemeißelte Datum den Monat Mai angibt.</li>
+                            <li class="line-height-one-five">Geben Sie einen Xpath an, der alle Einträge aggregiert, bei denen es sich bei dem Inschriftenträger möglicherweise um eine Grabplatte handelt.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h2>Übungsaufgaben: XPath</h2>
+                <h3>Caesars Gallischer Krieg (englische Übersetzung)</h3>
+                <p class="small">Datei: <a href="https://raw.githubusercontent.com/PerseusDL/canonical-latinLit/master/data/phi0448/phi001/phi0448.phi001.perseus-eng2.xml">Download</a> aus der <a href="https://github.com/PerseusDL">Perseus Digital Library</a> auf GitHub.</p>
+                <ul>
+                    <li class="small"><strong>Öffnen</strong> Sie die im Oxygen-XML-Editor.</li>
+                    <li class="small"><strong>Verschaffen</strong> Sie sich einen
+                            <strong>Überblick</strong> über die XML-Struktur der Datei.</li>
+                    <li class="small line-height-one-five"><strong>Beantworten</strong> Sie die folgende Fragen mittels XPath:<ul>
+                            <li class="line-height-one-five">Geben Sie alle distinkten Ortsnamen aus (Tipp: <code>distinct-values()</code>).</li>
+                            <li class="line-height-one-five">Geben Sie die Anzahl an distinkten Orts-, Stammes- und Personennamen an.</li>
+                            <li class="line-height-one-five">Versuchen Sie sich alle Flussnamen ausgeben zu lassen. Was fällt Ihnen auf?</li>
+                            <li class="line-height-one-five">Welcher Personenname taucht am häufigsten auf? Wie ist das Verhältnis der einzelnen Personennamen zueinander?</li>
+                            <li class="line-height-one-five">Geben Sie per XPath die Nummern derjenigen Kapitel aus, in denen ein oder mehrere "Druiden" genannt werden.</li>
+                            <li class="line-height-one-five">Überlegen Sie sich, welche Anfragen Sie gerne noch an den Text stellen würde und benennen Sie die Element- und Attributstrukturen, die hierfür nötig wären.</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            
+
+        </div>
+        <!-- jquery -->
+        <script src="vendor/jquery/jquery-1.11.0.min.js"></script>
+        <!-- chartist -->
+        <script src="vendor/chartist/chartist.min-0.9.7.js"></script>
+        <script src="resources/js/chartist.charts.js"></script>
+        <!-- codemirror -->
+        <script src="vendor/codemirror/lib/codemirror.js"></script>
+        <script src="vendor/codemirror/addon/edit/matchbrackets.js"></script>
+        <script src="vendor/codemirror/mode/sparql/sparql.js"></script>
+        <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("sparql"), {
+            mode: "application/sparql-query",
+            matchBrackets: true,
+            lineNumbers: true,
+            viewportMargin: Infinity
+        });
+    </script>
+        <!-- highlight -->
+        <script src="vendor/highlight/highlight.pack-9.3.0.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script src="resources/js/hljs.linenumbering.js"></script>
+        <!-- magnific popup -->
+        <script src="vendor/magnific-popup/jquery.magnific-popup.min-1.1.0.js"></script>
+        <script src="resources/js/magnific-popup.lightbox.js"></script>
+        <!-- impress.mod.js -->
+        <script src="vendor/impress/impress.fork.js"></script>
+        <script src="vendor/impress/impress-slidenum.js"></script>
+        <script>
+        var obj = impress();
+        obj.init();
+        initSlideNo(obj);
+    </script>
+    </body>
+</html>
