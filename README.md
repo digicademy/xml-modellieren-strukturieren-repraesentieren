@@ -12,7 +12,7 @@ Die Slides sind in die folgenden thematischen Sektionen gegliedert:
     * Einsatz von XML
     * Grundstruktur von XML
     * Notationsregeln von XML
-2. XPath: Abfrage von XML-Dateien
+2. [XPath](https://digicademy.github.io/xml-modellieren-strukturieren-repraesentieren/slides/XPATH/index.html): Abfrage von XML-Dateien
     * Konzept Knoten in XML
     * XPath-Achsen
     * Navigation im XML-Baum, Konditionen mit Prädikaten
