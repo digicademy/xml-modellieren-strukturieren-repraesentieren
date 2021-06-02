@@ -1,0 +1,70 @@
+/*
+* TEI Documentation Link
+*/
+
+span.element a.tei-doc-link, span.php  {
+  color: #e06c75;
+}
+
+span.element {
+
+}
+
+span.delimiters, span.delimiters span.php, span.php span.hljs-meta {
+  font-weight: bolder;
+  color: #abb2bf;
+}
+
+span.attribute, span.attribute span.php {
+  font-weight: bolder;
+  color: #d19a66 !important;
+}
+
+span.attribute a.tei-doc-link, span.attribute a.tei-doc-link span.php {
+  font-weight: bolder;
+  color: #d19a66 !important;
+}
+
+
+span.attribute a.tei-doc-link:hover {
+  color: #efbe8f !important;
+}
+
+code.tei-doc-link {
+  color: #abb2bf;
+  background-color: #282c34 !important;
+
+}
+
+span.element span.value span.hljs-string {
+  color: #98c379 !important;
+}
+
+span.value span.hljs-string {
+  color: #98c379 !important;
+}
+
+span.element span.value {
+  color: #98c379 !important;
+}
+
+span.value {
+  color: #98c379 !important;
+}
+
+span.element a.tei-doc-link:hover {
+  color: #ea9198;
+}
+
+span.comment-string {
+  color: #778899 !important;
+}
+
+span.comment-string span.hljs-comment {
+  color: #778899 !important;
+}
+
+li code.xml.tei-doc-link, p code.xml.tei-doc-link, blockquote code.xml.tei-doc-link {
+  white-space: pre-line !important;
+  font-style: normal !important;
+}

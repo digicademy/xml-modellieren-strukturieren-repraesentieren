@@ -1,8 +1,9 @@
 # XML
 
 #### Max Grüntgen, Dominik Kasper
+#### Language: German
 
-### Description
+### Beschreibung
 
 Grundlagen XML:
 
@@ -12,6 +13,7 @@ Grundlagen XML:
 * Arbeiten im Oxygen XML Editor (XML allgemein)
 * Übungen
 
+Texts and materials are released under [CC-BY 4.0](https://creativecommons.org/licenses/by/4.0/), Max Grüntgens (ADWL Mainz), Dominik Kasper (ADWL Mainz), unless stated otherwise.
 _____
 
 The code of this boilerplate is at https://github.com/digicademy/impress-js-boilerplate

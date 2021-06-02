@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<TEI xmlns="http://www.tei-c.org/ns/1.0">
+    <teiHeader>
+        <fileDesc>
+            <titleStmt>
+                <title/>
+            </titleStmt>
+            <publicationStmt>
+                <authority>wissenschaftliche Institution</authority>
+                <availability status="free">
+                    <licence target="http://creativecommons.org/licenses/by/4.0/">Creative Commons
+                        Namensnennung 4.0 International Lizenz (CC BY 4.0)</licence>
+                </availability>
+            </publicationStmt>
+            <sourceDesc>
+                <msDesc>
+                    <msIdentifier>
+                        <placeName/>
+                        <institution/>
+                        <idno type="URI"/>
+                        <altIdentifier>
+                            <idno/>
+                        </altIdentifier>
+                    </msIdentifier>
+                    <physDesc>
+                        <objectDesc>
+                            <supportDesc>
+                                <support>
+                                    <objectType>Objekttyp</objectType>
+                                    <material>Material </material>
+                                    <dimensions unit="cm">
+                                        <height unit="cm">15</height>
+                                        <width unit="cm">15</width>
+                                        <depth unit="cm">15</depth>
+                                    </dimensions>
+                                </support>
+                            </supportDesc>
+                        </objectDesc>
+                        <scriptDesc>
+                            <scriptNote/>
+                        </scriptDesc>
+                        <decoDesc>
+                            <decoNote/>
+                        </decoDesc>
+                    </physDesc>
+                    <history>
+                        <origin>
+                            <date/>
+                            <country/>
+                            <region/>
+                            <settlement type="city"/>
+                            <geogName>
+                                <location>
+                                    <geogName>Ev. Pfarrkirche</geogName>
+                                </location>
+                            </geogName>
+                        </origin>
+                    </history>
+                </msDesc>
+            </sourceDesc>
+        </fileDesc>
+        <encodingDesc>
+            <schemaRef url="http://www.stoa.org/epidoc/schema/8.23/tei-epidoc.rng">
+                <desc>EpiDoc: TEI XML for epigraphic Documents Schema</desc>
+            </schemaRef>
+        </encodingDesc>
+        <profileDesc>
+            <particDesc>
+                <listPerson>
+                    <person xml:id="id1" sex="0">
+                        <persName>
+                            <forename>Vorname</forename>
+                            <surname>Nachname</surname>
+                        </persName>
+                        <birth/>
+                        <death/>
+                        <floruit/>
+                    </person>
+                    <person xml:id="id2" sex="0">
+                        <persName>
+                            <forename>Vorname</forename>
+                            <surname>Nachname</surname>
+                        </persName>
+                        <birth/>
+                        <death/>
+                        <floruit/>
+                    </person>
+                    <person xml:id="id3" sex="0">
+                        <persName>
+                            <forename>Vorname</forename>
+                            <surname>Nachname</surname>
+                        </persName>
+                        <birth/>
+                        <death/>
+                        <floruit/>
+                    </person>
+                    <listRelation>
+                        <relation name="1" active="#id1" passive="#id2"/>
+                        <relation name="2" active="#id2" passive="#id3"/>
+                    </listRelation>
+                </listPerson>
+            </particDesc>
+            <langUsage>
+                <language ident=""/>
+            </langUsage>
+        </profileDesc>
+    </teiHeader>
+    <facsimile>
+        <graphic url="./url/to/facsimile.png">
+            <desc>Beschreibung der Abbildung</desc>
+        </graphic>
+    </facsimile>
+    <text>
+        <body>
+            <div type="edition">
+                <div type="textpart" subtype="pediment" n="1">
+                    <ab>Text without linebreaks and interventions: lorem ipsum dolor sit</ab>
+                </div>
+                <div type="textpart" subtype="section" n="2">
+                    <ab><lb n="1"/>Unclear: <unclear>lor</unclear>em <lb n="2"/>Supraline: <hi
+                            rend="supraline">lorem</hi>
+                        <lb n="3"/>Ligature: <hi rend="ligature">ab</hi> and <hi rend="ligature"
+                            >cde</hi>
+                        <lb n="4"/>Erasure: <del rend="erasure">ab</del>
+                        <lb n="5"/>Erased and lost: <del rend="erasure"><gap reason="lost"
+                                quantity="5" unit="character"/></del>
+                        <lb n="6"/>Overstrike: <add place="overstrike">abc</add>
+                        <lb n="7"/>Added above: <add place="above">γδ</add>
+                        <lb n="8"/>Added below: <add place="below">γδ</add>
+                        <lb n="9"/>Supplied (Lost): <supplied reason="lost">γδ</supplied>
+                        <lb n="10"/>Supplied (lost, low certainty): <supplied reason="lost"
+                            cert="low">γδ</supplied>
+                        <lb n="11"/>Supplied (omitted): <supplied reason="omitted">γδ</supplied>
+                        <lb n="12"/>Supplied (subaudible): <supplied reason="subaudible"
+                            >lorem</supplied>
+                        <lb n="13"/>Supplied (parallel): <supplied reason="undefined"
+                            evidence="parallel">lorem</supplied>
+                        <lb n="14"/>Supplied (previous editor): <supplied reason="undefined"
+                            evidence="previouseditor">lorem</supplied>
+                        <lb n="15"/>Gap (lost, character): <gap reason="lost" quantity="15"
+                            unit="character"/>
+                        <lb n="16"/>Gap (lost, unknown, character): <gap reason="lost"
+                            extent="unknown" unit="character"/>
+                        <lb n="17"/>Gap (lost, at least–at most, character): <gap reason="lost"
+                            atLeast="5" atMost="7" unit="character"/>
+                        <lb n="18"/>Gap (lost, low precision, character): <gap reason="lost"
+                            quantity="26" unit="character" precision="low"/>
+                        <lb n="19"/>Gap (lost, line): <gap reason="lost" quantity="1" unit="line"/>
+                        <lb n="20"/>Gap (lost, unknown, line): <gap reason="lost" extent="unknown"
+                            unit="line"/>
+                        <lb n="21"/>Gap (possibly lost, line): <gap reason="lost" quantity="1"
+                            unit="line">
+                            <certainty match=".." locus="name"/>
+                        </gap>
+                        <lb n="22"/>Gap (possibly lost, unknown, line): <gap reason="lost"
+                            extent="unknown" unit="line">
+                            <certainty match=".." locus="name"/>
+                        </gap>
+                        <lb n="23"/>Gap (omitted, unknown, character): <gap reason="omitted"
+                            extent="unknown" unit="character"/>
+                        <lb n="24"/>Gap (omitted, unknown, line): <gap reason="omitted"
+                            extent="unknown" unit="line"/>
+                        <lb n="25"/>Gap (illegible, character): <gap reason="illegible"
+                            unit="character" quantity="5"/>
+                        <lb n="26"/>Words omitted by editor for brevity: <gap reason="ellipsis"/>
+                        <lb n="27"/>Superfluous letters: <surplus>αβγ</surplus>
+                        <lb n="28"/>Clear but incomprehensible: <orig>αββα</orig>
+                        <lb n="29"/>Correction by editor: <choice>
+                            <corr>αβ</corr>
+                            <sic>βα</sic>
+                        </choice>
+                        <lb n="30"/>Regularied by editor: <choice>
+                            <reg>ἐκ</reg>
+                            <orig>ἐγ</orig>
+                        </choice>
+                        <lb n="31"/>Expansion of abbreviation:
+                            <expan><abbr>α</abbr><ex>βγ</ex></expan>
+                        <lb n="32"/>Tentative expansion of abbreviation: <expan><abbr>α</abbr><ex
+                                cert="low">βγ</ex></expan>
+                        <lb n="33"/>Incomplete expansion: <expan>α<ex>βγ </ex></expan>
+                        <lb n="34"/>Abbreviation (expansion unknown): <abbr>αβ</abbr>
+                        <lb n="35"/>Expansion of symbol: <expan><ex>αβ</ex></expan>
+                        <lb n="36"/>Note: <note>!</note>, <note>sic</note>, <note>e.g.</note>
+                        <lb n="37"/>Space left on stone: <space quantity="1" unit="character"/>
+                        <lb n="38"/>Space on stone, extent unknown: <space extent="unknown"
+                            unit="character"/>
+                        <lb n="39"/>Numeral (Roman): <num value="12">XII</num>
+                        <lb n="40"/>Numeral (Greek): <num value="1">α</num>
+                        <lb n="41"/>Numeral (Greek): <num value="1000">α</num>
+                        <lb n="42"/>Symbol: <g type="leaf"/>
+                        <lb n="43"/>Symbol: <g type="bear"/>
+                    </ab>
+                </div>
+                <div type="textpart" subtype="section" n="3">
+                    <ab><lb n="1"/>Ehrwüdigen <expan><abbr>v</abbr><ex>nd</ex></expan> wolgelehrten
+                        Herr <persName ref="#Corvinus_Michael"><expan>
+                                <abbr type="reduction">Johan</abbr>
+                                <ex>nis</ex>
+                            </expan><lb n="2"/>MICHAELIS CORVINI</persName> Pfarherrs zu
+                                <geogName>Hen<lb n="3" break="no"/>weiller</geogName> Töchterlein,
+                        ihres alters 2 jahr,<lb n="4"/>vnd 5 monat <lg type="Kreuzreim" rhyme="ABAB">
+                            <l n="5">Du Armes Würmlein <orig>hast</orig> genug,</l>
+                            <l n="6">nach deinem <unclear cert="medium">al</unclear>ter
+                                außgestanden,</l>
+                            <l n="7">eh als dein Seelchen seinen Flug,</l>
+                            <l n="8">genomen aus leibes banden,</l>
+                        </lg><lb n="9"/><gap reason="lost" unit="character" quantity="4"/>t nun in
+                        dein Seel<hi rend="apex">i</hi>g leben, <lb n="10"/><gap reason="illegible"
+                            unit="character" quantity="5"/>s ben,<lb n="11"/><gap reason="lost"
+                            extent="unknown" unit="line"/>
+                    </ab>
+                </div>
+                <div type="textpart" subtype="section" n="3">
+                    <ab>Lorem ipsum, dolor sit amet.</ab>
+                    <div type="textpart" subtype="column" n="a">
+                        <ab><lb n="1"/>Lorem ipsum <lb n="2"/>dolor sit amet.</ab>
+                    </div>
+                    <div type="textpart" subtype="column" n="b">
+                        <ab><lb n="1"/>Lorem ipsum dolor <lb n="2"/>sit amet. </ab>
+                    </div>
+                </div>
+                <div type="textpart" subtype="base" n="4">
+                    <ab>Lorem ipsum.</ab>
+                </div>
+                <div type="textpart" subtype="fragment" n="5">
+                    <ab><lb n="2"/>Lor<gap reason="lost" unit="character" quantity="23"/></ab>
+                </div>
+            </div>
+            <div type="translation">
+                <p></p>
+            </div>
+            <div type="commentary">
+                <p/>
+            </div>
+            <div type="bibliography">
+                <listBibl>
+                    <bibl/>
+                </listBibl>
+            </div>
+        </body>
+    </text>
+</TEI>

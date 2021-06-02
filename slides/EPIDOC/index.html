@@ -1,0 +1,1461 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <title>Digitale Edition von Inschriften – Materialität und Schriftlichkeit :: Inschriften als Quellen der mittelalterlichen Kulturgeschichte</title>
+
+  <!-- meta information -->
+
+  <meta name="author" content="Thomas Kollatz" />
+  <meta name="author" content="Max Grüntgens" />
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=1024" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+
+  <!-- favicons -->
+  <link rel="shortcut icon" href="resources/img/favicon.png" />
+  <link rel="apple-touch-icon" href="resources/img/apple-touch-icon.png" />
+
+  <!-- CSS reset and grid -->
+  <link href="vendor/normalize/normalize-4.1.1.css" rel="stylesheet" />
+  <link href="vendor/skeleton/skeleton-2.0.4.css" rel="stylesheet" />
+
+  <!-- fonts -->
+  <link href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,600italic,400italic,700italic,800,800italic&amp;subset=latin,latin-ext" rel="stylesheet" type="text/css" />
+
+  <!-- styles for included libraries -->
+
+  <!-- chartist -->
+  <link rel="stylesheet" href="vendor/chartist/chartist.min-0.9.7.css" />
+
+  <!-- unite gallery -->
+  <link rel="stylesheet" href="vendor/unitegallery/css/unite-gallery.css" type="text/css" />
+
+  <!-- codemirror -->
+
+  <!-- highlight -->
+  <link rel="stylesheet" href="vendor/highlight/styles/default.css" />
+  <link rel="stylesheet" href="resources/css/hljs.linenumbering.css" />
+
+    <!-- magnific popup -->
+  <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup-1.1.0.css" />
+
+  <!-- standard presentation styles -->
+  <link href="resources/css/style.css" rel="stylesheet" />
+
+  <!-- custom presentation styles -->
+  <link href="resources/css/custom.css" rel="stylesheet" />
+
+  <!-- js needed in head -->
+
+  <!-- greuler -->
+  <script src="vendor/d3/d3-3.5.6.js"></script>
+  <script src="vendor/cola/cola.v3.min.js"></script>
+  <script src="vendor/greuler/greuler-0.5.5.min.js"></script>
+
+  <!-- html5 dataset shim for IE -->
+  <script src="vendor/impress/html5-dataset.js" type="text/javascript"></script>
+
+  <!-- Custoized -->
+  <link href="https://fonts.googleapis.com/css?family=IM+Fell+English+SC" rel="stylesheet" />
+
+  <link rel="stylesheet" href="https://hou2zi0.github.io/tei-doc-link/CSS/tei-documentation-links.css" />
+  <style>
+    /* code {
+      border: 0px solid black !important;
+      white-space: pre-wrap !important;
+      word-wrap: break-word !important;
+    }
+
+    pre {
+      white-space: pre-wrap !important;
+      word-wrap: break-word !important;
+    } */
+
+    pre code {
+      color: grey;
+      font-size: 0.7em;
+      line-height: normal;
+    }
+
+    .numbering {
+      width: 1em !important;
+    }
+
+    .a-quote {
+      color: black;
+      font-weight: normal;
+    }
+
+    .a-quote:hover {
+      color: black;
+      font-weight: normal;
+    }
+
+    .explain {
+                color: white !important; border-radius: 30px; background: white !important; padding: 0em .3em 0em .3em; width: 1em; height: 1em;
+                margin-left: .1em; margin-right: .1em; font-family: monospace;
+                font-weight: normal !important;
+            }
+
+    .hljs-number {
+                color: white;
+            }
+  </style>
+  <script>
+    function translationFeature(id, text){
+      document.getElementById(id).addEventListener('click', (e) => {
+          e.stopPropagation();
+          e.preventDefault();
+
+          if (e.target.classList.contains('a-quote')){
+            if (e.target.classList.contains('original')){
+              e.target.classList.remove('original');
+              e.target.classList.add('translation');
+              e.target.innerHTML = text.translation;
+            } else {
+              e.target.classList.remove('translation');
+              e.target.classList.add('original');
+              e.target.innerHTML = text.original;
+            }
+          } else {
+            if (e.target.parentElement.classList.contains('original')){
+              e.target.parentElement.classList.remove('original');
+              e.target.parentElement.classList.add('translation');
+              e.target.parentElement.innerHTML = text.translation;
+            } else {
+              e.target.parentElement.classList.remove('translation');
+              e.target.parentElement.classList.add('original');
+              e.target.parentElement.innerHTML = text.original;
+            }
+          }
+        })
+    }
+  </script>
+</head>
+
+<body>
+  <div class="fallback-message">
+    <p> Your browser <strong>doesn't support the features required</strong> by impress.mod.js, so you are presented with a simplified version of this presentation. </p>
+    <p> For the best experience please use the latest <strong>Chrome</strong>,
+      <strong>Safari</strong> or <strong>Firefox</strong> browser. </p>
+  </div>
+  <div id="impress">
+    <div class="step">
+      <h4 class="down-25"><strong>2021 | Mainz</strong></h4>
+      <h1 class="webfont">Digitale Epigraphik</h1>
+      <h2 class="red up-25" style="font-size: 42px;">Einführung und Grundlagen</h2>
+      <h4 class="medium">
+          <strong>Slides: </strong>
+          <a href="https://digicademy.github.io/xml-modellieren-strukturieren-repraesentieren/slides/EPIDOC/index.html#/step-1"
+            title="View the presentation online"
+            >https://digicademy.github.io/xml-modellieren-strukturieren-repraesentieren/slides/EPIDOC/index.html#/step-1</a>
+        </h4>
+      <h5>
+          <strong><a href="https://orcid.org/0000-0001-8736-9393">Max
+              Grüntgens</a></strong> | <a href="http://orcid.org/0000-0003-1904-1841">Thomas
+            Kollatz</a>
+          <br /><img src="resources/img/Twitter_bird_logo_2012.svg" alt="Twitter"
+            class="twitter-icon" />
+            <a href="https://twitter.com/kol_t" title="Digitale Akademie on Twitter">@kol_t</a>|<a
+            href="https://twitter.com/digicademy" title="Digitale Akademie on Twitter"
+            >@digicademy</a>|<a href="https://twitter.com/inschriften"
+            title="Digitale Akademie on Twitter">@inschriften</a> || <img
+            src="resources/img/Octicons-mark-github.svg" alt="Twitter" class="gh-icon" />
+          <a href="https://github.com/#" title="digicademy on GitHub">digicademy</a> || <a
+            href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a>
+        </h5>
+    </div>
+    <div class="step">
+      <div class="medium">
+        <h2>Gliederung</h2>
+        <ol class="line-height-one-five">
+          <li>Grundlagen <a href="#part_001">[⇒]</a></li>
+          <li>Epigraphic Documents <a href="#part_002">[⇒]</a></li>
+          <li>Literatur <a href="#part_003">[⇒]</a></li>
+        </ol>
+      </div>
+    </div>
+    <div class="step" id="part_001">
+      <h1 class="red">01</h1>
+      <h2 class="line-height-one-five">Grundlagen </h2>
+    </div>
+
+    <div class="step">
+      <h2 class="red">Digitale und Traditionele Epigraphik</h2>
+      <blockquote><a title="Klicken um Übersetzung anzuzeigen!" class="a-quote original" id="bodard"> The focus of such a class is not so much an intensive EpiDoc training, but rather demonstrating that <strong>structured markup is nothing more than structured thinking</strong> about data. The structure of an XML document reflects the structure of an epigraphic
+        edition.
+        <strong>Following the strict hierarchy of XML forces one to better organise one’s
+            thoughts, approach towards, and work on an epigraphic document</strong>. We have found that it is highly beneficial to be able to process and produce information in a well structured and clearer way, even if the students do not show
+        interest in further DH training.
+      </a>
+      </blockquote>
+      <p class="x-small right"><a href="http://dx.doi.org/10.5334/bat.d">Bodard and Stoyanova
+            2016</a></p>
+      <script>
+        translationFeature('bodard',
+            { original: `The focus of such a class is not so much an intensive EpiDoc training, but rather demonstrating that <strong>structured markup is nothing more than structured thinking</strong> about data. The structure of an XML document reflects the structure of an epigraphic
+            edition. <strong>Following the strict hierarchy of XML forces one to better organise one’s
+                thoughts, approach towards, and work on an epigraphic document</strong>. We have found that it is highly beneficial to be able to process and produce information in a well structured and clearer way, even if the students do not show
+            interest in further DH training.`,
+                translation: `Der Schwerpunkt eines solchen Kurses liegt nicht so sehr auf einer intensiven EpiDoc-Schulung, sondern vielmehr darauf, zu zeigen, dass <strong>strukturiertes Markup nichts anderes ist als strukturiertes Denken</strong> über Daten. Die Struktur eines XML-Dokuments spiegelt die Struktur einer epigraphischen
+            Edition. <strong>Das Befolgen der strengen Hierarchie von XML zwingt einen dazu, seine
+                Gedanken, die Herangehensweise an und die Arbeit an einem epigraphischen Dokument besser zu organisieren</strong>. Wir haben festgestellt, dass es sehr vorteilhaft ist, Informationen gut strukturiert und übersichtlich zu verarbeiten und zu produzieren, auch wenn die Studenten kein
+            Interesse an einer DH-Weiterbildung zeigen.` } )
+      </script>
+    </div>
+
+    <div class="step">
+      <div>
+        <h2 class="red centered">XML – Extensible Markup Language</h2>
+        <h2 class="line-height-one-five centered">Semantik statt Typographie</h2>
+        <blockquote> <a title="Klicken um Übersetzung anzuzeigen!" class="a-quote original" id="intro">Generalizing from that sense, we define markup, or (synonymously) encoding, as any means of <strong>making explicit an interpretation</strong> of a text.</a> </blockquote>
+        <p class="right x-small">aus: <a href="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/SG.html">A Gentle
+              Introduction to XML</a></p>
+        <ul class="line-height-one-five">
+          <li> Erweiterbar und anpassbar. </li>
+          <li>Geräte- wie Plattform-unabhängige Speicherung und Prozessierung von digitalen Texten
+          </li>
+          <li>Austausch- und Kommunikations-Format</li>
+        </ul>
+      </div>
+      <script>
+        translationFeature('intro',
+            { original: `Generalizing from that sense, we define markup, or (synonymously) encoding, as any means of <strong>making explicit an interpretation</strong> of a text.`,
+                translation: `Verallgemeinernd definieren wir Markup oder (synonym) Kodierung als jedes Mittel, um <strong>eine Interpretation</strong> eines Textes explizit zu machen.` } )
+      </script>
+    </div>
+
+
+    <div class="step" id="xml">
+      <h2 class="red">Extensible Markup Language (XML)</h2>
+      <p>XML trennt Inhalt und Struktur sowie verschiedene Ebenen von Semantik und Metadaten durch
+        <strong>Trennzeichen und Schlüsselworte</strong> voneinander.</p>
+      <dfn>Trennzeichen sind <code>&lt; &gt; &amp; ;</code></dfn>
+      <h3 class="down-50">Beispiel</h3>
+      <p>
+        <code>&lt;</code> Schlüsselwort <code>&gt;</code>
+        <br /><code>&amp;</code> Schlüsselwort <code>;</code>
+      </p>
+      <p>Vokabular und Syntax von XML sind <strong>anpassbar</strong> und
+        <strong>erweiterbar</strong>. Mit Schema-Sprachen lässt sich ein
+        <strong>Regelwerk</strong> für projekteigene XML-Dateien erstellen. Ein XML-Dokument bildet eine verschachtelte <strong>Baumstruktur</strong>.</p>
+    </div>
+    <!--
+      <div class="step">
+        <p>Delimiter sind:</p>
+        <ul>
+          <li>Spitze Klammern (“Krokodilsklammern”) und Schrägstrich</li>
+          <li>Anführungszeichen</li>
+          <li>Kaufmanns-Und und Semikolon</li>
+        </ul>
+      </div>
+     -->
+    <div class="step">
+      <blockquote>
+        <span class="red smallcaps">Elemente</span> (aka “tags”): <code class="xml tei-doc-link">&lt;element&gt;</code>
+      </blockquote>
+      <pre><code class="xml tei-doc-link linenumbers">&lt;correspDesc&gt;
+‖      &lt;correspAction&gt;
+‖      |  &lt;persName&gt;
+‖      |  ¦  &lt;forename&gt;Max&lt;/forename&gt;
+‖      |  ¦  &lt;surname&gt;Mustermann&lt;/surname&gt;
+‖      |  &lt;/persName&gt;
+‖      &lt;/correspAction&gt;
+‖      &lt;correspAction&gt;
+‖      |  &lt;persName&gt;
+‖      |  ¦  &lt;forename&gt;Mina&lt;/forename&gt;
+‖      |  ¦  &lt;surname&gt;Musterfrau&lt;/surname&gt;
+‖      |  &lt;/persName&gt;
+‖      &lt;/correspAction&gt;
+&lt;/correspDesc&gt;
+</code></pre>
+      <blockquote>
+        <strong>Sinn</strong>: Eindeutige Kennzeichnung und damit Disambiguierung der strukturellen wie semantischen Bestandteile eines Dokumentes:
+        <ul class="small line-height-one-five">
+          <li> Der Bereich <span style="font-style: normal;">‖</span> klammert eine einzige Instanz einer Korrespondenz. </li>
+          <li> Der Bereich | klammert jeweils die Informationen zum Sender (erste Instanz) sowie zum Empfänger (zweite Instanz). </li>
+          <li> Der Bereich ¦ klammert weitere Personendaten. </li>
+        </ul>
+      </blockquote>
+    </div>
+    <div class="step">
+      <blockquote><span class="red smallcaps">Attribute</span>
+        <code class="xml tei-doc-link">&lt;element
+          attribut=&quot;attributwert&quot;&gt;</code></blockquote>
+      <pre><code class="xml tei-doc-link linenumbers">&lt;correspDesc xml:id="unique_letter_id"&gt;
+  &lt;correspAction  type="sent"&gt;
+     &lt;persName xml:lang="de" ref="http://d-nb.info/gnd/118540238"&gt;
+        &lt;forename&gt;Max&lt;/forename&gt;
+        &lt;surname&gt;Mustermann&lt;/surname&gt;
+      &lt;/persName&gt;
+  &lt;/correspAction&gt;
+  &lt;correspAction  type="received"&gt;
+      &lt;persName xml:lang="de" ref="http://d-nb.info/gnd/118540987"&gt;
+        &lt;forename&gt;Mina&lt;/forename&gt;
+        &lt;surname&gt;Musterfrau&lt;/surname&gt;
+      &lt;/persName&gt;
+  &lt;/correspAction&gt;
+&lt;/correspDesc&gt;
+</code></pre>
+      <blockquote>
+        <strong>Sinn</strong>: Weitere Spezifizierung bzw. Individualisierung einer semantischen oder strukturellen Einheit. </blockquote>
+    </div>
+    <div class="step">
+      <blockquote>
+        <span class="red smallcaps">Leere Elemente</span>
+        <code class="xml tei-doc-link">&lt;element /&gt;</code>
+      </blockquote>
+      <pre><code class="xml tei-doc-link linenumbers">&lt;lb/&gt; Lorem ipsum
+&lt;lb/&gt; dolor sit
+&lt;lb/&gt; adipiscit &lt;handShift/&gt;quid
+&lt;lb/&gt; paretur
+</code></pre>
+      <blockquote>
+        <strong>Sinn</strong>: Kennzeichnung von punktuellen Änderungen oder Ansetzung von Ankerpunkten innerhalb eines Dokumentes. </blockquote>
+    </div>
+    <!--
+    <div class="step">
+      <blockquote><span class="red smallcaps">Namespace-Präfixe</span> <code class="xml tei-doc-link">&lt;pre:fixelement&gt;</code></blockquote>
+      <pre><code class="xml tei-doc-link linenumbers">&lt;root xmlns:prj=&quot;http://url/to/namespace/prj/&quot;&gt;
+      &lt;letter&gt;
+            &lt;sender identifier=&quot;m0001&quot;&gt;Max Mustermann&lt;/sender&gt;
+            &lt;prj:letter&gt;Blackletter Script&lt;/prj:letter&gt;
+      &lt;/letter&gt;
+&lt;root&gt;
+</code></pre>
+      <blockquote>
+        <strong>Sinn</strong>: Disambiguierung gleichlautender Elementnamen bei Benutzung unterschiedlicher “XML-Regelwerke”.
+      </blockquote>
+    </div>
+  -->
+    <div class="step">
+      <h2 class="red">Wohlgeformtheit und Validität</h2>
+      <p>Wenn das XML-Dokument den allgemeinen Syntax-Regeln gehorcht, spricht man von “
+        <strong>Wohlgeformtheit</strong>”. Ist das Dokument zusätzlich konform zu einem Schema, spricht man von “<strong>Validität</strong>”.</p>
+      <p>Durch die Ansetzung eines <strong>Schema-Regelwerks</strong> lassen sich XML-Dokumente sehr einfach in konsistenter Form erstellen, da jederzeit ein <strong>Feedback zur
+            Regelhaftigkeit</strong> des Dokumentes zurückgegeben wird. Viele Text-Editoren greifen zudem auf das zurgundeliegende Schema zurück, um dem Benutzer die im Auszeichnungs-Kontext angebrachten Schlüsselworte per Knopfdruck anzubieten.</p>
+    </div>
+    <div class="step">
+      <h2 class="red">Notations- und Syntaxregeln</h2>
+      <ul class="small line-height-one-five">
+        <li>Jedes Dokument enhält <strong>genau ein Wurzelelement</strong> (root element), das alle anderen Elemente des Baumes in sich schließt.</li>
+        <li><strong>Regelkonforme Elementnamen</strong> sind case sensitive, müssen mit Unterstrichen oder Buchstaben beginnen und dürfen keine Leerstellen enthalten.
+          <ul>
+            <li>
+              <code>&lt;Date&gt; ≠ &lt;date&gt;</code></li>
+            <li>
+              <code>&lt;2018_date&gt; ⇒ &lt;date_2018&gt;</code></li>
+
+          </ul>
+        </li>
+        <li>Jedes <strong>geöffnete</strong> Element muss <strong>geschlossen</strong> werden.
+        </li>
+        <li>Es ist <strong>keine Überlappung</strong> von Elementbereichen erlaubt.</li>
+        <li>Elemente ohne Text-Inhalt dürfen auch als selbstschließende bzw. <strong>leere
+              Tags</strong> geschrieben werden:
+          <ul>
+            <li>
+              <code>&lt;date&gt;&lt;/date&gt; => &lt;date /&gt;</code></li>
+          </ul>
+        </li>
+        <li><strong>Trennzeichen</strong> sind zu <strong>maskieren</strong> und damit als Entitäten einzufügen, wenn sie als “normale” Zeichen erscheinen sollen:
+          <ul>
+            <li>
+              <code>&amp; ⇒ &amp;amp;</code>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="step">
+      <h2 class="red">Maschinelle Verarbeitung</h2>
+      <p>Die Daten <strong>konsistent strukturierter</strong> XML-Dokumente können mithilfe von Abfrage- und Transformations-Sprachen (XPath, XSLT, XQuery, u.a.)
+        <strong>durchsucht</strong>, <strong>akkumuliert</strong> und bspw. <strong>in
+            Ausgabeformate überführt</strong> werden. </p>
+      <p>Auf der <strong>Grundlage konsistenter Datenhaltung</strong> können also <strong>Register
+          </strong> und <strong>Indices</strong> akkumuliert werde. Zudem lassen sich
+        <strong>Druckvorstufen</strong> (pandoc, ConTeXt) für Verlage oder
+        <strong>HTML-Ausgaben</strong> im Rahmen dynamischer Webseiten (EFES, eXistDB) produzieren.
+      </p>
+    </div>
+    <div class="step" id="part_001">
+      <h1 class="red">Standards und die Community</h1>
+      <h2 class="line-height-one-five">Die Text Encoding Initiative und Epigraphic Documents</h2>
+    </div>
+    <div class="step">
+      <div class="centered">
+        <h2 class="red">TEI: Text Encoding Initiative</h2>
+        <!-- <h2 class="line-height-one-five">Semantic statt Typographie</h2>
+                    <ul class="line-height-one-five">
+                        <li>device-independent and system-independent storing and processing of
+                            texts in electronic form</li>
+                        <li>interchange and communication format </li>
+                    </ul> -->
+        <blockquote><a title="Klicken um Übersetzung anzuzeigen!" class="a-quote original" id="tei_def">The Text Encoding Initiative (TEI) is a consortium which
+          <strong>collectively</strong> develops and maintains a <strong>standard</strong> for the representation of texts in digital form. Its chief deliverable is a set of
+          <strong>Guidelines</strong> which specify encoding methods for
+          <strong>machine-readable</strong> [=<strong>prozessierbare</strong>]
+          <strong>texts</strong>, chiefly in the humanities, social sciences and linguistics.</a> </blockquote>
+        <p class="right x-small">aus: <a href="http://www.tei-c.org">http://www.tei-c.org</a></p>
+      </div>
+      <script>
+        translationFeature('tei_def',
+{ original: `The Text Encoding Initiative (TEI) is a consortium which
+          <strong>collectively</strong> develops and maintains a <strong>standard</strong> for the representation of texts in digital form. Its chief deliverable is a set of
+          <strong>Guidelines</strong> which specify encoding methods for
+          <strong>machine-readable</strong> [=<strong>prozessierbare</strong>]
+          <strong>texts</strong>, chiefly in the humanities, social sciences and linguistics.`,
+    translation: `Die Text Encoding Initiative (TEI) ist ein Konsortium, das
+          <strong>gemeinsam</strong> einen <strong>Standard</strong> für die Darstellung von Texten in digitaler Form entwickelt und pflegt. Sein Hauptergebnis ist ein Satz von
+          <strong>Richtlinien</strong>, die Kodierungsmethoden für
+          <strong>Maschinenlesbare</strong> [=<strong>prozessierbare</strong>]
+          <strong>Texte</strong>, vor allem in den Geistes- und Sozialwissenschaften und der Linguistik.` } )
+      </script>
+    </div>
+
+    <div class="step">
+      <div class="centered">
+        <h2 class="red">Guidelines</h2>
+        <figure class="mfp-lightbox">
+          <a href="resources/img/tei-c.png"><img src="resources/img/tei-c.png"
+                alt="tei guidelines" style="width:75%; height:75%" /></a></figure>
+        <p class="center x-small">Quelle: <a href="http://www.tei-c.org/release/doc/tei-p5-doc/en/html/index.html">http://www.tei-c.org/release/doc/tei-p5-doc/en/html/index.html</a></p>
+      </div>
+    </div>
+    <div class="step">
+      <div class="centered">
+        <h2 class="red">Special Interest Groups</h2>
+        <figure class="mfp-lightbox">
+          <a href="resources/img/tei-SIGs.png"><img src="resources/img/tei-SIGs.png"
+                style="width:75%; height:75%"  alt="tei_SIG"/></a></figure>
+      </div>
+      <p class="center x-small">Quelle: <a href="http://www.tei-c.org/Activities/SIG/">http://www.tei-c.org/Activities/SIG/</a></p>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">EpiDoc</h2>
+        <h4>Epigraphic Documents in TEI XML | text markup for ancient documents</h4>
+        <blockquote>
+          <a title="Klicken um Übersetzung anzuzeigen!" class="a-quote original" id="epidoc_def">EpiDoc is an <strong>international</strong>, <strong>collaborative</strong> effort that provides <strong>guidelines</strong> and <strong>tools</strong> for encoding scholarly and educational editions of ancient documents. It uses a
+          <strong>subset</strong> of the Text Encoding Initiative's standard for the representation of texts in digital form and was developed initially for the publication of <strong>digital editions</strong> of ancient inscriptions […]. Its domain has
+          expanded to include the publication of papyri and manuscripts […]. It addresses not only the <strong>transcription</strong> and <strong>editorial treatment</strong> of texts themselves, but also the <strong>history</strong> and <strong>materiality</strong>          of the objects on which the texts appear (i.e., manuscripts, monuments, tablets, papyri, and other <strong>text-bearing objects</strong>).</a>
+        </blockquote>
+      </div>
+      <p class="right small">Quelle: <a href="https://sourceforge.net/p/epidoc/wiki/Home/">https://sourceforge.net/p/epidoc/wiki/Home/</a></p>
+      <script>
+        translationFeature('epidoc_def',
+      { original: `EpiDoc is an <strong>international</strong>, <strong>collaborative</strong> effort that provides <strong>guidelines</strong> and <strong>tools</strong> for encoding scholarly and educational editions of ancient documents. It uses a
+          <strong>subset</strong> of the Text Encoding Initiative's standard for the representation of texts in digital form and was developed initially for the publication of <strong>digital editions</strong> of ancient inscriptions […]. Its domain has
+          expanded to include the publication of papyri and manuscripts […]. It addresses not only the <strong>transcription</strong> and <strong>editorial treatment</strong> of texts themselves, but also the <strong>history</strong> and <strong>materiality</strong>          of the objects on which the texts appear (i.e., manuscripts, monuments, tablets, papyri, and other <strong>text-bearing objects</strong>).`,
+          translation: `EpiDoc ist ein <strong>internationales</strong>, <strong>kollaboratives</strong> Projekt, das <strong>Richtlinien</strong> und <strong>Werkzeuge</strong> für die Codierung von wissenschaftlichen und pädagogischen Editionen antiker Dokumente bereitstellt. Es verwendet ein
+          <strong>Teilmenge</strong> des Standards der Text Encoding Initiative für die Darstellung von Texten in digitaler Form und wurde ursprünglich für die Veröffentlichung von <strong>digitalen Editionen</strong> antiker Inschriften entwickelt [...]. Sein Anwendungsbereich hat sich
+          hat sich auf die Publikation von Papyri und Manuskripten erweitert [...]. Sie befasst sich nicht nur mit der <strong>Transkription</strong> und <strong>editorischen Bearbeitung</strong> von Texten selbst, sondern auch mit der <strong>Geschichte</strong> und <strong>Materialität</strong> der Objekte, auf denen die Texte erscheinen (d.h. Manuskripte, Denkmäler, Tafeln, Papyri und andere <strong>texttragende Objekte</strong>).` } )
+      </script>
+    </div>
+
+    <div class="step">
+      <h2 class="red">Arbeitsdefinitionen: Inschrift</h2>
+      <blockquote> Inschriften sind Beschriftungen <strong>verschiedener Materialien</strong> – in Stein, Holz, Metall, Leder, Stoff, Email, Glas, Mosaik usw. – die von Kräften und mit Methoden hergestellt sind, die <strong>nicht dem Schreibschul- und Kanzleibetrieb
+            angehören</strong>. </blockquote>
+      <p class="small">Rudolf M. Kloos, Einführung in die Epigraphik des Mittelalters und der frühen Neuzeit, 2. Aufl., Darmstadt 1992, S. 2.</p>
+    </div>
+
+    <div class="step">
+      <h2 class="red">Arbeitsdefinitionen: Inschrift</h2>
+      <blockquote> 
+        <a title="Klicken um Übersetzung anzuzeigen!" class="a-quote original" id="inschrift_def">An epigraph is <strong>any sort of text</strong>, from a single grapheme […] to a lengthy document […]. Epigraphy <strong>overlaps other competences</strong> such as numismatics or palaeography. When compared to books, most inscriptions are short.
+        The
+        <strong>media</strong> and the forms of the <strong>graphemes</strong> are
+        <strong>diverse</strong>: engravings in stone or metal, scratches on rock, impressions in wax, embossing on cast metal, cameo or intaglio on precious stones, painting on ceramic or in fresco [etc.]. <strong>Typically the material is durable</strong>,
+        but the durability might be an accident of circumstance, such as the baking of a clay tablet in a conflagration.</a>
+      </blockquote>
+      <p class="small">Wikipedia contributors, “Epigraphy”, Wikipedia, The Free Encyclopedia, <a href="https://en.wikipedia.org/w/index.php?title=Epigraphy&amp;oldid=820499672">https://en.wikipedia.org/w/index.php?title=Epigraphy&amp;oldid=820499672</a> (23.1.2018).
+      </p>
+      <script>
+        translationFeature('inschrift_def',
+      { original: `An epigraph is <strong>any sort of text</strong>, from a single grapheme […] to a lengthy document […]. Epigraphy <strong>overlaps other competences</strong> such as numismatics or palaeography. When compared to books, most inscriptions are short.
+        The
+        <strong>media</strong> and the forms of the <strong>graphemes</strong> are
+        <strong>diverse</strong>: engravings in stone or metal, scratches on rock, impressions in wax, embossing on cast metal, cameo or intaglio on precious stones, painting on ceramic or in fresco [etc.]. <strong>Typically the material is durable</strong>,
+        but the durability might be an accident of circumstance, such as the baking of a clay tablet in a conflagration.`,
+          translation: `Eine Epigraphik ist <strong>jede Art von Text</strong>, von einem einzelnen Graphem [...] bis zu einem längeren Dokument [...]. Die Epigraphik <strong>überschneidet sich mit anderen Fachgebieten</strong> wie der Numismatik oder der Paläographie. Im Vergleich zu Büchern sind die meisten Inschriften kurz.
+        Die
+        <strong>Medien</strong> und die Formen der <strong>Grapheme</strong> sind
+        <strong>vielfältig</strong>: Gravuren in Stein oder Metall, Ritzungen auf Felsen, Abdrücke in Wachs, Prägungen auf Metallguss, Kameen oder Tiefdrucke auf Edelsteinen, Malerei auf Keramik oder in Fresko [usw.]. <strong>Typischerweise ist das Material haltbar</strong>,
+        aber die Haltbarkeit kann ein Zufall der Umstände sein, wie z.B. das Verbrennen einer Tontafel in einer Feuersbrunst.` } )
+      </script>
+    </div>
+
+    <div class="step">
+      <h2 class="red">Form follows Function</h2>
+      <blockquote>
+        <a title="Klicken um Übersetzung anzuzeigen!" class="a-quote original" id="felicetti">What characterises this class of objects is that <strong>they form a whole with
+          their physical support</strong>. Indeed, the meaning of an epigraph cannot be fully
+          understood without the analysis of the object or monument or other
+          archaeological object on which it appears, just as one cannot fully understand
+          the nature of that particular archaeological object without thoroughly
+          investigating the sense of the inscription or iconographic representation it
+          hosts.
+        </a></blockquote>
+      <p class="x-small right">Felicetti et al., 2016</p>
+      <script>
+        translationFeature('felicetti',
+      { original: `What characterises this class of objects is that <strong>they form a whole with
+          their physical support</strong>. Indeed, the meaning of an epigraph cannot be fully
+          understood without the analysis of the object or monument or other
+          archaeological object on which it appears, just as one cannot fully understand
+          the nature of that particular archaeological object without thoroughly
+          investigating the sense of the inscription or iconographic representation it
+          hosts.`,
+          translation: `Diese Klasse von Objekten zeichnet sich dadurch aus, dass <strong>sie eine Einheit bilden mit ihrem physischen Träger</strong>. In der Tat kann die Bedeutung einer Inschrift nicht vollständig verstanden werden, ohne die Analyse des Objekts oder Denkmals oder eines anderen archäologischen Objekts, auf dem sie erscheint, genauso wie man die Natur dieses speziellen archäologischen Objekts nicht vollständig verstehen kann, ohne den Sinn der Inschrift oder der ikonographischen Darstellung, die es trägt, gründlich zu untersuchen.` } )
+      </script>
+  </div>
+
+    <div class="step">
+      <div>
+        <h2 class="red">EpiDoc</h2>
+        <h2>Entwicklungsgeschichte – in Kürze</h2>
+        <div class="row">
+          <div class="four columns">
+            <a href="http://www.stoa.org/epidoc/gl/latest/" title="Seite aufrufen">
+                <img class="outline" style="width: 86%"
+                  src="resources/img/stoa-org-epidoc-gl-latest.png" alt="outline"/>
+              </a>
+            <p class="small">Quelle: <a href="http://www.stoa.org/epidoc/">http://www.stoa.org/epidoc/</a></p>
+          </div>
+          <div class="eight columns">
+            <ul class="line-height-one-five">
+              <li><strong>Subset</strong> der TEI</li>
+              <li>seit 1999 <strong>kollaborativ</strong> entwickelt</li>
+              <li>im Dezember 2017 Release von <strong>Schema</strong> und
+                <strong>Guidelines</strong> Version 9.0 </li>
+              <li>Mittlerweile wird das TEI-Subset EpiDoc von zahlreichen – zunehmend auch nicht primär epigraphischen –  <a href="http://wiki.digitalclassicist.org/Category:EpiDoc">Projekten</a> verwendet </li>
+
+              <li>mehr zur Geschichte <a href="https://sourceforge.net/p/epidoc/wiki/About/">https://sourceforge.net/p/epidoc/wiki/About/</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Epigraphische Projekte</h2>
+        <figure class="mfp-lightbox">
+          <a href="resources/img/DigitClass_epiDoc_Projects.png"><img
+                src="resources/img/DigitClass_epiDoc_Projects.png" style="height:66%; width:66%;" alt="projects"
+               /></a>
+          <p class="x-small">Quelle: <a href="http://wiki.digitalclassicist.org/Category:EpiDoc">http://wiki.digitalclassicist.org/Category:EpiDoc</a></p>
+        </figure>
+        <!-- <ul><li>Slider</li></ul>-->
+      </div>
+    </div>
+    <div class="step" id="part_002">
+      <div>
+        <h1 class="red">02</h1>
+        <h2 class="line-height-one-five">Epigraphic Documents</h2>
+      </div>
+    </div>
+    <div class="step">
+      <h2 class="red">Ein paar Grundregeln</h2>
+      <ul class="small line-height-one-five">
+        <li class="down-25"> TEI ist ein sich <strong>entwickelnder</strong> Vorschlag. Das "P" hinter TEI steht für <strong>proposal</strong>, die “5” für die
+          <strong>Version</strong>. TEI ist <strong>kein Zwangskorsett</strong>. </li>
+        <li class="substep down-25"> EpiDoc entsteht aus der <strong>epigraphischen
+              Praxis</strong> der Community <strong>für die Community</strong>. </li>
+        <li class="substep down-25">Nur Elemente und Attribute nutzen, die für das
+          <strong>Verständnis der Quelle</strong> nötig und nützlich sind.
+          <!-- (Das heisst: Nicht alles, was ausgezeichnet werden könnte, muss auch ausgezeichnet werden). -->
+        </li>
+        <li class="substep down-25">Sinnvoller Einsatz von TEI setzt ein <strong>Konzept</strong> voraus (Editionsrichtlinien, Fragestellung, etc.).</li>
+        <li class="substep down-25">EpiDoc Schema und Struktur ermöglichen geführte,
+          <strong>regelbasierte Erfassung</strong> von (historischen) Texten. </li>
+        <li class="substep down-25">EpiDoc-TEI-XML nicht auswendig lernen! Das dahinterliegende Schema ist leitend und die <strong>Guidelines bieten Beispiele</strong>! </li>
+      </ul>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Processing Instructions</h2>
+        <h2>Schemavalidierung</h2>
+        <h4><code class="xml tei-doc-link">&lt;? … ?&gt;</code></h4>
+        <pre><code class="xml tei-doc-link">&lt;?xml version="1.0" encoding="UTF-8"?&gt;
+&lt;?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://relaxng.org/ns/structure/1.0"?&gt;
+&lt;?xml-model href="http://www.stoa.org/epidoc/schema/latest/tei-epidoc.rng" schematypens="http://purl.oclc.org/dsdl/schematron"?&gt;
+</code></pre>
+        <blockquote><code class="red">/schema/latest</code> – validiert gegen das aktuellste Schema <br /><code class="red">/schema/9.0</code> – validiert gegen das versionierte Schema (Release)</blockquote>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Struktur</h2>
+        <h2>Metadaten – Bilddaten – Textdaten</h2>
+        <pre>
+<code class="xml tei-doc-link linenumbers">&lt;TEI xmlns="http://www.tei-c.org/ns/1.0" xml:space="preserve" xml:lang="en"&gt;
+   &lt;teiHeader&gt;
+     &lt;!-- Metadaten --&gt;
+   &lt;/teiHeader&gt;
+
+   &lt;facsimile&gt;
+      &lt;!-- Informationen zu Bilddaten--&gt;
+   &lt;/facsimile&gt;
+
+   &lt;text&gt;
+       &lt;!-- Textdaten: Edition, Kommentar, Übersetzung, etc. --&gt;
+   &lt;/text&gt;
+&lt;/TEI&gt;
+</code></pre>
+        <!-- <blockquote>Erläuterungen ###</blockquote> -->
+      </div>
+    </div>
+    <div class="step" id="part_002">
+      <div>
+        <h1 class="red">Exkurs</h1>
+        <h2 class="line-height-one-five">Metadaten, Normdaten und Linked Open Data</h2>
+      </div>
+    </div>
+    <div class="step">
+      <h2 class="red">Metadaten</h2>
+      <blockquote>
+        <a title="Klicken um Übersetzung anzuzeigen!" class="a-quote original" id="pomerantz">Why store <strong>data about an object</strong>, when you have the object itself? Because <strong>without data</strong> about the objects contained in a space, any sufficiently complex space is <strong>indistinguishable from chaos</strong>.</a>
+      </blockquote>
+      <p class="x-small right">Pomerantz 2017</p>
+      <h4 class="red">Kleine Merksätze zur Metadaten-Vergabe:</h4>
+      <ul class="line-height-one-five">
+        <li> Ein <strong>Metadaten-Schema</strong> und ein mindesten projektweites
+          <strong>Vergabe-Konzept</strong> verwenden; Nutzung<a href="http://digitale-wissenschaft.de/wissensblog/normdaten-was-sie-koennen-wo-du-sie-findest/">[↗]</a> von <strong>Normdaten</strong> und <strong>Authority Files</strong>. </li>
+        <li> Nicht nur Besonderheiten angeben, sondern alle Zugehörigkeiten explizit machen. </li>
+        <li>
+          <strong>Keine</strong> Datei- oder Sammlungsspezifischen <strong>impliziten
+              Annahmen</strong> in den Metadaten anwenden (e.g. “Jede Inschrift ohne Trägerangabe ist ein Grabkreuz.”). </li>
+      </ul>
+    <script>
+      translationFeature('pomerantz',
+{ original: `Why store <strong>data about an object</strong>, when you have the object itself? Because <strong>without data</strong> about the objects contained in a space, any sufficiently complex space is <strong>indistinguishable from chaos</strong>.`,
+    translation: `Warum sollte man <strong>Daten über ein Objekt</strong> speichern, wenn man das Objekt selbst hat? Weil <strong>ohne Daten</strong> über die in einem Raum enthaltenen Objekte ist jeder hinreichend komplexe Raum <strong>nicht von Chaos unterscheidbar</strong>.` } )
+    </script>
+    </div>
+
+    <div class="step">
+      <h2 class="red">Normdaten</h2>
+      <h4 class="red">Was sind Normdateien?</h4>
+      <ul class="line-height-one-five small">
+        <li>
+          <strong>Normierte</strong> und <strong>kuratierte</strong> Sammlungen von
+          <strong>Informationseinheiten</strong> im Kontext eines spezifischen
+          <strong>Fachgebietes</strong>, e.g. über Personen oder Geographika, in menschen- (👩) und maschinen-lesbarer (🤖) Form (Stichwort <strong>content negotiation</strong>). </li>
+        <li> Die einzelnen Informationseinheiten (“Entitäten”) <strong>disambiguieren</strong> mittels <strong>eindeutiger Bezeichner</strong>, e.g. Beispiel GND-Referenzummer:
+          <ul class="small line-height-one-five">
+            <li> Entität_1 (⇌ Projektinterne Referenz) ⇌ Nr. 117602388<a href="	http://d-nb.info/gnd/117602388">[👩]</a><a href="https://d-nb.info/gnd/130063274/about/lds">[🤖]</a> ⇌ Attribute:
+              <ul class="small line-height-one-five">
+                <li> Name: Max Müller </li>
+                <li> Beruf: Orientalist </li>
+              </ul>
+            </li>
+            <li> Entität_2 (⇌ Projektinterne Referenz) ⇌ Nr. 130063274<a href="	http://d-nb.info/gnd/130063274">[👩]</a><a href="https://d-nb.info/gnd/130063274/about/lds">[🤖]</a> ⇌ Attribute:
+              <ul class="small line-height-one-five">
+                <li> Name: Max Müller </li>
+                <li> Beruf: Jurist </li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="step ">
+      <h2 class="red">Normdateien und kontrollierte Vokabulare (Auswahl)</h2>
+      <ul class="line-height-one-five medium">
+        <li>Geographika
+          <ul class="small line-height-one-five medium">
+            <li>
+              <a href="http://www.getty.edu/vow/TGNServlet?english=Y&amp;find=Frankfurt&amp;place=inhabited+place&amp;page=1&amp;nation=">Thesaurus of Geographic Names </a> [TGN] kennt <em>Frankfurt am Main</em> als <a href="http://vocab.getty.edu/tgn/7005293"><code>http://vocab.getty.edu/tgn/7005293</code></a>;
+              <a href="http://www.geonames.org/">GeoNames</a> als <a href="http://www.geonames.org/3220968"><code>http://www.geonames.org/3220968</code></a>
+            </li>
+            <li>Historische Geographika: <a href="http://pleiades.stoa.org/places/678401">Pleiades</a>, Pelagios Commons </li>
+
+
+            <li>Spezifischere Geographika bspw. Judaistik/Hebraistik: <a href="https://geo-kima.org">Kima Historical Gazeteer</a>
+            </li>
+
+          </ul>
+        </li>
+
+        <li>Personen
+          <ul class="small line-height-one-five medium">
+            <li>
+              <a href="http://d-nb.info/gnd/11879132X"></a>German National Library Identificators [GND] – Beispiel der Einbindung in das eigene Angebot über <a href="http://www.dnb.de/DE/Service/DigitaleDienste/EntityFacts/entityfacts_node.html">DNB Entity Facts und Culture Graph</a>:
+              <a href="http://www.steinheim-institut.de/cgi-bin/epidat?id=ffb-80-1">Epidat</a>, <a href="https://www.deutsche-digitale-bibliothek.de/entity/11879132X">Deutsche
+                  Digitale Bibliothel</a>, <a href="http://hub.culturegraph.org/entityfacts/11879132X">[🤖]</a>
+            </li>
+            <li>
+              <a href="https://viaf.org/">Virtual International Authority File</a>
+            </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="step ">
+      <h2 class="red">Normdateien und kontrollierte Vokabulare (Auswahl)</h2>
+      <ul class="line-height-one-five medium">
+        <li>Physische Form | Symbole | Materialien
+          <ul class="line-height-one-five">
+
+
+            <li><a href="http://www.getty.edu/vow/AATFullDisplay?find=headstone&amp;logic=AND&amp;note=&amp;subjectid=300266769">Arts and Architecture Thesaurus</a> [AAT] kennt <em>Grabstein</em> als <a href="http://vocab.getty.edu/aat/300266769"><code>http://vocab.getty.edu/aat/300266769</code></a></li>
+            <li><a href="http://www.iconclass.org/rkd/25G41%28LILY%29/">Iconclass</a> – <q>a
+                  multilingual classification system for cultural content</q> – kennt
+              <em>Lilien</em> als <code><a href="http://www.iconclass.org/rkd/25G41%28LILY%29/"
+                    >http://www.iconclass.org/rkd/25G41%28LILY%29/</a></code>
+            </li>
+            <li><a href="https://www.eagle-network.eu/resources/vocabularies/">EAGLE</a> [The Europeana network of Ancient Greek and Latin Epigraphy] kennt <em>Eisen</em> als <a href="https://www.eagle-network.eu/voc/material/lod/111"><code>https://www.eagle-network.eu/voc/material/lod/111</code></a></li>
+
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="step">
+      <h2 class="red">Und was macht man dann damit …? Linked Open Data!</h2>
+      <ul class="line-height-one-five">
+        <li>
+          <a href="https://digicademy.github.io/2016-agehum-lodworkshop/#/step-1">LOD auf Basis
+              von Normdaten</a> ermöglicht automatische <strong>Anreicherung</strong>, semantische
+          <strong>Verknüpfung</strong> und komplexe <strong>Analyse</strong> von Forschungsdatensets:
+          <ul class="line-height-one-five">
+            <li class="substep"> Dritte können meine digitalen Ressourcen finden und nachnutzen. </li>
+            <li class="substep"> Ich gewähre freien, strukturierten und maschinenlesbaren Zugriff (ggf. zu eigenen Analysezwecken). </li>
+            <li class="substep"> Ich biete eine standardisierte Bereitstellung der Informationen nach W3C- und ISO-Standards. </li>
+            <li class="substep"> Ich stelle meine Daten bewusst in einen größeren Kontext und löse Datensilos auf. </li>
+          </ul>
+        </li>
+      </ul>
+    </div>
+    <div class="step">
+      <h2 class="red">LOD am Beispiel von GeoNames-Normdaten und Nomisma</h2>
+      <p> Ansatz: Man sucht Information zu den in der Spät-Antike in Rom emittierten Münzen, zu den Nominalen und zum Aussteller: <a href="http://nomisma.org/sparql">Nomisma-SPARQL-Endpoint</a>. </p>
+      <pre><code class="sparql-query">PREFIX nmo: &lt;http://nomisma.org/ontology#&gt;
+PREFIX skos: &lt;http://www.w3.org/2004/02/skos/core#&gt;
+
+SELECT ?mint ?label ?denomlabel ?authlabel ?matches
+WHERE {
+  ?mint skos:closeMatch &lt;http://geonames.org/3169070&gt; .
+  ?type nmo:hasMint ?mint .
+  ?type skos:prefLabel ?label FILTER(langMatches(lang(?label), "en")) .
+  ?type nmo:hasDenomination ?denomination .
+  ?denomination skos:prefLabel ?denomlabel FILTER(langMatches(lang(?denomlabel), "en")) .
+  ?type nmo:hasAuthority ?authority .
+  ?authority skos:prefLabel ?authlabel FILTER(langMatches(lang(?authlabel), "en")) .
+  ?authority skos:exactMatch ?matches FILTER regex(STR(?matches), 'viaf','i') .
+} LIMIT 100</code>  </pre>
+<p class="small">Öffnen Sie den oben verlinkten SPARQL-Endpoint in einem zweiten Browser-Tab und ersetzen Sie den dort vorhandenen Such-Code komplett durch den hier hinterlegten. Klicken Sie dann auf "Submit". Einene Screenshot des Suchergebnisses sehen Sie auf dem nächsten Slide.</p>
+    </div>
+
+    <div class="step">
+      <div>
+        <h2 class="red">Suchergebnis: Nomisma-SPARQL-Endpoint</h2>
+        <figure class="mfp-lightbox">
+          <a href="resources/img/SPARQL-Results.png"><img
+                src="resources/img/SPARQL-Results.png" style="height:66%; width:66%;" alt="projects"
+               /></a>
+          <p class="x-small">Quelle: Suchergebnis von Nomisma.org.</p>
+        </figure>
+        <!-- <ul><li>Slider</li></ul>-->
+      </div>
+    </div>
+
+    <div class="step">
+      <h2 class="red">Metadaten innerhalb von TEI und EpiDoc</h2>
+      <h4><code class="xml tei-doc-link">&lt;teiHeader&gt;</code> – Pflichtelemente </h4>
+      <div>
+        <pre><code class="xml tei-doc-link linenumbers">&lt;teiHeader&gt;
+   &lt;fileDesc&gt;             &lt;!-- mögl. vollständige Beschreibung der Datei --&gt;
+        &lt;titleStmt/&gt;       &lt;!-- Titel der Datei --&gt;
+        &lt;publicationStmt/&gt; &lt;!-- Herausgeber und Bereitsteller der Datei --&gt;
+        &lt;sourceDesc/&gt;      &lt;!-- Beschreibung der (historischen) Quelle --&gt;
+   &lt;/fileDesc&gt;
+&lt;/teiHeader&gt;
+</code></pre>
+        <blockquote class="small"> Die Section <code class="xml tei-doc-link">&lt;sourceDesc&gt;</code> bietet zahlreiche struktierende Elemente zur Beschreibung der Quelle.
+          <ul class="line-height-one-five">
+            <li><code class="xml tei-doc-link">&lt;msIdentifier&gt;</code></li>
+            <li><code class="xml tei-doc-link">&lt;physDesc&gt;</code></li>
+            <li><code class="xml tei-doc-link">&lt;history&gt;</code></li>
+          </ul>
+        </blockquote>
+        <blockquote><strong>Hinweis</strong>
+          <code class="xml tei-doc-link">&lt;msDesc&gt;</code> gilt nicht nur für Handschriften, sondern für jedes <em>other</em>
+          <strong>text-bearing object</strong></blockquote>
+      </div>
+    </div>
+    <div class="step">
+      <h2 class="red">Weitere Metadaten-Elemente</h2>
+      <h4><code class="xml tei-doc-link">&lt;teiHeader&gt;</code> – Optionale Elemente </h4>
+      <div>
+        <blockquote>
+          <ul class="line-height-one-five">
+            <li>Weitere Auszeichnungsoptionen:
+              <ul>
+                <li><code class="xml tei-doc-link">&lt;encodingDesc&gt;</code></li>
+                <li><code class="xml tei-doc-link">&lt;profileDesc&gt;</code>
+                  <ul>
+                    <li><code class="xml tei-doc-link">&lt;particDesc&gt;</code></li>
+                    <li><code class="xml tei-doc-link">&lt;langUsage&gt;</code></li>
+                  </ul>
+                </li>
+              </ul>
+            </li>
+
+
+          </ul>
+        </blockquote>
+        <p class="x-small right">Quelle: <a href="http://www.stoa.org/epidoc/gl/latest/app-allsupp.html">List of all supporting
+              Data Guidelines</a></p>
+      </div>
+    </div>
+    <div class="step">
+      <h4 class="red">Weitere Metadaten-Elemente</h4>
+      <p>EpiDoc ermöglicht strukturierte Eingaben zur Beschreibung des Epitaphs, u.a. </p>
+      <ul>
+        <li><code class="xml tei-doc-link">&lt;physDesc&gt;</code>
+          <ul>
+            <li><code class="xml tei-doc-link">&lt;objectDesc&gt;</code> <code class="xml tei-doc-link">&lt;objectType&gt;</code> <code class="xml tei-doc-link">&lt;material&gt;</code></li>
+            <li><code class="xml tei-doc-link">&lt;layoutDesc&gt;</code>
+              <code class="xml tei-doc-link">&lt;layout&gt;</code>
+            </li>
+            <li><code class="xml tei-doc-link">&lt;handDesc&gt;</code>
+              <code class="xml tei-doc-link">&lt;handNote&gt; </code></li>
+            <li><code class="xml tei-doc-link">&lt;decoDesc&gt;</code>
+              <code class="xml tei-doc-link">&lt;decoNote&gt;</code>
+            </li>
+
+          </ul>
+        </li>
+      </ul>
+      <p>Gleichermassen können Angaben zu Ort und Zeit, Provenienz, Fundorte etc. gemacht werden: </p>
+      <ul>
+        <li><code class="xml tei-doc-link">&lt;history&gt;</code>
+          <ul>
+            <li><code class="xml tei-doc-link">&lt;origDate&gt;</code></li>
+            <li><code class="xml tei-doc-link">&lt;origPlace&gt;</code></li>
+            <li><code class="xml tei-doc-link">&lt;provenance&gt;</code> (auch kopiale Überlieferung)
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <p class="right x-small">Quelle: <a href="http://www.stoa.org/epidoc/gl/latest/app-allsupp.html">http://www.stoa.org/epidoc/gl/latest/app-allsupp.html</a></p>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Bilddaten</h2>
+        <blockquote>Bilddateien und andere digitale Faksimiles werden – so möglich mit @url – in der <code class="xml tei-doc-link">&lt;facsimile&gt;</code>-Sektion aufgeführt.
+        </blockquote>
+        <pre><code class="xml tei-doc-link linenumbers">&lt;facsimile&gt; &lt;!-- Fakismile-Sektion --&gt;
+  &lt;graphic url="1864-05-01_1864-05-12__01.jpg" xml:id="f_1864-05-01_1864-05-12__01"&gt; &lt;!-- Eine Graphik--&gt;
+  &lt;!--weitere können als Siblings notiert werden --&gt;
+      &lt;desc&gt;Beschreibung&lt;/desc&gt; &lt;!-- Beschreibung der Graphik --&gt;
+  &lt;/graphic&gt;
+&lt;/facsimile&gt;
+</code></pre>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Textdaten – Edition I</h2>
+        <h4>Textauszeichnung</h4>
+        <ul class="line-height-one-five">
+          <li>Philologie und historische Wissenschaften nutzen zur Kennzeichnung
+            <strong>textueller Phänomene</strong> ausgeklügelte und bewährte
+            <strong>Klammersysteme</strong>. In der Regel werden durch runde, eckige, geschweifte Klammern, sowie durch hoch- und tiefgestellte Zeichen (Punkte, Striche) über, unter oder neben den Buchstaben bzw. Wörtern und Sätzen auf Herausforderungen
+            und Besonderheiten der <strong>Textüberlieferung</strong> hingewiesen. </li>
+          <li>EpiDoc hat diese Notation der Fachwissenschaftler in TEI übertragen.
+            <strong>Hinweis</strong>: Die Textauszeichnung mit EpiDoc TEI XML ermöglicht die
+            <strong>Gewissheit</strong> (@cert | @confidence) und die
+            <strong>Begründung</strong> (@reason) einer textkritischen Entscheidung festzuhalten (siehe auch <a href="https://digicademy.github.io/2018-Graphentechnologie/#/step-1" title="Vortrag zu “Modellierung von Zweifel und Unsicherheit” in der TEI und in Graphen (2018).">hier</a>)!
+          </li>
+        </ul>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Textdaten – Edition II</h2>
+        <h4>Textauszeichnung</h4>
+        <ul class="small line-height-one-five">
+          <li>Alle zusammengehörigen Textteile des Inschriftenträgers werden von einem <code class="xml tei-doc-link">&lt;div type="edition"&gt;</code> geklammert.</li>
+          <li> Die Transkriptionen der einzelnen Textteile stehen jeweils in spezifischen <code class="xml tei-doc-link">&lt;div type="textpart" subtype="pediment" n="A"&gt; &lt;ab&gt; … &lt;/ab&gt;&lt;/div&gt;</code>. Die Angabe von <code class="xml tei-doc-link">type="textpart"</code>            ist obligatorisch, die Angabe der Attribute <code class="xml tei-doc-link">subtype</code> und <code class="xml tei-doc-link">n</code> ist optional. <code class="xml tei-doc-link">&lt;ab&gt; … &lt;/ab&gt;</code> klammern Textblöcke als semantisch-neutrale
+            Alternative zu <code class="xml tei-doc-link">&lt;p&gt; … &lt;/p&gt;</code>. </li>
+          <li> Die epigraphische Notation wird in XML-Notation nachgebaut. Bsp.: <code class="xml tei-doc-link">[Anno]</code> wird zu <code class="xml tei-doc-link">&lt;supplied reason="lost"&gt;Anno&lt;/supplied&gt;</code> (siehe auch <a href="https://sourceforge.net/p/epidoc/code/HEAD/tree/trunk/guidelines/msword/cheatsheet.doc?format=raw">Leiden Cheatsheet</a>).
+          </li>
+          <li> Kommentarteil(e), Apparat(e) und Bibliographischer Teil stehen jeweils in eigenen
+            <code class="xml tei-doc-link">&lt;div&gt;</code>. </li>
+        </ul>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Textdaten – Edition III</h2>
+        <h4>Beispiel</h4>
+        <pre>
+<code class="xml tei-doc-link linenumbers">&lt;TEI&gt; &lt;!-- Header, Facsimile --&gt;
+  &lt;text&gt;
+   &lt;body&gt;
+       &lt;div type="edition"&gt;
+          &lt;div type="textpart" subtype="pediment" n="I"&gt;
+            &lt;ab&gt;
+              &lt;lb n="1"/&gt; Lorem ipsum &lt;lb n="2"/&gt; dolor sit
+            &lt;/ab&gt;
+          &lt;/div&gt;
+          &lt;div type="textpart" subtype="section" n="II"&gt;
+            &lt;ab&gt;
+              &lt;lb n="1"/&gt; Lorem ipsum &lt;lb n="2"/&gt; dolor sit
+            &lt;/ab&gt;
+          &lt;/div&gt;
+          &lt;div type="textpart" subtype="base" n="III"&gt;
+            &lt;ab&gt;
+              &lt;lb n="1"/&gt; Lorem ipsum &lt;lb n="2"/&gt; dolor sit
+            &lt;/ab&gt;
+          &lt;/div&gt;
+       &lt;/div&gt;
+       &lt;div type="translation"&gt;
+          &lt;p&gt; Translation &lt;/p&gt;
+       &lt;/div&gt;
+       &lt;!-- Commentary, Bibliography --&gt;
+    &lt;/body&gt;
+   &lt;/text&gt;
+&lt;/TEI&gt;
+</code></pre>
+        <!-- <blockquote>Erläuterungen ###</blockquote> -->
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Textdaten – Edition IV</h2>
+        <h4>Beispiel</h4>
+        <pre>
+<code class="xml tei-doc-link linenumbers">&lt;TEI&gt; &lt;!-- Header, Facsimile --&gt;
+  &lt;text&gt;
+    &lt;body&gt;
+       &lt;div type="edition"&gt;
+          &lt;!-- Transkription --&gt;
+       &lt;/div&gt;
+       &lt;div type="translation"&gt;
+          &lt;p&gt; Translation &lt;/p&gt;
+       &lt;/div&gt;
+       &lt;div type="commentary" subtype="description"&gt;
+          &lt;p&gt; Beschreibungstext &lt;/p&gt;
+       &lt;/div&gt;
+       &lt;div type="commentary" subtype="commentary"&gt;
+          &lt;p&gt; Kommentartext &lt;/p&gt;
+       &lt;/div&gt;
+       &lt;div type="apparatus"&gt;
+          &lt;p&gt; Kritischer Apparat &lt;/p&gt;
+       &lt;/div&gt;
+       &lt;div type="bibliography"&gt;
+          &lt;listBibl&gt;
+            &lt;bibl&gt; Bibliographische Angabe &lt;/bibl&gt;
+            &lt;bibl&gt; Bibliographische Angabe &lt;/bibl&gt;
+          &lt;/listBibl&gt;
+       &lt;/div&gt;
+      &lt;/body&gt;
+   &lt;/text&gt;
+&lt;/TEI&gt;
+</code></pre>
+        <!-- <blockquote>Erläuterungen ###</blockquote> -->
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Textkonstitution I</h2>
+        <h4>Graphischer Befund</h4>
+        <pre>
+<code class="xml tei-doc-link linenumbers">Unclear:
+    &lt;unclear&gt;lor&lt;/unclear&gt;em
+
+Supraline:
+    &lt;hi rend="supraline"&gt;lorem&lt;/hi&gt;
+
+Ligature:
+    &lt;hi rend="ligature"&gt;ab&lt;/hi&gt;cd&lt;hi rend="ligature"&gt;ef&lt;/hi&gt;
+
+Erasure:
+    &lt;del rend="erasure"&gt;ab&lt;/del&gt;
+
+Erased and lost:
+    &lt;del rend="erasure"&gt;
+      &lt;gap reason="lost" quantity="5" unit="character"/&gt;
+    &lt;/del&gt;
+
+Overstrike:
+    &lt;add place="overstrike"&gt;abc&lt;/add&gt;
+
+Added above:
+    &lt;add place="above"&gt;γδ&lt;/add&gt;
+
+Added below:
+    &lt;add place="below"&gt;γδ&lt;/add&gt;
+</code></pre>
+        <!-- <blockquote>Erläuterungen ###</blockquote> -->
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Textkonstitution II</h2>
+        <h4>Editorische Hinzufügungen</h4>
+        <pre>
+<code class="xml tei-doc-link linenumbers">Supplied (lost):
+    &lt;supplied reason="lost"&gt;γδ&lt;/supplied&gt;
+
+Supplied (lost, low certainty):
+    &lt;supplied reason="lost" cert="low"&gt;γδ&lt;/supplied&gt;
+
+Supplied (omitted):
+    &lt;supplied reason="omitted"&gt;γδ&lt;/supplied&gt;
+
+Supplied (subaudible):
+    &lt;supplied reason="subaudible"&gt;lorem&lt;/supplied&gt;
+
+Supplied (parallel):
+    &lt;supplied reason="undefined" evidence="parallel"&gt;lorem&lt;/supplied&gt;
+
+Supplied (previous editor):
+    &lt;supplied reason="undefined" evidence="previouseditor"&gt;lorem&lt;/supplied&gt;
+</code></pre>
+        <!-- <blockquote>Erläuterungen ###</blockquote> -->
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Textkonstitution IIIa</h2>
+        <h4>Lacunae I</h4>
+        <pre>
+<code class="xml tei-doc-link linenumbers">Gap or lacuna (lost, character):
+    &lt;gap reason="lost" quantity="15" unit="character"/&gt;
+
+Gap or lacuna (lost, unknown, character):
+    &lt;gap reason="lost" extent="unknown" unit="character"/&gt;
+
+Gap (lost, at least–at most, character):
+    &lt;gap reason="lost" atLeast="5" atMost="7" unit="character"/&gt;
+
+Gap (lost, low precision, character):
+    &lt;gap reason="lost" quantity="26" unit="character" precision="low"/&gt;
+
+Gap (lost, line):
+    &lt;gap reason="lost" quantity="1" unit="line"/&gt;
+
+Gap (lost, unknown, line):
+    &lt;gap reason="lost" extent="unknown" unit="line"/&gt;
+</code></pre>
+        <!-- <blockquote>Erläuterungen ###</blockquote> -->
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Textkonstitution IIIb</h2>
+        <h4>Lacunae II</h4>
+        <pre>
+<code class="xml tei-doc-link linenumbers">Gap (possibly lost, line):
+    &lt;gap reason="lost" quantity="1" unit="line"&gt;
+      &lt;certainty match=".." locus="name"/&gt;
+    &lt;/gap&gt;
+
+Gap (possibly lost, unknown, line):
+    &lt;gap reason="lost" extent="unknown" unit="line"&gt;
+      &lt;certainty match=".." locus="name"/&gt;
+    &lt;/gap&gt;
+
+Gap (omitted, unknown, character):
+    &lt;gap reason="omitted" extent="unknown" unit="character"/&gt;
+
+Gap (omitted, unknown, line):
+    &lt;gap reason="omitted" extent="unknown" unit="line"/&gt;
+
+Gap (illegible, character):
+    &lt;gap reason="illegible" unit="character" quantity="5"/&gt;
+</code></pre>
+        <!-- <blockquote>Erläuterungen ###</blockquote> -->
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Textkonstitution IV</h2>
+        <h4>Editorische Eingriffe</h4>
+        <pre>
+<code class="xml tei-doc-link linenumbers">Words omitted by editor for brevity:
+    &lt;gap reason="ellipsis"/&gt;
+
+Superfluous letters:
+    &lt;surplus&gt;αβγ&lt;/surplus&gt;
+
+Clear but incomprehensible:
+    &lt;orig&gt;αββα&lt;/orig&gt;
+
+Correction by editor:
+    &lt;choice&gt;
+      &lt;corr&gt;αβ&lt;/corr&gt;
+      &lt;sic&gt;βα&lt;/sic&gt;
+    &lt;/choice&gt;
+
+Regularized by editor:
+    &lt;choice&gt;
+      &lt;reg&gt;ἐκ&lt;/reg&gt;
+      &lt;orig&gt;ἐγ&lt;/orig&gt;
+    &lt;/choice&gt;
+</code></pre>
+        <!-- <blockquote>Erläuterungen ###</blockquote> -->
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Textkonstitution V</h2>
+        <h4>Auflösung von Kürzungen</h4>
+        <pre>
+<code class="xml tei-doc-link linenumbers">Expansion of abbreviation:
+    &lt;expan&gt;
+      &lt;abbr&gt;α&lt;/abbr&gt;
+      &lt;ex&gt;βγ&lt;/ex&gt;
+    &lt;/expan&gt;
+
+Tentative expansion of abbreviation:
+    &lt;expan&gt;
+      &lt;abbr&gt;α&lt;/abbr&gt;
+      &lt;ex cert="low"&gt;βγ&lt;/ex&gt;
+    &lt;/expan&gt;
+
+Incomplete expansion:
+    &lt;expan&gt;α&lt;ex&gt;βγ&lt;/ex&gt;&lt;/expan&gt;
+
+Abbreviation (expansion unknown):
+    &lt;abbr&gt;αβ&lt;/abbr&gt;
+
+Expansion of symbol:
+    &lt;expan&gt;
+      &lt;ex&gt;αβ&lt;/ex&gt;
+    &lt;/expan&gt;
+</code></pre>
+        <!-- <blockquote>Erläuterungen ###</blockquote> -->
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Textkonstitution VI</h2>
+        <h4>Leerstellen, Zahlen, Zahlzeichen, Symbole</h4>
+        <pre>
+<code class="xml tei-doc-link linenumbers">Note:
+    &lt;note&gt;!&lt;/note&gt;, &lt;note&gt;sic&lt;/note&gt;, &lt;note&gt;e.g.&lt;/note&gt;
+
+Space left on stone:
+    &lt;space quantity="1" unit="character"/&gt;
+
+Space on stone, extent unknown:
+    &lt;space extent="unknown" unit="character"/&gt;
+
+Numeral (Roman):
+    &lt;num value="12"&gt;ⅩⅡ&lt;/num&gt;
+
+Numeral (Greek):
+    &lt;num value="1"&gt;α&lt;/num&gt;
+
+Numeral (Greek):
+    &lt;num value="1000"&gt;α&lt;/num&gt;
+
+Symbol:
+    &lt;g type="bear"/&gt;
+</code></pre>
+        <!-- <blockquote>Erläuterungen ###</blockquote> -->
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Textkonstitution VII</h2>
+        <h4>Interpunktion, Segmente, Wörter, Wortzeichen</h4>
+        <pre>
+<code class="xml tei-doc-link linenumbers">Punctuation (“offene” Semantik):
+    &lt;g type="punctuation" subtype="word_separator"/&gt;
+
+Punctuation (“geschlossene” Semantik):
+    &lt;pc type="separator" force="strong" unit="word"/&gt;
+
+Segment &amp; Sentence:
+    &lt;seg resp="#editor"&gt;equiti iosepho me fecit&lt;/seg&gt;
+    &lt;s type="date_line"&gt;Anno domini m cccc lxii&lt;/s&gt;
+
+Word:
+    &lt;w lemma="eques"&gt;equiti&lt;/w&gt;
+    &lt;w lemmaRef="https://en.wiktionary.org/wiki/eques#Latin"&gt;equiti&lt;/w&gt;
+
+Character:
+    &lt;c rend="versalie"&gt;e&lt;/c&gt;quiti
+    &lt;c rendition="#versalie"&gt;e&lt;/c&gt;quiti
+
+Places &amp; Persons:
+    &lt;rs type="person" ref="#person_0001"&gt;Iosepho&lt;/rs&gt;
+    &lt;placeName type="settlement" key="160255975"&gt;Graz&lt;/placeName&gt;
+    &lt;persName role="ruler" key="Friedrich, HRR, III."&gt;Fridericus III.&lt;/persName&gt;
+</code></pre>
+        <!-- <blockquote>Erläuterungen ###</blockquote> -->
+      </div>
+    </div>
+
+
+
+
+    <div class="step">
+      <div>
+        <h2 class="red">Textkonstitution VIII</h2>
+        <h4>Allgemeine Attribute</h4>
+        <ul>
+          <li>
+            <a href="http://www.tei-c.org/release/doc/tei-p5-doc/de/html/ref-att.global.html">@xml:id, @n, @xml:lang</a> (Ankerpunkte, Sprachen) </li>
+          <li>
+            <a href="http://www.tei-c.org/release/doc/tei-p5-doc/de/html/ref-att.canonical.html">@key, @ref</a> (Referenzierung) </li>
+          <li>
+            <a href="http://www.tei-c.org/release/doc/tei-p5-doc/de/html/ref-att.typed.html">@type, @subtype</a> (Typisierung) </li>
+          <li>
+            <a href="http://www.tei-c.org/release/doc/tei-p5-doc/de/html/ref-att.global.rendition.html">@rend, @style, @rendition</a> (Graphischer Befund) </li>
+          <li>
+            <a href="http://www.tei-c.org/release/doc/tei-p5-doc/de/html/ref-att.global.responsibility.html">@cert, @resp</a> (Verantwortlichkeit) </li>
+        </ul>
+      </div>
+    </div>
+    <div class="step">
+      <div>
+        <h2 class="red">Leidener Klammersystem</h2>
+        <h4>Textauszeichnung</h4>
+        <ul class="line-height-one-five">
+          <li>Basis für traditionelle und digitale Epigraphiker ist das sogenannte <em><a
+                  href="https://de.wikipedia.org/wiki/Leidener_Klammersystem">Leidener
+                  Klammersystem</a></em></li>
+          <li><a href="data/cheatsheet.pdf">EpiDoc Leiden Cheatsheet</a> und korrespondierende <a href="data/large_template_EpiDoc.xml"><code>Beispieldatei</code></a></li>
+          <li><a href="http://www.stoa.org/epidoc/gl/latest/app-epi-krummreypanciera.html">EpiDoc
+                Guidelines</a>: Appendix: Aligning EpiDoc with Panciera 1991 </li>
+          <li>Hilfreich: <a href="http://www.stoa.org/epidoc/gl/latest/app-alltrans.html">List Of
+                All Transcription Guidelines</a></li>
+        </ul>
+      </div>
+    </div>
+
+   
+
+    <div class="step">
+      <div>
+        <h1 class="red">Exkurs</h1>
+        <h2 class="line-height-one-five">Datenkonversion</h2>
+      </div>
+    </div>
+
+    <div class="step">
+      <div>
+        <h2 class="red">Datenkonversion I</h2>
+      </div>
+      <p>
+        Textverarbeitungs-Dateien, Tabellenkalkulations-Dateien und XML-Dateien können – zumindest in Teilen – in den meisten Fällen mehr oder weniger unproblematisch ineinander überführt werden.
+      </p>
+      <p>
+        Wichtig ist hierbei nur, dass in den jeweiligen Dateien eindeutig festgelegt ist, welche Funktion und/oder Zugehörigkeit den einzelnen Textbereichen zugeordnet wird. D.h. Namen müssen in Textverarbeitungs-Dateien bspw. mit einer Formatvorlage für “Name”
+        gekennzeichent sein; eine entsprechende Tabellenkalkulations-Datei müsste über eine Spalte “Name” verfügen usw.
+      </p>
+    </div>
+
+    <div class="step">
+      <div>
+        <h2 class="red">Datenkonversion II</h2>
+      </div>
+
+      <p>
+        Da alle modernen Textverarbeitungs- und Tabellenkalkulations-Programme (MS-Word, MS-Excel, Libre Office) XML-basiert arbeiten, lassen sich die erzeugten Daten mit speziellen Programmen oder Programmier-Libraries ineinander umwandeln.
+      </p>
+      <p>
+        Zur Konvertierung von XML in MS-Word siehe <a href="https://kollatzthomas.github.io/20171218_TEI2RTF/#/step-1">TEI2RTF</a> von Thomas Kollatz und den <a href="https://oxgarage.tei-c.org/">OxGarage Web Service</a>. Zur Konvertierung von Tabellenkalkulations-Dateien in XML siehe bspw. Python
+        und die Library
+        <a href="https://pandas.pydata.org/">Pandas</a>.
+      </p>
+      <p>
+        Das folgende Schaubild visualisiert die Bezüge der einzelne Bereiche der verschiedenen Dateiformate untereinander.
+      </p>
+    </div>
+
+    <div class="step">
+      <img src="resources/img/datenkonvertierung.png" style="height:100%; width:100%;" alt="tobedone"/>
+    </div>
+
+    <div class="step">
+      <div>
+        <h2 class="red">Datenkonversion III</h2>
+      </div>
+
+      <p>
+        Diese inhärente <strong>Konvertierungsmöglichkeit</strong> lässt damit in Bezug auf die <strong>Grunddaten-Erhebung</strong> einen angenehmen Workflow mit <strong>bekannter Software</strong> wie MS-Word und MS-Excel zu.
+      </p>
+      <p>
+        So kann – sofern einheitlich und konsistent mit Formatvorlagen bzw. Spaltenbenennungen gearbeitet wird – eine Grundaufnahme der Quellen in der gewohnten Software geleistet werden. Sobald die Grundaufnahme abgeschlossen ist, werden diese Dateien in das
+        von nun an als einzige Quell-Datei (Single Source) dienende TEI-XML-Format überführt.
+      </p>
+      <p>
+        Alle weiteren Arbeiten sowie Analyse und Publikation erfolgen daraufhin innerhalb bzw. auf Basis der aus Textverarbeitungs- bzw. Tabellenkalkulations-Dateien konvertierten Daten.
+      </p>
+    </div>
+
+    <div class="step" id="part_003">
+      <div>
+        <h1 class="red">03</h1>
+        <h2 class="line-height-one-five"> Literatur</h2>
+      </div>
+    </div>
+    <div class="step">
+      <h3 class="red">Allgemeine Literatur zum digitalen Arbeiten und zum Schwerpunkt Linked Open
+          Data</h3>
+      <h4>Digitales Arbeiten</h4>
+      <p class="small">Eine kommentierte Literaturliste für Einsteiger in die Digital Humanities finden Sie <a href="https://digicademy.github.io/xml-modellieren-strukturieren-repraesentieren/material/lit.html">hier</a>.</p>
+                
+      <ul class="small line-height-one-five">
+        <li> Jannidis F. (2017) <a href="https://link.springer.com/chapter/10.1007/978-3-476-05446-3_5">Zahlen und
+              Zeichen</a>. In: Jannidis F., Kohle H., Rehbein M. (eds) Digital Humanities. J.B. Metzler, Stuttgart. </li>
+        <li> Jannidis F. (2017) <a href="https://link.springer.com/chapter/10.1007/978-3-476-05446-3_7">Grundlagen der
+              Datenmodellierung</a>. In: Jannidis F., Kohle H., Rehbein M. (eds) Digital Humanities. J.B. Metzler, Stuttgart. </li>
+        <li> Vogeler G., Sahle P. (2017) <a href="https://link.springer.com/chapter/10.1007/978-3-476-05446-3_9">XML</a>. In: Jannidis F., Kohle H., Rehbein M. (eds) Digital Humanities. J.B. Metzler, Stuttgart. </li>
+        <li> Sahle P. (2017) <a href="https://link.springer.com/chapter/10.1007/978-3-476-05446-3_17">Digitale
+              Edition</a>. In: Jannidis F., Kohle H., Rehbein M. (eds) Digital Humanities. J.B. Metzler, Stuttgart. </li>
+      </ul>
+      <h4>Linked Open Data</h4>
+      <ul class="small line-height-one-five">
+        <li> Pascal Hitzler et. al. (2008) Semantic Web. Grundlagen.Springer, Berlin. </li>
+        <li> Leif Isaksen (2011) <a href="https://eprints.soton.ac.uk/206421/">Archaeology and the
+              Semantic Web</a>. University of Southampton, School of Electronics and Computer Science. Southhampton. </li>
+        <li> Max Grüntgens, Torsten Schrade (2016) <a href="http://ceur-ws.org/Vol-1608/paper-07.pdf">Data repositories in the Humanities
+              and the Semantic Web: modelling, linking, visualising.</a> In: 1st Workshop on Humanities in the Semantic Web (WHiSe 2016). Anissaras. </li>
+      </ul>
+    </div>
+    <div class="step">
+      <h3 class="red">Literatur </h3>
+      <h4>Digital Humanities Tutorials &amp; Geo-Tools</h4>
+      <ul class="small line-height-one-five">
+        <li><a href="https://programminghistorian.org/">Programming Historian</a></li>
+        <li><a href="https://wiki.de.dariah.eu/display/publicde/Geo-Browser+Dokumentation">Dariah
+              Geobrowser bspw. zur einfachen Kartierung historischer Quellen</a></li>
+        <li><a href="http://commons.pelagios.org/">Pelagios Commons</a></li>
+      </ul>
+    </div>
+    <div class="step">
+      <h3 class="red">Literatur zur digitalen Epigraphik</h3>
+      <h4>EpiDoc</h4>
+      <ul class="small line-height-one-five">
+        <li><a href="https://sourceforge.net/p/epidoc/wiki/Home/">EpiDoc homepage on
+              SourceForge</a></li>
+        <li><a href="https://sourceforge.net/p/epidoc/wiki/MarkupList/">Markup List</a>: email list for discussions, questions, and help with EpiDoc issues </li>
+        <li><a href="http://www.stoa.org/epidoc/gl/latest/">EpiDoc Guidelines</a></li>
+        <li><a href="https://sourceforge.net/p/epidoc/wiki/Stylesheets/">EpiDoc
+            Stylesheets</a></li>
+      </ul>
+      <h4>Digitale Epigraphik</h4>
+      <ul class="small line-height-one-five">
+
+        <li>H. Cayless; C.M. Roueché; Tom Elliott; Gabriel Bodard (2009): “Epigraphy in 2017.” Digital Humanities Quarterly 3.1. <a href="http://digitalhumanities.org/dhq/vol/3/1/000030/000030.html">http://digitalhumanities.org/dhq/vol/3/1/000030/000030.html</a></li>
+        <li> Max Grüntgens, Thomas Kollatz (2018) Korpusbasiertes Arbeiten und epigraphische Datenbanken: Möglichkeiten und Herausforderungen am Beispiel von EPIDAT und DIO. In: Gessinger, Redder, Schmitz: OBST, H. 92/2018. </li>
+        <li> Felix Lange, Martin Unold (2015) <a href="http://dx.doi.org/10.17175/sb001_015">Semantisch angereicherte 3D-Messdaten von Kirchenräumen als Quellen für die
+              geschichtswissenschaftliche Forschung</a>. In: Baum, Stäcker: Möglichkeiten und Grenzen der Digital Humanities. Sonderband 1 der ZfDH. DOI: 10.17175/sb001_015 </li>
+        <li>Julia Flanders; Charlotte Roueché <a href="http://www.stoa.org/epidoc/gl/latest/intro-eps-de.html">Erste Einführung in die
+              Textauszeichnung für Epigraphiker</a>
+        </li>
+      </ul>
+    </div>
+    <div class="step">
+      <h3 class="red">Präsentationen</h3>
+      <ul class="small line-height-one-five">
+        <li>Thomas Kollatz: <a href="https://kollatzthomas.github.io/20180611_Utrecht">Digital
+              Approaches to Cemeteries</a>: Preservation and Education. workshop <a href="https://diaspora.sites.uu.nl/workshops-and-conferences/workshop-all-that-remains">All that remains: education and conservation of Jewish Funerary Culture</a>. Utrecht
+          2018 </li>
+        <li>Max Grüntgens; Thomas Kollatz: <a href="https://digicademy.github.io/2018_EAJS_WS_1/">Digital Humanites and Jewish Epigraphy</a> EAJS-Winterschool. Utrecht 2019</li>
+        <li>Max Grüntgens; Dominik Kasper; Thomas Kollatz: EpiDoc TEI XML <a href="https://digicademy.github.io/2018-EpiDoc-WS-1">Grundlagen und Einführung</a>, <a href="https://digicademy.github.io/2018-EpiDoc-WS-2/#/step-1">Praxis und
+              Vertiefung</a>. Mainz 2018</li>
+        <li>Thomas Kollatz: <a href="https://kollatzthomas.github.io/2017_Jerusalem_WCJS">Sharing
+              Data</a>. The case of Jewish funerary inscriptions databases. Jerusalem 2017</li>
+        <li>Thomas Kollatz: <a href="https://kollatzthomas.github.io/2017_Leeds_IMC">epidat:
+              Database of Jewish Epigraphy</a>. Leeds 2017</li>
+      </ul>
+    </div>
+    <div class="step">
+      <h3 class="red">Download</h3>
+      <ul class="small line-height-one-five">
+        <li>
+          <a href="https://github.com/digicademy/2018-EpiDoc-WS-1">
+              https://github.com/digicademy/2018-EpiDoc-WS-1 </a>
+        </li>
+        <li>Sofern nicht anders angegeben stehen alle Texte, Illustrationen und Bilder frei zur Weiterverwendung und Modifikation zur Verfügung unter der <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY 4.0</a> Lizenz<a href="http://www.adwmainz.de/mitarbeiter/profil/max-gruentgens.html">, Max
+            Grüntgens</a>, <a href="http://orcid.org/0000-0003-1904-1841">Thomas
+            Kollatz</a>.</li>
+      </ul>
+    </div>
+    <div class="step">
+      <h3 class="red">Handouts und weitere Informationen</h3>
+      <h4>Handouts</h4>
+      <ul class="small line-height-one-five">
+        <li><a href="data/handouts/epidoc.pdf">Handout zur Präsentation</a></li>
+      </ul>
+      <h4>Weitere (Summer/Winter) Schools</h4>
+      <ul class="small line-height-one-five">
+        <li> to be announced </li>
+      </ul>
+      <h4>Lizenzinformationen</h4>
+      <ul class="small line-height-one-five">
+        <li>The “IM Fell English SC” font by Igino Marini (Principal design) is licensed under the Open Font License (<a href="http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=OFL_web">http://scripts.sil.org/cms/scripts/page.php?site_id=nrsi&amp;id=OFL_web</a>)
+          and available via Google Web Fonts (<a href="https://fonts.google.com/specimen/IM+Fell+English+SC?selection.family=IM+Fell+English+SC">https://fonts.google.com/specimen/IM+Fell+English+SC?selection.family=IM+Fell+English+SC</a>).
+        </li>
+
+      </ul>
+      <h4>Software</h4>
+      <ul class="small line-height-one-five">
+        <li>
+          <a href="https://github.com/impress/impress.js">Impress.js</a> (Presentation)
+        </li>
+        <li>
+          <a href="https://highlightjs.org/">hightlight.js</a> (Syntax Highlighting)
+        </li>
+        <li>
+          <a href="https://github.com/hou2zi0/tei-doc-link">tei-documentation-links.js</a> (Links to TEI-P5-XML documentation)
+        </li>
+      </ul>
+    </div>
+  </div>
+  <!-- jquery -->
+  <script src="vendor/jquery/jquery-1.11.0.min.js"></script>
+  <!-- unite gallery -->
+  <script type="text/javascript" src="vendor/unitegallery/js/unitegallery.min.js"></script>
+  <script type="text/javascript" src="vendor/unitegallery/themes/tiles/ug-theme-tiles.js"></script>
+  <script type="text/javascript" src="resources/js/unite.gallery.js"></script>
+  <!-- chartist -->
+  
+  <!-- codemirror -->
+  
+  <!-- highlight -->
+  <script src="vendor/highlight/highlight.pack-9.3.0.js"></script>
+  <script>
+    hljs.initHighlightingOnLoad();
+  </script>
+  
+   <!-- magnific popup -->
+  <script src="vendor/magnific-popup/jquery.magnific-popup.min-1.1.0.js"></script>
+  <script src="resources/js/magnific-popup.lightbox.js"></script>
+  <!-- impress.mod.js -->
+  <script src="vendor/impress/impress.fork.js"></script>
+  <script src="vendor/impress/impress-slidenum.js"></script>
+  <script>
+    var obj = impress();
+    obj.init();
+    initSlideNo(obj);
+  </script>
+  <script>
+    const TEI_DOC_LINK_CONFIG = {
+      "lineNumbering": false
+    };
+  </script>
+  <!--
+  <script src="resources/js/tei-documentation-links.js">
+  </script>
+-->
+
+  <script type="text/javascript" src="https://hou2zi0.github.io/tei-doc-link/JS/tei-documentation-links.js"></script>
+
+
+
+
+</body>
+
+</html>
