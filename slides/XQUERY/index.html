@@ -1,0 +1,576 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Einführung in X-Technologien: Modellieren, Strukturieren, Repräsentieren :: Sitzung
+            2</title>
+
+        <!-- meta information -->
+        <meta name="author" content="Max Grüntgens" />
+        <meta name="author" content="Dominik Kasper" />
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=1024" />
+        <meta name="apple-mobile-web-app-capable" content="yes" />
+
+        <!-- favicons -->
+        <link rel="shortcut icon" href="resources/img/favicon.png" />
+        <link rel="apple-touch-icon" href="resources/img/apple-touch-icon.png" />
+
+        <!-- CSS reset and grid -->
+        <link href="vendor/normalize/normalize-4.1.1.css" rel="stylesheet" />
+        <link href="vendor/skeleton/skeleton-2.0.4.css" rel="stylesheet" />
+
+        <!-- fonts -->
+        <link
+            href="https://fonts.googleapis.com/css?family=Open+Sans:400,700,600,600italic,400italic,700italic,800,800italic&amp;subset=latin,latin-ext"
+            rel="stylesheet" type="text/css" />
+
+        <!-- styles for included libraries -->
+
+        <!-- chartist -->
+        <link rel="stylesheet" href="vendor/chartist/chartist.min-0.9.7.css" />
+
+        <!-- codemirror -->
+        <link rel="stylesheet" href="vendor/codemirror/lib/codemirror.css" />
+
+        <!-- highlight -->
+        <link rel="stylesheet" href="vendor/highlight/styles/default.css" />
+        <link rel="stylesheet" href="resources/css/hljs.linenumbering.css" />
+
+        <!-- magnific popup -->
+        <link rel="stylesheet" href="vendor/magnific-popup/magnific-popup-1.1.0.css" />
+
+        <!-- standard presentation styles -->
+        <link href="resources/css/style.css" rel="stylesheet" />
+
+        <!-- custom presentation styles -->
+        <link href="resources/css/custom.css" rel="stylesheet" />
+
+        <!-- js needed in head -->
+
+        <!-- greuler -->
+        <script src="vendor/d3/d3-3.5.6.js"></script>
+        <script src="vendor/cola/cola.v3.min.js"></script>
+        <script src="vendor/greuler/greuler-0.5.5.min.js"></script>
+
+        <!-- html5 dataset shim for IE -->
+        <script src="vendor/impress/html5-dataset.js" type="text/javascript"></script>
+
+        <style>
+            .explain {
+                color: white !important; border-radius: 30px; background: black; padding: 0em .3em 0em .3em; width: 1em; height: 1em;
+                margin-left: .1em; margin-right: .1em; font-family: monospace;
+                font-weight: normal !important;
+            }
+
+            .hljs-number {
+                color: white;
+            }
+        </style>
+    </head>
+
+    <body>
+        <div class="fallback-message">
+            <p> Your browser <strong>doesn't support the features required</strong> by
+                impress.mod.js, so you are presented with a simplified version of this presentation. </p>
+            <p> For the best experience please use the latest <strong>Chrome</strong>,
+                    <strong>Safari</strong> or <strong>Firefox</strong> browser. </p>
+        </div>
+        <div id="impress">
+            <div class="step">
+                <h4><strong>2021</strong> | <strong>Mainz</strong></h4>
+                <h1 class="down-25">Einführung in X-Technologien</h1>
+                <hr />
+                <h2 class="red up-25">Modellieren, Strukturieren, Repräsentieren</h2>
+                <h3>Sektion 5: XQuery</h3>
+                <h4 class="down-25">
+                    <strong>Slides:</strong>
+                    <a href="#" title="View the presentation online"> Link </a>
+                </h4>
+                <h5>
+                    <strong><a href="#">Max Grüntgens</a></strong> | <strong><a href="#">Dominik
+                            Kasper</a></strong> | <img
+                        src="resources/img/Twitter_bird_logo_2012.svg" alt="Twitter"
+                        class="twitter-icon" />
+                    <a href="https://twitter.com/digicademy" title="Digital Academy on Twitter"
+                        >@digicademy</a> | <img src="resources/img/Octicons-mark-github.svg"
+                        alt="Twitter" class="gh-icon" />
+                    <a href="https://github.com/digicademy/" title="Digital Academy on GitHub"
+                        >digicademy</a> | <a href="https://creativecommons.org/licenses/by/4.0/"
+                        >CC-BY 4.0</a>
+                </h5>
+            </div>
+
+            <div class="step">
+                <h2>5: Überblick</h2>
+                <ol class="line-height-one-five">
+                            <li>Was ist XQuery</li>
+                            <li>Verhältnis zu XSLT</li>
+                            <li>Grundlagen</li>
+                            <li>Beispiele</li>
+                            <li>Übung</li>
+              </ol>
+            </div>
+
+            <div class="step">
+                <h3 class="red">Was ist Xquery?</h3>
+                <h4>XQuery ist …</h4>
+                <ul class="line-height-one-five">
+                    <li class="substep">… eine <strong>deklarative Abfragesprache</strong> für <strong>XML</strong>.</li>
+                    <li class="substep">… in der <strong>Notation</strong> vergleichbar mit <strong>SQL</strong> …</li>
+                    <li class="substep">… und damit selbst <strong>kein XML</strong>.</li>
+                    <li class="substep">… zur <strong>Abfrage</strong>, <strong>Aggregation</strong> – also zum Erstellen neuer Dokumente –,
+                        aber auch zum <strong>Updaten</strong> bestehender Dokumente geeignet.</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3 class="red">Verhältnis zu XSLT</h3>
+                <h4>XQuery und XSLT …</h4>
+                <ul class="line-height-one-five">
+                    <li class="substep">… <strong>überlappen</strong> in ihren Anwendungsgebieten.</li>
+                    <li class="substep">… teilen sich die Grundlagen des <strong>Data Models</strong> und von <strong>XPath</strong>.</li>
+                    <li class="substep">… unterscheiden sich dahingehend, dass Xquery auf <strong>Pull-Verarbeitung</strong>
+                        fokusiert, XSLT sowohl <strong>Pull-</strong> als auch
+                        <strong>Push-Verarbeitung</strong> unterstützt.</li>
+                    <li class="substep">… lassen sich in Version 3.1 gut kombinieren, indem <strong>XSLT innerhalb von
+                        XQuery aufgerufen wird</strong> (s. Walmsley, S. 420–1).</li>
+                    
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3 class="red">Grundlagen</h3>
+                <h4>XQuery benutzt …</h4>
+                <ul class="line-height-one-five">
+                    <li class="substep">… die bereits bekannte <strong>XPath-Notation</strong> zur Navigation in XML-Dokumenten.</li>
+                    <li class="substep">… die bereits bekannten <strong>XPath-Funktionen</strong>.</li>
+                    <li class="substep">… <strong>String-</strong> bzw. <strong>Code-Interpolation</strong> (Unterscheidung zw. Verarbeitungs- und Output-Ebene) mit <code>{ }</code>.</li>
+                    <li class="substep">… die SQL-ähnliche <strong>FLWOR-Expression</strong> (ˈflaʊ.ɚ), um Abfragen zu deklarieren. FLWOR bildet den Kern von XQuery-Skripten:
+                        <ul  class="line-height-one-five">
+                            <li class="substep"><strong>Prolog</strong> ⮕ beinhaltet globale Deklarationen</li>
+                            <li class="substep"><code><strong>FOR</strong> $item in $list</code> ⮕ beginnt einen <code>for-each</code>-loop</li>
+                            <li class="substep"><code><strong>LET</strong> $id := $item/@id</code> ⮕ belegt <code>Variablen</code> (Variablennamen starten mit <code>$</code>, Werte werden mit dem "Walrossoperator" <code>:=</code> zugewiesen)</li>
+                            <li class="substep"><code><strong>WHERE</strong> $id > 100 </code> ⮕ schränkt durch konditionale Abfragen ein</li>
+                            <li class="substep"><code><strong>ORDER</strong> / <strong>SORT</strong> / <strong>GROUP</strong> BY $item/@sortkey</code> ⮕ permutiert die Ergebnisliste</li>
+                            <li class="substep"><code><strong>RETURN</strong> $item/data()</code> ⮕ gibt die Ergebnismenge zurück</li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3 class="red">Der Prolog</h3>
+                <h4>Namespace-Deklaration, globale Variablen, Serialisierungsoptionen und mehr!</h4>
+                <ul class="line-height-one-five">
+                    <li class="small">Der Prolog <strong>steht vor dem Abfragebereich</strong>.</li>
+                    <li class="small">Input: <strong>Reintext-Dateien</strong> können mit <code>unparsed-text()</code> eingelesen werden.</li>
+                    <li class="small"><strong>Namespace</strong>-Deklaration: <code>declare namespace tei = "http://www.tei-c.org/ns/1.0";</code></li>
+                    <li class="small"><strong>Variablen</strong>-Deklaration: <code>declare variable $Sturm_Persons := doc("Sturm_persList.xml");</code></li>
+                    <li class="small">Output: <strong>Serialisierungs</strong>-Optionen (Werte: <code>xml</code>, <code>xhtml</code>, <code>html</code>, <code>text</code>, <code>json</code>, <code>adaptive</code>):
+                        <pre><code>declare namespace output="http://www.w3.org/2010/xslt-xquery-serialization";
+declare option output:method "html";</code></pre>
+                    </li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3 class="red">Beispiele</h3>
+                <h4>Alle Personen aggregieren (1)</h4>
+                <pre><code>xquery version "3.0";
+declare <span class="explain">6</span> namespace tei = "http://www.tei-c.org/ns/1.0";
+declare variable $Sturm_Persons := <span class="explain">7</span> doc("Sturm_persList.xml");
+&lt;ul&gt;<span class="explain">1</span>
+    {
+        for $person in $Sturm_Persons//tei:person
+        return <span class="explain">2</span>&lt;li&gt;<span class="explain">3</span>{$person/<span class="explain">4</span>tei:persName/data()<span class="explain">5</span>}&lt;/li&gt;
+    }
+&lt;/ul&gt;</code></pre>
+<p class="small">Gibt zurück:</p>
+<pre><code>&lt;ul&gt;<span class="explain">1</span>
+   <span class="explain">2</span>&lt;li&gt;<span class="explain">3</span>Alma&lt;/li&gt;
+    &lt;li&gt;Arnold, Ernst (Galerie)&lt;/li&gt;
+    &lt;li&gt;August (Stramm?)&lt;/li&gt;
+    &lt;li&gt;Bechteev, Vladimir G.&lt;/li&gt;
+    &lt;li&gt;Beckerath, Willy von&lt;/li&gt;
+    &lt;li&gt;Beffie, Willem Wolff&lt;/li&gt;
+    …
+    &lt;li&gt;Wiegand, Charmion von&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<p class="small"><span class="explain">4</span> Damit die Abfrage funktioniert müssen Tags, die im TEI-Namespace stehen gekennzeichnet werden. Das geschieht an dieser Stelle durch das Namespace-Präfix <code>tei:</code>, an das im Prolog <span class="explain">6</span> die Namespace-URL gebunden worden war.<br><span class="explain">5</span><code>/data()</code> gibt die Textknoten eines Elementknotens zurück.<br>
+    <span class="explain">7</span> Die XML-Datei, die verarbeitet werden soll, wird mit der XPath-Funktion <code>doc()</code> eingelesen und in einer Variable verfügbar gehalten.
+</p>
+            </div>
+
+            <div class="step">
+                <h3 class="red">Beispiele</h3>
+                <h4>Alle Personen aggregieren (2)</h4>
+                <pre><code>xquery version "3.0";
+declare namespace tei = "http://www.tei-c.org/ns/1.0";
+declare variable $Sturm_Persons := doc("Sturm_persList.xml");
+&lt;ul&gt;
+    {
+        for $person in $Sturm_Persons//tei:person
+        return  &lt;li&gt;
+            <span class="explain">1</span>&lt;name&gt;{$person/tei:persName/data()}&lt;/name&gt;
+            <span class="explain">2</span>&lt;id&gt;{$person/@xml:id/data()}&lt;/id&gt;
+            <span class="explain">3</span>&lt;letter_count&gt;{<span class="explain">4</span>count($person/tei:linkGrp/tei:ptr)}&lt;/letter_count&gt;
+                &lt;/li&gt;
+    }
+&lt;/ul&gt;</code></pre>
+<p class="small">Gibt zurück:</p>
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;
+       <span class="explain">1</span>&lt;name&gt;Alma&lt;/name&gt;
+       <span class="explain">2</span>&lt;id&gt;P.0000032&lt;/id&gt;
+       <span class="explain">3</span>&lt;letter_count&gt;2&lt;/letter_count&gt;
+    &lt;/li&gt;
+    &lt;li&gt;
+       &lt;name&gt;Arnold, Ernst (Galerie)&lt;/name&gt;
+       &lt;id&gt;P.0000059&lt;/id&gt;
+       &lt;letter_count&gt;3&lt;/letter_count&gt;
+    &lt;/li&gt;
+    …
+&lt;/ul&gt;</code></pre>
+<p class="small"><span class="explain">4</span> In einem XQuery-Skript können jederzeit XPath-Funktionen benutzt werden, hier bspw. <code>count()</code>. </p>
+            </div>
+
+            <div class="step">
+                <h3 class="red">Beispiele</h3>
+                <h4>Alle Personen aggregieren (3)</h4>
+                <pre><code>xquery version "3.0";
+declare namespace tei = "http://www.tei-c.org/ns/1.0";
+declare namespace output="http://www.w3.org/2010/xslt-xquery-serialization";
+declare option output:method "html";
+declare variable $Sturm_Persons := doc("Sturm_persList.xml");
+&lt;html lang="de"&gt;
+    &lt;head&gt;
+        &lt;title&gt;Sturm-Personen&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;h1&gt;Personen&lt;/h1&gt;
+        &lt;ul&gt;
+        {
+            for $person in $Sturm_Persons//tei:person
+            return  &lt;li&gt;
+                        &lt;span
+                            id="{$person/@xml:id/data()}"
+                        <span class="explain">2</span>data-id="{$person/@xml:id/data()}"
+                        <span class="explain">2</span>data-letter_count="{count($person/tei:linkGrp/tei:ptr)}"&gt;
+                                {$person/tei:persName/data()}
+                                (letters: {count($person/tei:linkGrp/tei:ptr)})
+                        &lt;/span&gt;
+                    &lt;/li&gt;
+        }
+        &lt;/ul&gt;
+    &lt;/body&gt;
+    <span class="explain">1</span>&lt;script type="text/javascript" src="script.js"&gt;&lt;/script&gt;
+&lt;/html&gt;</code></pre>
+<p class="small"><span class="explain">1</span> In einem XQuery-Output können jederzeit alle Bereiche einer Ausgabedatei, bspw. einer HTML-Datei, generiert werden. Es gibt aber auch Frameworks, die Template- und Partial-basierte Ansätze im Kontext XQuery erlauben, um Ausgaben zu modularisieren. <span class="explain">2</span> Das im Beispiel eingebundene javascript-Skript greift auf die im HTML "versteckten" <code>data</code>-Attribute zu, um spezifische interaktive Funktionalität bereitzustellen. </p>
+            </div>
+
+            <div class="step">
+                <h2 class="red line-height-one-five">Spezifischere Funktionalitäten</h2>
+                <ul>
+                    <li>Filtern</li>
+                    <li>Conditional Flow</li>
+                    <li>Custom Functions</li>
+                    <li>Switch Statement</li>
+                    <li>Element &amp; Attribute Constructors</li>
+                    <li>Rawtext Input</li>
+                </ul>
+            </div>
+
+            <div class="step">
+                <h3 class="red">Filtern (1)</h3>
+                <h4>Conditions mit Some</h4>
+                <pre><code>xquery version "3.0";
+declare namespace tei = "http://www.tei-c.org/ns/1.0";
+declare variable $Sturm_Persons := doc("Sturm_persList.xml");
+&lt;ul&gt;
+    {
+        for $person in $Sturm_Persons//tei:person
+        <span class="explain">1</span>where <span class="explain">2</span> some $ptr in $person//tei:ptr
+        <span class="explain">3</span>satisfies (<span class="explain">4</span>contains(lower-case($ptr/@target), 'jvh'))
+        return &lt;li&gt;{$person/tei:persName/data()}&lt;/li&gt;
+    }
+&lt;/ul&gt;</code></pre>
+<p class="small">Gibt zurück:</p>
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;Alma&lt;/li&gt;
+    &lt;li&gt;Beffie, Willem Wolff&lt;/li&gt;
+    &lt;li&gt;Behne, Adolf&lt;/li&gt;
+    &lt;li&gt;Bremmer, Henk&lt;/li&gt;
+    &lt;li&gt;Breuer, Robert&lt;/li&gt;
+    …
+&lt;/ul&gt;</code></pre>
+<p class="small"><span class="explain">1</span> In Anlehnung an SQL können Ergebnismengen mit <code>where</code> eingeschränkt werden. Das allgemeine <code>where</code> kann daraufhin mit Vergleichs-Operatoren (<code>=, <, >, !, not()</code>) oder einer <span class="explain">2</span> <span class="explain">3</span> Kombination von Schlüsselwörtern (<code>some, satisfies</code>) in Kombination mit <span class="explain">4</span> einer einen Wahrheitswert zurückgebenden XPath-Funktion (<code>contains()</code>) weiter eingeschränkt werden. 
+</p> 
+            </div>
+
+
+            <div class="step">
+                <h3 class="red">Filtern (2)</h3>
+                <h4>Conditions mit Every</h4>
+                <pre><code>xquery version "3.0";
+declare namespace tei = "http://www.tei-c.org/ns/1.0";
+declare variable $Sturm_Persons := doc("Sturm_persList.xml");
+&lt;ul&gt;
+    {
+        for $person in $Sturm_Persons//tei:person
+        <span class="explain">1</span>where <span class="explain">2</span> every $ptr in $person//tei:ptr
+        <span class="explain">3</span>satisfies (<span class="explain">4</span>contains(lower-case($ptr/@target), 'jvh'))
+        return &lt;li&gt;{$person/tei:persName/data()}&lt;/li&gt;
+    }
+&lt;/ul&gt;</code></pre>
+<p class="small">Gibt zurück:</p>
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;Alma&lt;/li&gt;
+    &lt;li&gt;Bremmer, Henk&lt;/li&gt;
+    &lt;li&gt;Breuer, Robert&lt;/li&gt;
+    &lt;li&gt;Bruder (von Francisca van Leer)&lt;/li&gt;
+    &lt;li&gt;Bruggen Cate, J.D. ten&lt;/li&gt;
+    …
+&lt;/ul&gt;</code></pre>
+<p class="small"><span class="explain">1</span> In Anlehnung an SQL können Ergebnismengen mit <code>where</code> eingeschränkt werden. Das allgemeine <code>where</code> kann daraufhin mit Vergleichs-Operatoren (<code>=, <, >, !, not()</code>) oder einer <span class="explain">2</span> <span class="explain">3</span> Kombination von Schlüsselwörtern (<code>every, satisfies</code>) in Kombination mit <span class="explain">4</span> einer einen Wahrheitswert zurückgebenden XPath-Funktion (<code>contains()</code>) weiter eingeschränkt werden. 
+</p> 
+            </div>
+
+            <div class="step">
+                <h3 class="red">Conditional Flow</h3>
+                <h4>If Then Else</h4>
+                <pre><code>xquery version "3.0";
+declare namespace tei = "http://www.tei-c.org/ns/1.0";
+declare variable $Sturm_Persons := doc("Sturm_persList.xml");
+&lt;ul&gt;
+    {
+        for $person in $Sturm_Persons//tei:person
+        return <span class="explain">1</span> if ($person/@source) <span class="explain">2</span> then &lt;li&gt;{$person/tei:persName/data()} (&lt;a href="{$person/@source/data()}"&gt;GND&lt;/a&gt;)&lt;/li&gt;
+        <span class="explain">3</span>else &lt;li&gt;{$person/tei:persName/data()} (no GND)&lt;/li&gt;
+    }
+&lt;/ul&gt;</code></pre>
+<p class="small">Gibt zurück:</p>
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;Alma (no GND)&lt;/li&gt;
+    &lt;li&gt;Arnold, Ernst (Galerie) (&lt;a href="http://d-nb.info/gnd/2097840-6"&gt;GND&lt;/a&gt;)&lt;/li&gt;
+    &lt;li&gt;August (Stramm?) (no GND)&lt;/li&gt;
+    &lt;li&gt;Bechteev, Vladimir G. (&lt;a href="http://d-nb.info/gnd/13236056X"&gt;GND&lt;/a&gt;)&lt;/li&gt;
+    &lt;li&gt;Beckerath, Willy von (&lt;a href="http://d-nb.info/gnd/118888692"&gt;GND&lt;/a&gt;)&lt;/li&gt;
+    …
+&lt;/ul&gt;</code></pre>
+<p class="small">Konditionale, entscheidende Konstruktionen nach dem Schema <code>if/else</code> sind auch aus anderen Programmierkontexten bekannt. In Xquery muss einem  <span class="explain">1</span> Test mit <code>if</code> explizit mit <span class="explain">2</span> <code>then</code>  Code zugewiesen werden, der auszuführen ist, wenn die Abfrage <code>true</code> (wahr) zurückgibt. Alternativen können mit <span class="explain">3</span> 
+ <code>else</code> notiert werden. <code>if/then/else</code>-Konstrukte lassen sich verschachteln.
+</p>
+            </div>
+
+
+
+
+
+
+            <div class="step">
+                <h3 class="red">Custom Functions</h3>
+                <pre><code>xquery version "3.0";
+declare namespace tei = "http://www.tei-c.org/ns/1.0";
+declare namespace g = "https://d-nb.info/standards/elementset/gnd#";
+declare namespace rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+declare namespace rdfs = "http://www.w3.org/2000/01/rdf-schema#";
+declare <span class="explain">1</span> namespace local = "http://fake.url";
+declare variable $Sturm_Persons := doc("Sturm_persList.xml");
+
+declare <span class="explain">2</span> function local:<span class="explain">3</span>getGender(<span class="explain">4</span>$url <span class="explain">5</span> as xs:string)
+    <span class="explain">6</span>as xs:string? <span class="explain">7</span> {
+        let $res := doc($url)//g:gender
+        <span class="explain">8</span>return  if ($res) then ( $res//rdfs:label/data() )
+                else ('Unbekannt')
+    };
+
+&lt;ul&gt;
+    {   for $person in $Sturm_Persons//tei:person
+        return if ($person/@source and contains($person/@source, 'gnd')) 
+        then &lt;li&gt;{$person/tei:persName/data()} 
+        ({<span class="explain">9</span>local:getGender(concat('https://lobid.org/gnd/',substring-after($person/@source, '/gnd/'), '.rdf'))})&lt;/li&gt;
+        else &lt;li&gt;{$person/tei:persName/data()} (no GND)&lt;/li&gt; }
+&lt;/ul&gt;</code></pre>
+<p class="small">Gibt zurück:</p>
+<pre><code>&lt;ul&gt;
+    &lt;li&gt;Alma (no GND)&lt;/li&gt;
+    &lt;li&gt;Arnold, Ernst (Galerie) (Unbekannt)&lt;/li&gt;
+    &lt;li&gt;August (Stramm?) (no GND)&lt;/li&gt;
+    &lt;li&gt;Bechteev, Vladimir G. (Unbekannt)&lt;/li&gt;
+    &lt;li&gt;Beckerath, Willy von (Männlich)&lt;/li&gt;
+     …
+    &lt;li&gt;Werefkin, Marianne von (Weiblich)&lt;/li&gt;
+    …
+&lt;/ul&gt;</code></pre>
+<p class="small"><span class="explain">1</span> Im Prolog wird ein eigener Namespace für die zu schreibenden Funktionen deklariert und an ein Präfix gebunden. <span class="explain">2</span> mit dem Schlüsselwort <code>function</code> wird eine Funktion deklariert und <span class="explain">3</span> benannt (NS-Präfix nicht vergessen!). Es werden <span class="explain">4</span> Parameter (Argumente) und ihr <span class="explain">5</span> Datentyp angegeben. Ebenfalls wird der <span class="explain">6</span> Datentyp des Rückgabe-Wertes angegeben. Es folgt <span class="explain">7</span> der eigentliche Funktionskörper, also die eigentliche Verarbeitung. Mit dem <span class="explain">8</span> Schlüsselwort <code>return</code> wird eine Rückgabe notiert. <span class="explain">9</span> Aufgerufen wird wie eine normale XPath-Funktion (NS-Präfix nicht vergessen!). 
+</p>
+            </div>
+
+            <div class="step">
+                <h3 class="red">Switch Statement</h3>
+                <pre><code>xquery version "3.0";
+declare namespace tei = "http://www.tei-c.org/ns/1.0";
+declare namespace g = "https://d-nb.info/standards/elementset/gnd#";
+declare namespace rdf = "http://www.w3.org/1999/02/22-rdf-syntax-ns#";
+declare namespace rdfs = "http://www.w3.org/2000/01/rdf-schema#";
+declare namespace local = "http://fake.url";
+declare variable $Sturm_Persons := doc("Sturm_persList.xml");
+
+declare function local:getGender($url)
+    as xs:string? {
+        let $res := doc($url)//g:gender
+        return  if ($res) then (
+            <span class="explain">1</span>switch(<span class="explain">2</span>$res//rdfs:label/data())
+                <span class="explain">3</span>case 'Männlich' return '♂'
+                <span class="explain">4</span>case 'Weiblich' return '♀'
+            <span class="explain">5</span>default return '?'
+                ) else ('??')
+};
+
+&lt;ul&gt;
+    {   for $person in $Sturm_Persons//tei:person
+        return if ($person/@source and contains($person/@source, 'gnd')) 
+        then &lt;li&gt;{$person/tei:persName/data()} 
+        ({local:getGender(concat('https://lobid.org/gnd/',substring-after($person/@source, '/gnd/'), '.rdf'))})&lt;/li&gt;
+        else &lt;li&gt;{$person/tei:persName/data()} (no GND)&lt;/li&gt;    }
+&lt;/ul&gt;</code></pre>
+<p class="small">Gibt zurück:</p>
+<pre><code>&lt;ul&gt;
+    …
+   &lt;li&gt;Walden, Herwarth (♂)&lt;/li&gt;
+   &lt;li&gt;Walden, Nell (♀)&lt;/li&gt;
+   &lt;li&gt;Werefkin, Marianne von (♀)&lt;/li&gt;
+   &lt;li&gt;Wichert (no GND)&lt;/li&gt;
+   &lt;li&gt;Wiegand, Charmion von (?)&lt;/li&gt;
+&lt;/ul&gt;</code></pre>
+<p class="small">Eine <code>switch/case</code>-Konstruktion liest innerhalb des Schlüsselwortes <span class="explain">1</span> <code>switch()</code> einen <span class="explain">2</span> Text- oder Attributwert-Knoten ein. Dessen Wert (String) wird dann auf die mit <span class="explain">3</span> <span class="explain">4</span> <code>case</code> angegebenen Fälle getestet (hier: <code>Männlich, Weiblich</code>), ist der Test <code>true</code> (wahr) wird der folgende Code ausgeführt. Es kann ein <span class="explain">5</span> <code>default</code> definiert werden, d.h. ein Fall der immer dann gilt, wenn alle vorherigen nicht gegolten haben. 
+</p>
+            </div>
+
+            <div class="step">
+                <h3 class="red">Element &amp; Attribute Constructors</h3>
+                <pre><code>xquery version "3.0";
+declare namespace tei = "http://www.tei-c.org/ns/1.0";
+declare variable $Sturm_Persons := doc("Sturm_persList.xml");
+&lt;ul&gt;
+    {
+        for $person in $Sturm_Persons//tei:person
+        return <span class="explain">1</span> element <span class="explain">2</span> li
+                {<span class="explain">7</span>
+                    <span class="explain">3</span> attribute <span class="explain">4</span> id <span class="explain">5</span> {$person/@xml:id},
+                    <span class="explain">6</span> $person/tei:persName/data()
+                }
+    }
+&lt;/ul&gt;</code></pre>
+<p class="small">Gibt zurück:</p>
+<pre><code>&lt;ul&gt;
+ <span class="explain">1</span>&lt;<span class="explain">2</span>li <span class="explain">3</span><span class="explain">4</span> id="P.0000032" <span class="explain">5</span>&gt;<span class="explain">6</span>Alma&lt;/li&gt;
+    &lt;li id="P.0000059"&gt;Arnold, Ernst (Galerie)&lt;/li&gt;
+    &lt;li id="P.0000083"&gt;August (Stramm?)&lt;/li&gt;
+    &lt;li id="P.0000063"&gt;Bechteev, Vladimir G.&lt;/li&gt;
+    &lt;li id="P.0000072"&gt;Beckerath, Willy von&lt;/li&gt;
+    …
+&lt;/ul&gt;</code></pre>
+<p class="small">
+Elemente und Attribute können mit den Schlüsselwörtern <span class="explain">1</span> <code>element</code> oder <span class="explain">3</span> <code>attribute</code> an Ort und Stelle konstruiert werden. Direkt im Anschluss an die Schlüsselwörter folgen die gewünschten <span class="explain">2</span> Element- bzw. <span class="explain">4</span> Attribut-Namen. <span class="explain">5</span><span class="explain">6</span> Die gewünschten Inhalte folgen in geschweiften Klammern <code>{}</code>. Attribut-Konstruktoren werden also <span class="explain">7</span> "innerhalb" des Inhalts eines Elementkonstruktors notiert (wenn ein solcher existiert).    
+</p>
+            </div>
+
+            <div class="step">
+                <h3 class="red">Rawtext Input</h3>
+                <pre><code># Headline
+
+I’am a paragraph.
+
+## Second Order Headline
+
+I am a paragraph as well.</code></pre>
+                <p>Query:</p>
+                <pre><code>xquery version "3.0";
+declare namespace tei = "http://www.tei-c.org/ns/1.0";
+declare <span class="explain">2</span> variable $raw := <span class="explain">1</span> unparsed-text("rawtext.md");
+&lt;document&gt;
+    {   <span class="explain">5</span> for $line in <span class="explain">4</span> tokenize($raw, <span class="explain">3</span>'&amp;#10;')
+    <span class="explain">6</span>return <span class="explain">7</span> if (starts-with($line, '#')) 
+                then <span class="explain">8</span> element { concat('h', 
+                                string-length(
+                                substring-before($line, ' ')
+                                )) }
+                            { substring-after($line, ' ') }
+            <span class="explain">7</span>else if (normalize-space($line) != '') then <span class="explain">8</span> &lt;p&gt;{$line}&lt;/p&gt;
+            <span class="explain">7</span>else '' }
+&lt;/document&gt;</code></pre>
+<p class="small">Gibt zurück:</p>
+<pre><code>&lt;document&gt;
+    &lt;h1&gt;Headline&lt;/h1&gt;
+    &lt;p&gt;I’am a paragraph.&lt;/p&gt;
+    &lt;h2&gt;Second Order Headline&lt;/h2&gt;
+    &lt;p&gt;I am a paragraph as well.&lt;/p&gt;
+&lt;/document&gt;</code></pre>
+<p class="small">
+Der Markdown-Text wird per <span class="explain">1</span> <code>unparsed-text()</code> in <span class="explain">2</span> eine Variable (<code>$raw</code>) eingelesen. Daraufhin wird der Text der Datei an <span class="explain">3</span> Zeilenumbrüchen per <span class="explain">4</span> <code>tokenize()</code> in eine Liste (<code>array</code>) von Zeilen zerteilt, über die in einer <span class="explain">5</span> Schleife iteriert werden kann. Innerhalb des <span class="explain">6</span> <code>return</code>-Statements werden <span class="explain">7</span> Tests durchgeführt, die den Typ der aktuellen zeile bestimmen sollen (Überschrift, normaler Text, …). <span class="explain">8</span> Jenachdem wird spezifisches Markup um die Zeile herum geschrieben.
+</p>
+            </div>
+
+            
+
+            <div class="step">
+                <div class="centered">
+                    <h1>F I N I S</h1>
+                    <h2>Thank you</h2>
+                </div>
+            </div>
+            <div class="step">
+                <h2>Literatur &amp; Software</h2>
+                <h4>Literatur</h4>
+                <ul class="small">
+                    <li>Institut für Dokumentologie und Editorik (2015): Handreichung zur
+                        praktischen Arbeit: XML-Kurzreferenz für Einsteiger. Köln, 2. Auflage</li>
+                    <li>Walmsley, Priscilla (<sup>2</sup>2015): XQuery. Search across a Variety of XML Data. Sebastopol.</li>
+                    <li>w3schools: XQuery. <a href="https://www.w3schools.com/xml/xquery_intro.asp"
+                            >https://www.w3schools.com/xml/xquery_intro.asp</a> (Zugriff 14.01.2020)</li>
+                </ul>
+                <h4>Download</h4>
+                <ul class="small">
+                    <li>
+                        <a href="#"> Link to presentation </a>
+                    </li>
+                    <li> License: <a href="https://creativecommons.org/licenses/by/4.0/">CC-BY
+                            4.0</a>, Author </li>
+                </ul>
+            </div>
+        </div>
+        <!-- jquery -->
+        <script src="vendor/jquery/jquery-1.11.0.min.js"></script>
+        <!-- chartist -->
+        <script src="vendor/chartist/chartist.min-0.9.7.js"></script>
+        <script src="resources/js/chartist.charts.js"></script>
+        <!-- codemirror -->
+        <script src="vendor/codemirror/lib/codemirror.js"></script>
+        <script src="vendor/codemirror/addon/edit/matchbrackets.js"></script>
+        <script src="vendor/codemirror/mode/sparql/sparql.js"></script>
+        <script>
+        var editor = CodeMirror.fromTextArea(document.getElementById("sparql"), {
+            mode: "application/sparql-query",
+            matchBrackets: true,
+            lineNumbers: true,
+            viewportMargin: Infinity
+        });
+    </script>
+        <!-- highlight -->
+        <script src="vendor/highlight/highlight.pack-9.3.0.js"></script>
+        <script>hljs.initHighlightingOnLoad();</script>
+        <script src="resources/js/hljs.linenumbering.js"></script>
+        <!-- magnific popup -->
+        <script src="vendor/magnific-popup/jquery.magnific-popup.min-1.1.0.js"></script>
+        <script src="resources/js/magnific-popup.lightbox.js"></script>
+        <!-- impress.mod.js -->
+        <script src="vendor/impress/impress.fork.js"></script>
+        <script src="vendor/impress/impress-slidenum.js"></script>
+        <script>
+        var obj = impress();
+        obj.init();
+        initSlideNo(obj);
+    </script>
+    </body>
+</html>
