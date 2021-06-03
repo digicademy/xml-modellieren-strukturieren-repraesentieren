@@ -4,7 +4,7 @@
 
 Von Max Grüntgens ([ORCID 0000-0001-8736-9393](https://orcid.org/0000-0001-8736-9393)), Marina Lehmann, Dominik Kasper ([ORCID 0000-0002-6587-381X](https://orcid.org/0000-0002-6587-381X)), Thomas Kollatz ([ORCID 0000-0003-1904-1841](http://orcid.org/0000-0003-1904-1841))
 
-Dieses Repositoriums basiert sowohl auf Workshop-Folien und die Übungsmaterialien der Veranstaltung "Grundlagen Digitaler Methodik in den Geistes- und Kulturwissenschaften" als auch dem Material verschiedener Workshops zum Thema "Geisteswissenschaftliche Datenmodellierung mit TEI-XML und TEI-EpiDoc". Ziel der Veranstaltungen war die Vermittlung einer soliden Arbeitsgrundlage in den Bereichen Daten-Modellierung mit XML, TEI-XML und TEI-EpiDoc und Abfrage und Verarbeitung von XML-basierten (Forschungs-)Daten mit Xpath, XQuery und XSLT.
+Dieses Repositoriums basiert sowohl auf Workshop-Folien und Übungsmaterialien der Veranstaltung "Grundlagen Digitaler Methodik in den Geistes- und Kulturwissenschaften" als auch auf dem Material verschiedener Workshops zum Thema "Geisteswissenschaftliche Datenmodellierung mit TEI-XML und TEI-EpiDoc". Ziel der Veranstaltungen war die Vermittlung einer soliden Arbeitsgrundlage in den Bereichen Daten-Modellierung mit XML, TEI-XML und TEI-EpiDoc und Abfrage und Verarbeitung von XML-basierten (Forschungs-)Daten mit Xpath, XQuery und XSLT.
 
 ### Thematische Sektionen
 
@@ -30,7 +30,7 @@ Die Slides sind in die folgenden thematischen Sektionen gegliedert:
     * Verwendung
     * Grundprinzipien (Templates, Pull, Push)
     * Beispiele und Übungen
-5. XQuery: Aggregation XML-basierter (Forschungs-)Daten 
+5. [XQuery](https://digicademy.github.io/xml-modellieren-strukturieren-repraesentieren/slides/XQUERY/index.html): Aggregation XML-basierter (Forschungs-)Daten 
     * Verhältnis zu XSLT
     * Grundlagen der Verarbeitung (FLWOR)
     * Beispiele und Übungen
@@ -39,9 +39,11 @@ Die Slides sind in die folgenden thematischen Sektionen gegliedert:
     * Grundstruktur von EpiDoc
     * grundständige Erfassung
     * Textkonstitution
-    * interpretierende Annotation
     * Konversion bestehender Daten
-7. Publikation XML-basierter Forschungsdaten:
+7. Textkonversion und Textprozessierung: XML-basierte Forschungsdaten in TEI auf Basis von bestehenden CSV- und FODT-Dateien erstellen
+    * Tabellen (CSV) mit XQuery einlesen und TEI-XML erstellen.
+    * Textdokumente (FODT) mit XSLT einlesen und TEI-XML erstellen.
+8. Publikation XML-basierter Forschungsdaten:
     * Datenpublikation mit GitHub und Zenodo
     * Publikation als einfache, statische Webseite
     * Publikation mit einem Static Site Generator 
