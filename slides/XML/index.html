@@ -118,7 +118,7 @@
                     <li>Im Browser die Repositoriums-Seite auf GitHub öffnen <a href="https://github.com/digicademy/xml-modellieren-strukturieren-repraesentieren">https://github.com/digicademy/xml-modellieren-strukturieren-repraesentieren</a></li>
                     <li>Auf den grünen Button "Code" klicken.</li>
                     <li>Im Dialog "HTTPS" auswählen (vorausgewählt) und die URL in die Zwischenablage kopieren (strg+c).</li>
-                    <li>In der Eingabeaufforderung (aka Konsole, Terminal, Shell) an den Ort navigieren an dem das Repositorium gespeichert werden soll.</li>
+                    <li>In der Eingabeaufforderung (aka Konsole, Terminal, Shell) mit dem Befehl <code>cd PfadZumSpeicherort</code> an den Ort navigieren, an dem das Repositorium gespeichert werden soll.</li>
                     <li>An dieser Stelle in der Eingabeaufforderung das Repositorium per Befehl <code>git clone https://github.com/digicademy/xml-modellieren-strukturieren-repraesentieren.git</code> klonen.</li>
                 </ol>
             </div>
@@ -144,7 +144,7 @@
                     <li class="substep" style="list-style-type:none;">… benutzt spezifische
                         Schlüsselwörter und Trennzeichen.</li>
                 </ul>
-                <h3 class="substep"><strong>&#8658; implizite Information explizit
+                <h3 class="substep"><strong>&#8658; Ziel: implizite Information explizit
                     machen!</strong></h3>
             </div>
             <div class="step" id="xml">
@@ -167,8 +167,8 @@
                         <strong>in Ausgabeformate überführt</strong> werden.</p>
                 <p class="substep">Für <strong>Abfragen</strong> verwendet man <strong>XPath (in
                         XML-Dokumenten)</strong> und <strong>XQuery (XML-Datenbanken)</strong>, für
-                        <strong>Transformationen XSLT</strong>, wobei dies prinzipiell auch mit
-                    XQuery möglich ist. </p>
+                        <strong>Transformationen XSLT</strong>, wobei diese prinzipiell auch mit
+                    XQuery möglich sind. </p>
                 <p class="substep">Auf der <strong>Grundlage konsistenter Datenhaltung</strong>
                     können also <strong>Register und Indices</strong> akkumuliert werde. Zudem
                     lassen sich <strong>Druckvorstufen</strong> für Verlage oder
@@ -188,7 +188,7 @@
                     <li class="substep" style="list-style-type:none;">… <strong>Textverarbeitung</strong> &#8658;
                         <ul>
                             <li>MS-Word: Office Open XML</li>
-                            <li>LibreOffice: OpenDocument XML; FlatOpenDocument XML</li>
+                            <li>LibreOffice: OpenDocument XML, FlatOpenDocument XML</li>
                         </ul>
                     </li>
                     <li class="substep" style="list-style-type:none;">… <strong>eBooks</strong> &#8658; EPUB3 (HTML +
@@ -215,18 +215,18 @@
                 <blockquote class="small substep">
                     Die genannten Zeichen trennen die besonderen Textbereiche, die allgemein zur Ebene des XML gehören oder innerhalb von XML besondere Funtkionen ausüben, vom übrigen "normalen" Text ab:
                     <pre><code><strong>&lt;</strong><span class="explain">1</span>xml<strong>&gt;</strong><span class="explain">2</span>Normaler Text.<strong>&lt;<span class="explain">3</span>/</strong><span class="explain">4</span>xml<strong>&gt;</strong><span class="explain">5</span></code></pre> 
-                    <p><span class="explain">1</span> Die &lt;-Klammer gibt an, dass der Kontext nun vom "normalen Text" zur Meta-Ebene XML wechselt.</p>
-                    <p><span class="explain">2</span> Nach dem Elementname <code>xml</code> des <code>StartTags</code> wird der Kontext XML hinter der &gt;-Klammer verlassen.</p>
-                    <p><span class="explain">3</span> Die nächste &lt;-Klammer zeigt einen erneuten Wechsel zum Kontext XML an.</p>
-                    <p><span class="explain">4</span> Der Schrägstrich zeigt an, dass es sich um den Kontext <code>EndTag</code> handelt.</p>
-                    <p><span class="explain">5</span> Die &gt;-Klammer zeigt, dass der Kontext XML erneut verlassen wird.</p>
+                    <p><span class="explain">1</span> Die <code>&lt;</code>-Klammer gibt an, dass der Kontext nun vom "normalen Text" zur Meta-Ebene XML wechselt.</p>
+                    <p><span class="explain">2</span> Nach dem Elementnamen <code>xml</code> des <code>StartTags</code> wird der Kontext XML hinter der <code>&gt;</code>-Klammer verlassen.</p>
+                    <p><span class="explain">3</span> Die nächste <code>&lt;</code>-Klammer zeigt einen erneuten Wechsel zum Kontext XML an.</p>
+                    <p><span class="explain">4</span> Der Schrägstrich zeigt an, dass es sich um ein <code>EndTag</code> handelt.</p>
+                    <p><span class="explain">5</span> Die <code>&gt;</code>-Klammer zeigt an, dass der Kontext XML erneut verlassen wird.</p>
                 </blockquote>
             </div>
             <div class="step">
                 <h2>Notation und Syntax II</h2>
                 <h3 class="red">Schlüsselwort: Element</h3>
                 <div class="substep">Formal: <pre><code>&lt;StartTag&gt;<span style="color:grey;">Inhalt (Text, Elemente)</span>&lt;/EndTag&gt;</code></pre>
-                    <p class="medium">wobei grundsätzlich gilt: <strong>StartTag = EndTag ( =
+                    <p class="medium">Hier gilt grundsätzlich: <strong>StartTag = EndTag ( =
                             Elementname)</strong>, d.h. Start- und EndTag teilen denselben "Namen", sie unterscheiden sich nur durch das beim EndTag vorangestellte <code>/</code>!</p>
                 </div>
                 <div class="substep"><pre><code>&lt;letter&gt;<span class="explain">1</span>
@@ -272,7 +272,7 @@
                 <div class="substep">Formal:
                     <pre><code class="xml"><span style="color:grey;">&lt;StartTag</span> <strong>attribut=&quot;wert&quot;</strong><span style="color:grey;">&gt;Inhalt (Text, Elemente)&lt;/EndTag&gt;</span></code></pre></div>
                 <div class="substep"> Beispiel:
-                    <pre><code class="">&lt;letter identifier<span class="explain">1</span>=&quot;xyz123&quot;<span class="explain">2</span>&gt;
+                    <pre><code class="xml">&lt;letter identifier<span class="explain">1</span>=&quot;xyz123&quot;<span class="explain">2</span>&gt;
     &lt;sender identifier=&quot;m0001&quot;&gt;Max Mustermann&lt;/sender&gt;
     &lt;recipient identifier=&quot;f0001&quot;&gt;Mina Musterfrau&lt;/recipient&gt;
 &lt;/letter&gt;<span class="explain">3</span></code></pre></div>
@@ -326,7 +326,7 @@
                 <div class="substep"
                     ><pre><code>&lt;?xml version="1.0" encoding="UTF-8"?&gt;</code></pre></div>
                 <p class="medium substep">Weitere Bezeichnung: XML Prolog</p>
-                <p class="small substep">Der XML-Prolog gibt die XML-version und die Zeichencodierung an. Normalerweise ist die hier dargestellte Notation ausreichend und muss nicht angepasst werden.</p>
+                <p class="small substep">Der XML-Prolog gibt die XML-Version und die Zeichencodierung an. Normalerweise ist die hier dargestellte Notation ausreichend und muss nicht angepasst werden.</p>
             </div>
 
 
@@ -339,7 +339,7 @@
     type="application/xml"<span class="explain">3</span> 
     schematypens="http://url/to/schema/ns"<span class="explain">4</span>
 ?&gt;</code></pre>
-                <p class="small"><span class="explain">1</span> Verarbeitungsanweisungen werden durch die Tag-Notation <code>&lt;? … ?&gt;</code> eingebunden. 
+                <p class="small"><span class="explain">1</span> Verarbeitungsanweisungen werden durch die Tag-Notation <code>&lt;? … ?&gt;</code> eingebunden. Die Verarbeitungsanweisung <code>&lt;?xml-model … ?&gt;</code> ordnet der XML-Datei ein bestimmtes Schema zu.
                     <span class="explain">2</span> Das Attribut <code>href</code> verweist per URL auf den Speicherort der Schema-Datei.
                     <span class="explain">3</span> Das Attribut <code>type</code> gibt an, um welchen Datei-Typ es sich bei der Schema-Datei handelt.
                     <span class="explain">4</span> Das Attribut <code>schematypens</code> gibt die Namespace-URL des Schemas an.
@@ -353,7 +353,7 @@
             <div class="step">
                 <h2>Notation und Syntax VIIb</h2>
                     <p class="small substep">Für die Erstellung von Schemata gibt es verschiedene
-                        Standards bzw. Schemasprachen (RELAX NG, XML Schema (W3c), Schematron, DTD ...).
+                        Standards bzw. Schemasprachen (RELAX NG, XML Schema (W3C Schema), Schematron, DTD ...).
                         <strong>Je nach Schemasprache ist die Einbindung unterschiedlich.</strong> Die Einbindung von W3C
                         Schema erfolgt bspw. in Attributen innerhalb des root-Elements.
                     </p>
@@ -364,7 +364,7 @@
     schematypens="http://relaxng.org/ns/structure/1.0"?&gt;</code></pre></div>
                 
                 <div class="substep">
-                    <p class="medium">Einbindung eines Schemas der Schemasprache XML Schema:</p>
+                    <p class="medium">Einbindung eines Schemas der Schemasprache XML Schema (<code>&lt;TEI&gt;</code> ist hier das root-Element):</p>
                     <pre><code>&lt;TEI xmlns="http://www.tei-c.org/ns/1.0"
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
     xsi:schemaLocation="http://www.tei-c.org/ns/1.0 https://www.tei-c.org/release/xml/tei/custom/schema/xsd/tei_all.xsd"&gt;</code></pre></div>
@@ -376,10 +376,11 @@
                 <h2>Notation und Syntax VIII</h2>
                 <h3 class="red">Schlüsselwort: Verarbeitungsanweisung II</h3>
                 <div class="substep">Transformation:
-                    <pre><code>&lt;?xml-stylesheet type="text/xsl"<span class="explain">1</span> href="./url/to/xsl-file.xsl"<span class="explain">2</span>?&gt;</code></pre>
+                    <pre><code>&lt;?xml-stylesheet<span class="explain">1</span> type="text/xsl"<span class="explain">2</span> href="./url/to/xsl-file.xsl"<span class="explain">3</span>?&gt;</code></pre>
                     <p class="small">
-                        <span class="explain">1</span> Das Attribut <code>type</code> gibt den Typ der Transformationsdatei an, meist ist das <code>text/xsl</code>. 
-                        <span class="explain">2</span> Das Attribut <code>href</code> gibt per URL den Speicherort der Transformationsdatei an.
+                        <span class="explain">1</span> Die Verarbeitungsanweisung <code>&lt;?xml-stylesheet … ?&gt;</code> ordnet der XML-Datei ein Stylesheet zu, mit dem die Datei transformiert werden kann.
+                        <span class="explain">2</span> Das Attribut <code>type</code> gibt den Typ der Transformationsdatei an, meist ist das <code>text/xsl</code>. 
+                        <span class="explain">3</span> Das Attribut <code>href</code> gibt per URL den Speicherort der Transformationsdatei an.
                     </p>
                 </div>
                 
@@ -402,7 +403,7 @@
                             <li class="substep">Attribut-Werte müssen immer in
                                     <strong>Anführungszeichen</strong> stehen</li>
                             <li class="substep">Bestimmte Zeichen müssen als
-                                    <strong>Entität</strong> notiert werden, wenn sie literal im
+                                    <strong>Entität</strong> notiert werden, wenn sie literal (d.h. nicht im XML-Kontext) im
                                 Text verwendet werden sollen: <ul>
                                     <li class="substep"><code>&lt;</code> entspricht
                                             <code>&amp;lt;</code></li>
