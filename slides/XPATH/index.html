@@ -207,7 +207,7 @@
                     <div class="substep six columns mfp-lightbox">
                         <h4>Grafische Übersicht wichtiger Achsen</h4>
                         <a href="resources/img/axes.png"><img src="resources/img/axes.png"/></a>
-                        <blockquote class="substep small" style="background:  #ffe6e6; font-size: 0.7em;"> Zu beachten ist, dass, auch wenn die Achsen durchgehend im Singular notiert sind, je nach Kontext ein Node-Set – also eine Ergebnisliste – zurückgegeben wird, e.g. ancestor gibt alle vorangehenden Elementknoten zurück, nicht nur den ersten.</blockquote>
+                        <blockquote class="substep small" style="background:  #ffe6e6; font-size: 0.7em;"> Zu beachten ist, dass, auch wenn die Achsen durchgehend im Singular notiert sind, je nach Kontext ein Node-Set – also eine Ergebnisliste – zurückgegeben wird, z.B. gibt ancestor alle vorangehenden Elementknoten zurück, nicht nur den ersten.</blockquote>
                     </div>
                 </div>
                 
@@ -253,7 +253,7 @@
             <div class="step">
                 <h2>Navigation im Baum II</h2>
                 <h3 class="red">Konditionen und Funktionen</h3>
-                <p class="substep">Es gibt weitere Möglichkeiten eine Lokalisierung (in der Pfadangabe) zu <strong>konkretisieren</strong> und damit bestimmte (Teil-)<strong>Mengen auszuschließen</strong>:</p>
+                <p class="substep">Es gibt weitere Möglichkeiten, eine Lokalisierung (in der Pfadangabe) zu <strong>konkretisieren</strong> und damit bestimmte (Teil-)<strong>Mengen auszuschließen</strong>:</p>
                 <ul>
                     <li class="substep"><strong>Konditionen</strong> (auch Prädikate genannt) in eckigen Klammern (<code>[]</code>)</li>
                     <li class="substep">(String-)<strong>Funktionen</strong></li>
@@ -289,16 +289,14 @@
                     zugleich ein Prozess fortschreitender <strong>Formalisierung</strong> bzw. <strong>Operationalisierung</strong> ist:</p>
                     <ol>
                         <li class="substep">»Wie alt ist die erste mittelalterliche Inschrift des Landkreises Bad Kreuznach?« wird formalisiert zu ...</li>
-                        <li  class="substep">»Bilde die Differenz zwischen dem aktuellen Jahr, bspw 2020, und dem bei den Kopfmetadaten zu
+                        <li  class="substep">»Bilde die Differenz zwischen dem aktuellen Jahr, bspw. 2021, und dem bei den Kopfmetadaten zu
                             findenden Jahr der Inschrift«. Dies wiederum bedeutet auf XPath-Pseudocode ...</li>
-                        <li class="substep">2020 − (Jahr-der-ersten-Inschrift), oder als etwas präziserer Pseudo
-                            code ...</li>
-                        <li class="substep">2020 − (Jahr-der-ersten-Inschrift) von <code>//resource[1]</code>, oder als etwas präziserer Pseudo
-                            code ...</li>
-                        <li class="substep"><code>2020-(//resource[1]/head/dateEnd)</code>, ...
+                        <li class="substep">2021 − (Jahr-der-ersten-Inschrift), oder als etwas präziserer Pseudocode ...</li>
+                        <li class="substep">2021 − (Jahr-der-ersten-Inschrift) von <code>//resource[1]</code>, oder als etwas präziserer Pseudocode ...</li>
+                        <li class="substep"><code>2021-(//resource[1]/head/dateEnd)</code>, ...
                             noch das Jahr extrahieren ...</li>
-                        <li class="substep"><code>2020-(//resource[1]/head/dateEnd/substring(., 1, 4))</code>, und in eine Zahl verwandeln ...</li>
-                        <li class="substep"><code>2020-number(//resource[1]/head/dateEnd/substring(., 1, 4))</code></li>
+                        <li class="substep"><code>2021-(//resource[1]/head/dateEnd/substring(., 1, 4))</code>, und in eine Zahl verwandeln ...</li>
+                        <li class="substep"><code>2021-number(//resource[1]/head/dateEnd/substring(., 1, 4))</code></li>
                     </ol></div>
             </div>
 
@@ -315,14 +313,14 @@
                     <li class="small"><strong>Öffnen</strong> Sie die <strong>Datei</strong> im Oxygen-XML-Editor.</li>
                     <li class="small"><strong>Verschaffen</strong> Sie sich einen
                             <strong>Überblick</strong> über die XML-Struktur der Datei.</li>
-                    <li class="small line-height-one-five"><strong>Beantworten</strong> Sie die folgende Fragen mittels XPath:<ul>
+                    <li class="small line-height-one-five"><strong>Beantworten</strong> Sie die folgenden Fragen mittels XPath:<ul>
                             <li class="line-height-one-five">An welchem Ort befinden sich die älteste sowie die jüngste Inschrift in der Datei? Geben Sie auch Ihren eingesetzten XPath an.</li>
                             <li class="line-height-one-five">Wie viele Einträge besitzen eine Schriftzuordnung zur Schriftfamilie <em>Kapitalis</em>? Geben Sie auch Ihren eingesetzten XPath an.</li>
                             <li class="line-height-one-five">Geben Sie einen XPath an, mit dem man alle Einträge aggregieren kann, die sich
                                  möglicherweise mit Inschriftenträgern aus Holz beschäftigen.</li>
-                            <li class="line-height-one-five">Geben Sie einen Xpath an, der alle Einträge aggregiert, die sich möglicherweise in einer Kirche befinden.</li>
-                            <li class="line-height-one-five">Geben Sie die Anzahl und den dazugehörigen Xpath aller Einträge an, bei denen das auf der Inschrift eingemeißelte Datum den Monat Mai angibt.</li>
-                            <li class="line-height-one-five">Geben Sie einen Xpath an, der alle Einträge aggregiert, bei denen es sich bei dem Inschriftenträger möglicherweise um eine Grabplatte handelt.</li>
+                            <li class="line-height-one-five">Geben Sie einen XPath an, der alle Einträge aggregiert, die sich möglicherweise in einer Kirche befinden.</li>
+                            <li class="line-height-one-five">Geben Sie die Anzahl und den dazugehörigen XPath aller Einträge an, bei denen das auf der Inschrift eingemeißelte Datum den Monat Mai angibt.</li>
+                            <li class="line-height-one-five">Geben Sie einen XPath an, der alle Einträge aggregiert, bei denen es sich bei dem Inschriftenträger möglicherweise um eine Grabplatte handelt.</li>
                         </ul>
                     </li>
                 </ul>
@@ -336,13 +334,13 @@
                     <li class="small"><strong>Öffnen</strong> Sie die im Oxygen-XML-Editor.</li>
                     <li class="small"><strong>Verschaffen</strong> Sie sich einen
                             <strong>Überblick</strong> über die XML-Struktur der Datei.</li>
-                    <li class="small line-height-one-five"><strong>Beantworten</strong> Sie die folgende Fragen mittels XPath:<ul>
+                    <li class="small line-height-one-five"><strong>Beantworten</strong> Sie die folgenden Fragen mittels XPath:<ul>
                             <li class="line-height-one-five">Geben Sie alle distinkten Ortsnamen aus (Tipp: <code>distinct-values()</code>).</li>
                             <li class="line-height-one-five">Geben Sie die Anzahl an distinkten Orts-, Stammes- und Personennamen an.</li>
-                            <li class="line-height-one-five">Versuchen Sie sich alle Flussnamen ausgeben zu lassen. Was fällt Ihnen auf?</li>
+                            <li class="line-height-one-five">Versuchen Sie, sich alle Flussnamen ausgeben zu lassen. Was fällt Ihnen auf?</li>
                             <li class="line-height-one-five">Welcher Personenname taucht am häufigsten auf? Wie ist das Verhältnis der einzelnen Personennamen zueinander?</li>
                             <li class="line-height-one-five">Geben Sie per XPath die Nummern derjenigen Kapitel aus, in denen ein oder mehrere "Druiden" genannt werden.</li>
-                            <li class="line-height-one-five">Überlegen Sie sich, welche Anfragen Sie gerne noch an den Text stellen würde und benennen Sie die Element- und Attributstrukturen, die hierfür nötig wären.</li>
+                            <li class="line-height-one-five">Überlegen Sie sich, welche Anfragen Sie gerne noch an den Text stellen würden und benennen Sie die Element- und Attributstrukturen, die hierfür nötig wären.</li>
                         </ul>
                     </li>
                 </ul>
