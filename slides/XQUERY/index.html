@@ -112,7 +112,7 @@
             </div>
 
             <div class="step">
-                <h3 class="red">Was ist Xquery?</h3>
+                <h3 class="red">Was ist XQuery?</h3>
                 <h4>XQuery ist …</h4>
                 <ul class="line-height-one-five">
                     <li class="substep">… eine <strong>deklarative Abfragesprache</strong> für <strong>XML</strong>.</li>
@@ -129,7 +129,7 @@
                 <ul class="line-height-one-five">
                     <li class="substep">… <strong>überlappen</strong> in ihren Anwendungsgebieten.</li>
                     <li class="substep">… teilen sich die Grundlagen des <strong>Data Models</strong> und von <strong>XPath</strong>.</li>
-                    <li class="substep">… unterscheiden sich dahingehend, dass Xquery auf <strong>Pull-Verarbeitung</strong>
+                    <li class="substep">… unterscheiden sich dahingehend, dass XQ   uery auf <strong>Pull-Verarbeitung</strong>
                         fokusiert, XSLT sowohl <strong>Pull-</strong> als auch
                         <strong>Push-Verarbeitung</strong> unterstützt.</li>
                     <li class="substep">… lassen sich in Version 3.1 gut kombinieren, indem <strong>XSLT innerhalb von
@@ -145,7 +145,7 @@
                     <li class="substep">… die bereits bekannte <strong>XPath-Notation</strong> zur Navigation in XML-Dokumenten.</li>
                     <li class="substep">… die bereits bekannten <strong>XPath-Funktionen</strong>.</li>
                     <li class="substep">… <strong>String-</strong> bzw. <strong>Code-Interpolation</strong> (Unterscheidung zw. Verarbeitungs- und Output-Ebene) mit <code>{ }</code>.</li>
-                    <li class="substep">… die SQL-ähnliche <strong>FLWOR-Expression</strong> (ˈflaʊ.ɚ), um Abfragen zu deklarieren. FLWOR bildet den Kern von XQuery-Skripten:
+                    <li class="substep">… die SQL-ähnlichen <strong>FLWOR-Expressions</strong> (ˈflaʊ.ɚ), um Abfragen zu deklarieren. FLWOR bildet den Kern von XQuery-Skripten:
                         <ul  class="line-height-one-five">
                             <li class="substep"><strong>Prolog</strong> ⮕ beinhaltet globale Deklarationen</li>
                             <li class="substep"><code><strong>FOR</strong> $item in $list</code> ⮕ beginnt einen <code>for-each</code>-loop</li>
@@ -196,8 +196,8 @@ declare variable $Sturm_Persons := <span class="explain">7</span> doc("Sturm_per
     …
     &lt;li&gt;Wiegand, Charmion von&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-<p class="small"><span class="explain">4</span> Damit die Abfrage funktioniert müssen Tags, die im TEI-Namespace stehen gekennzeichnet werden. Das geschieht an dieser Stelle durch das Namespace-Präfix <code>tei:</code>, an das im Prolog <span class="explain">6</span> die Namespace-URL gebunden worden war.<br><span class="explain">5</span><code>/data()</code> gibt die Textknoten eines Elementknotens zurück.<br>
-    <span class="explain">7</span> Die XML-Datei, die verarbeitet werden soll, wird mit der XPath-Funktion <code>doc()</code> eingelesen und in einer Variable verfügbar gehalten.
+<p class="small"><span class="explain">4</span> Damit die Abfrage funktioniert, müssen Tags, die im TEI-Namespace stehen, gekennzeichnet werden. Das geschieht an dieser Stelle durch das Namespace-Präfix <code>tei:</code>, an das im Prolog <span class="explain">6</span> die Namespace-URL gebunden wurde.<br><span class="explain">5</span><code>/data()</code> gibt die Textknoten eines Elementknotens zurück.<br>
+    <span class="explain">7</span> Die XML-Datei, die verarbeitet werden soll, wird mit der XPath-Funktion <code>doc()</code> eingelesen und in der Variable Sturm_Persons verfügbar gehalten.
 </p>
             </div>
 
@@ -254,8 +254,8 @@ declare variable $Sturm_Persons := doc("Sturm_persList.xml");
             return  &lt;li&gt;
                         &lt;span
                             id="{$person/@xml:id/data()}"
-                        <span class="explain">2</span>data-id="{$person/@xml:id/data()}"
-                        <span class="explain">2</span>data-letter_count="{count($person/tei:linkGrp/tei:ptr)}"&gt;
+                        <span class="explain">1</span>data-id="{$person/@xml:id/data()}"
+                        <span class="explain">1</span>data-letter_count="{count($person/tei:linkGrp/tei:ptr)}"&gt;
                                 {$person/tei:persName/data()}
                                 (letters: {count($person/tei:linkGrp/tei:ptr)})
                         &lt;/span&gt;
@@ -263,9 +263,9 @@ declare variable $Sturm_Persons := doc("Sturm_persList.xml");
         }
         &lt;/ul&gt;
     &lt;/body&gt;
-    <span class="explain">1</span>&lt;script type="text/javascript" src="script.js"&gt;&lt;/script&gt;
+    <span class="explain">2</span>&lt;script type="text/javascript" src="script.js"&gt;&lt;/script&gt;
 &lt;/html&gt;</code></pre>
-<p class="small"><span class="explain">1</span> In einem XQuery-Output können jederzeit alle Bereiche einer Ausgabedatei, bspw. einer HTML-Datei, generiert werden. Es gibt aber auch Frameworks, die Template- und Partial-basierte Ansätze im Kontext XQuery erlauben, um Ausgaben zu modularisieren. <span class="explain">2</span> Das im Beispiel eingebundene javascript-Skript greift auf die im HTML "versteckten" <code>data</code>-Attribute zu, um spezifische interaktive Funktionalität bereitzustellen. </p>
+<p class="small"><span class="explain">1</span> In einem XQuery-Output können jederzeit alle Bereiche einer Ausgabedatei, bspw. einer HTML-Datei, generiert werden. Es gibt aber auch Frameworks, die template- und partial-basierte Ansätze im Kontext XQuery erlauben, um Ausgaben zu modularisieren. <span class="explain">2</span> Das im Beispiel eingebundene javascript-Skript greift auf die im HTML "versteckten" <code>data</code>-Attribute zu, um spezifische interaktive Funktionalität bereitzustellen. </p>
             </div>
 
             <div class="step">
@@ -402,7 +402,7 @@ declare <span class="explain">2</span> function local:<span class="explain">3</s
     &lt;li&gt;Werefkin, Marianne von (Weiblich)&lt;/li&gt;
     …
 &lt;/ul&gt;</code></pre>
-<p class="small"><span class="explain">1</span> Im Prolog wird ein eigener Namespace für die zu schreibenden Funktionen deklariert und an ein Präfix gebunden. <span class="explain">2</span> mit dem Schlüsselwort <code>function</code> wird eine Funktion deklariert und <span class="explain">3</span> benannt (NS-Präfix nicht vergessen!). Es werden <span class="explain">4</span> Parameter (Argumente) und ihr <span class="explain">5</span> Datentyp angegeben. Ebenfalls wird der <span class="explain">6</span> Datentyp des Rückgabe-Wertes angegeben. Es folgt <span class="explain">7</span> der eigentliche Funktionskörper, also die eigentliche Verarbeitung. Mit dem <span class="explain">8</span> Schlüsselwort <code>return</code> wird eine Rückgabe notiert. <span class="explain">9</span> Aufgerufen wird wie eine normale XPath-Funktion (NS-Präfix nicht vergessen!). 
+<p class="small"><span class="explain">1</span> Im Prolog wird ein eigener Namespace für die zu schreibenden Funktionen deklariert und an ein Präfix gebunden. <span class="explain">2</span> mit dem Schlüsselwort <code>function</code> wird eine Funktion deklariert und <span class="explain">3</span> benannt (NS-Präfix nicht vergessen!). Es werden <span class="explain">4</span> Parameter (Argumente) und ihr <span class="explain">5</span> Datentyp angegeben. Ebenfalls wird der <span class="explain">6</span> Datentyp des Rückgabe-Wertes angegeben. Es folgt <span class="explain">7</span> der eigentliche Funktionskörper, also die eigentliche Verarbeitung. Mit dem <span class="explain">8</span> Schlüsselwort <code>return</code> wird eine Rückgabe notiert. <span class="explain">9</span> Aufgerufen wird die Custom Function wie eine normale XPath-Funktion (NS-Präfix nicht vergessen!). 
 </p>
             </div>
 
@@ -443,7 +443,7 @@ declare function local:getGender($url)
    &lt;li&gt;Wichert (no GND)&lt;/li&gt;
    &lt;li&gt;Wiegand, Charmion von (?)&lt;/li&gt;
 &lt;/ul&gt;</code></pre>
-<p class="small">Eine <code>switch/case</code>-Konstruktion liest innerhalb des Schlüsselwortes <span class="explain">1</span> <code>switch()</code> einen <span class="explain">2</span> Text- oder Attributwert-Knoten ein. Dessen Wert (String) wird dann auf die mit <span class="explain">3</span> <span class="explain">4</span> <code>case</code> angegebenen Fälle getestet (hier: <code>Männlich, Weiblich</code>), ist der Test <code>true</code> (wahr) wird der folgende Code ausgeführt. Es kann ein <span class="explain">5</span> <code>default</code> definiert werden, d.h. ein Fall der immer dann gilt, wenn alle vorherigen nicht gegolten haben. 
+<p class="small">Eine <code>switch/case</code>-Konstruktion liest innerhalb des Schlüsselwortes <span class="explain">1</span> <code>switch()</code> einen <span class="explain">2</span> Text- oder Attributwert-Knoten ein. Dessen Wert (String) wird dann auf die mit <span class="explain">3</span> <span class="explain">4</span> <code>case</code> angegebenen Fälle getestet (hier: <code>Männlich, Weiblich</code>), ist der Test <code>true</code> (wahr) wird der folgende Code ausgeführt. Es kann ein <span class="explain">5</span> <code>default</code> definiert werden, d.h. ein Fall, der immer dann gilt, wenn alle vorherigen nicht zutreffen. 
 </p>
             </div>
 
@@ -508,7 +508,7 @@ declare <span class="explain">2</span> variable $raw := <span class="explain">1<
     &lt;p&gt;I am a paragraph as well.&lt;/p&gt;
 &lt;/document&gt;</code></pre>
 <p class="small">
-Der Markdown-Text wird per <span class="explain">1</span> <code>unparsed-text()</code> in <span class="explain">2</span> eine Variable (<code>$raw</code>) eingelesen. Daraufhin wird der Text der Datei an <span class="explain">3</span> Zeilenumbrüchen per <span class="explain">4</span> <code>tokenize()</code> in eine Liste (<code>array</code>) von Zeilen zerteilt, über die in einer <span class="explain">5</span> Schleife iteriert werden kann. Innerhalb des <span class="explain">6</span> <code>return</code>-Statements werden <span class="explain">7</span> Tests durchgeführt, die den Typ der aktuellen zeile bestimmen sollen (Überschrift, normaler Text, …). <span class="explain">8</span> Jenachdem wird spezifisches Markup um die Zeile herum geschrieben.
+Der Markdown-Text wird per <span class="explain">1</span> <code>unparsed-text()</code> in <span class="explain">2</span> eine Variable (<code>$raw</code>) eingelesen. Daraufhin wird der Text der Datei an <span class="explain">3</span> Zeilenumbrüchen per <span class="explain">4</span> <code>tokenize()</code> in eine Liste (<code>array</code>) von Zeilen zerteilt, über die in einer <span class="explain">5</span> Schleife iteriert werden kann. Innerhalb des <span class="explain">6</span> <code>return</code>-Statements werden <span class="explain">7</span> Tests durchgeführt, die den Typ der aktuellen Zeile bestimmen sollen (Überschrift, normaler Text, …). <span class="explain">8</span> Jenachdem wird spezifisches Markup um die Zeile herum geschrieben.
 </p>
             </div>
 
