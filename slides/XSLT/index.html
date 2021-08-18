@@ -232,7 +232,7 @@
                         XSL-Prozesses sowie bei der <strong>Textmanipulation</strong> und fügt
                         Möglichkeiten zum <strong>Streamen</strong> von XML-Dokumente hinzu. Dies
                         ist notwendig, wenn die Quelldatei zu groß für eine Bearbeitung aus dem
-                        Hauptspeicher wird. Auch in Anwendungen, wo bereits Daten ausgeliefert
+                        Hauptspeicher wird. Auch in Anwendungen, in denen bereits Daten ausgeliefert
                         werden sollen, bevor das ganze Dokument geladen ist, spielt
                             <em>streaming</em> eine wichtige Rolle.</li>
                 </ul>
@@ -550,7 +550,7 @@
             <div class="step">
                 <h3 class="red">Input &amp; Output (2)</h3>
                 <h4>Einbinden externer Dateien</h4>
-                <p class="small">Mit der <span class="explain">1</span> <code>document()</code>-Funktion können über eine <code>URI</code> (Pfad im Dateisystem, URL zu einer Web-Ressource) in den laufenden XSL-Prozess einbezogen werden.</p>
+                <p class="small">Mit der <span class="explain">1</span> <code>document()</code>-Funktion können über eine <code>URI</code> (Pfad im Dateisystem, URL zu einer Web-Ressource) Dateien in den laufenden XSL-Prozess einbezogen werden.</p>
                 <p class="small">Die per <code>document()</code> eingebundene Datei kann durch weitere Templates und Funktionen weiterverarbeitet werden.</p>
                 <pre><code>&lt;xsl:template match="person"&gt;
     &lt;person&gt;
@@ -570,7 +570,7 @@
                 <p class="small">In XSLT können einfache und komplexe Conditionals gesetzt werden:</p>
                 <ul class="small">
                     <li><span class="explain">1</span> Einfach: <code>xsl:if</code>; nur if.</li>
-                    <li><span class="explain">2</span> Komplex: <code>xsl:choose</code>; äquivalent zu <span class="explain">3</span>if/<span class="explain">4</span>elif/<span class="explain">5</span>else</li>
+                    <li><span class="explain">2</span> Komplex: <code>xsl:choose</code>; die beiden <code>xsl:when</code> und <code>xsl:otherwise</code> sind äquivalent zu <span class="explain">3</span>if/<span class="explain">4</span>elif/<span class="explain">5</span>else</li>
                 </ul>
                 <pre><code>&lt;xsl:template match="person"&gt;
     &lt;p class="person"&gt;
